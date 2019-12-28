@@ -45,7 +45,7 @@
 							<div class="col-md-6 fh5co-text">
 								<h2 class="to-animate intro-animate-1">Studia con DocuExchange</h2>
 								<p class="to-animate intro-animate-2">Scopri un nuovo metodo di studio..Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-								<p class="to-animate intro-animate-3"><a href="#" class="btn btn-primary btn-md"><i class="icon-user"></i> Registrati</a><a href="#" class="btn btn-primary btn-md"><i class="icon-login"></i> Accedi</a></p>
+								<p class="to-animate intro-animate-3"><a href="SignUp.jsp" class="btn btn-primary btn-md"><i class="icon-user"></i> Registrati</a><a href="Login.jsp" class="btn btn-primary btn-md"><i class="icon-login"></i> Accedi</a></p>
 							</div>
 
 
@@ -103,7 +103,9 @@
 
 				<!-- END SERVIZI -->
 
-				<!-- COME FUNZIONA -->
+
+
+<!--   
 				<div class="fh5co-bg-section cta" id="fh5co-cta" style="background-image: url(images/hero_bg.jpg); background-attachment: fixed;">
 					<div class="fh5co-overlay"></div>
 					<div class="container">
@@ -124,6 +126,8 @@
 						</div>
 					</div>
 				</div>
+				
+-->
 
 
 		</div>
