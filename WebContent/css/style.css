@@ -5333,7 +5333,7 @@ tbody.collapse.in {
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
-  color: #fff;
+  color: #141414;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -8760,8 +8760,8 @@ label {
   padding: 40px;
   margin-top: 30px;
   box-sizing: border-box;
-  background-color: #222;
-  color: #fff;
+  border: 1px solid;
+	box-shadow: 5px 6px 5px 6px #888888;
   border-radius: 20px;
 
 }
@@ -8769,7 +8769,7 @@ label {
 
 
 .wrapper h1{
-	color: #fff;
+	color: #141414;
 	text-align: center;
 	margin-top: 15px;
 	  line-height: 100%;
@@ -8792,7 +8792,7 @@ label {
 
 .form input[type="text"],.form input[type="password"], .form input[type="number"]
 .form textarea {
-  border: 2px solid #fff;
+  border: 1px solid #141414;
   padding: 15px 5px;
   outline: none;
   border-radius: 2px;
@@ -8802,7 +8802,7 @@ label {
   color: black;
 }
 
-s
+
 .form input:focus,
 .form textarea:focus {
   border-color: #4ca1af;
@@ -8888,6 +8888,7 @@ s
   .form textarea {
      width: 100%;
      box-sizing: border-box;
+
   }
 
 
