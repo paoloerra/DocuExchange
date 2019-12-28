@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Home: Studente</title>
+		<title>Home: Admin</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -26,8 +26,7 @@
 		<div id="fh5co-offcanvass">
 			<ul>
 				<li class="active"><a href="#" data-nav-section="home"><i class="icon-left"></i>INDIETRO</a></li>
-				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
-				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
+				<li><a href="#"><i class="icon-user"></i> Admin: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
 			</ul>
 		</div>
@@ -59,28 +58,27 @@
 				    <div class="container">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-								<h2 class="fh5co-lead">HOME STUDENTE</h2>
-								<p>Ciao Paolo</p>
+								<h2 class="fh5co-lead">HOME ADMIN</h2>
 							</div>
 
 
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="Index.jsp" class="fh5co-figure">
 									<figure>
-										<div class="imageHome"><img src="images/search1.png" class="img-responsive"></div>
+										<div class="imageHome"><img src="images/listrequest.png" class="img-responsive"></div>
 									</figure>
-									<h3 class="fh5co-figure-lead">Cerca appunti</h3>
-									<p class="fh5co-figure-text">Trova, scarica e recensisci appunti condivisi dagli studenti.</p>
+									<h3 class="fh5co-figure-lead">Visualizza richieste</h3>
+									<p class="fh5co-figure-text">Visualizza la lista delle richieste in attesa di essere verificate.</p>
 								</a>
 							</div>
 							
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="Index.jsp" class="fh5co-figure">
 									<figure>
-										<div class="imageHome"><img src="images/share.png" class="img-responsive"></div>
+										<div class="imageHome"><img src="images/liststudenti.png" class="img-responsive"></div>
 									</figure>
-									<h3 class="fh5co-figure-lead">Richiesta condivisione</h3>
-									<p class="fh5co-figure-text">Invia una richiesta per condividere il tuo appunto.</p>
+									<h3 class="fh5co-figure-lead">Visualizza studenti</h3>
+									<p class="fh5co-figure-text">Visualizza la lista degli studenti iscritti alla piattaforma.</p>
 								</a>
 							</div>
 							
@@ -91,19 +89,10 @@
 										<div class="imageHome"><img src="images/profile.png" class="img-responsive"></div>
 									</figure>
 									<h3 class="fh5co-figure-lead">Visualizza profilo</h3>
-									<p class="fh5co-figure-text">Visualizza la tua bacheca e i tuoi dati.</p>
+									<p class="fh5co-figure-text">Visualizza i tuoi dati.</p>
 								</a>
 							</div>
 							
-							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="Index.jsp" class="fh5co-figure">
-									<figure>
-										<div class="imageHome"><img src="images/searchStudente.png" class="img-responsive"></div>
-									</figure>
-									<h3 class="fh5co-figure-lead">Trova studenti</h3>
-									<p class="fh5co-figure-text">Cerca gli studenti iscritti, visualizza la loro bacheca</p>
-								</a>
-							</div>
 
 							<div class="clearfix visible-sm-block"></div>
 
