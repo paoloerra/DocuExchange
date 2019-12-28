@@ -26,8 +26,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<div id="fh5co-offcanvass">
 			<ul>
 				<li class="active"><a href="#" data-nav-section="home"><i class="icon-left"></i>INDIETRO</a></li>
-				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
-				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
+				<li><a href="#"><i class="icon-user"></i> Admin: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
 			</ul>
 		</div>
@@ -37,7 +36,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 				<div class="row">
 					<div class="col-md-12">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href="HomeStuent.jsp"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href="HomeAdmin.jsp"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
@@ -54,7 +53,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 
 			<!-- REQUEST -->
 			<div class="wrapper">
-			<h1>RICHIESTA CONDIVISIONE</h1>
+			<h1>VERIFICA RICHIESTA</h1>
 
 			<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
 				<div class="form">
@@ -69,6 +68,23 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 									<div class="label">Professore</div>
 										<input type="text" name="professore" type="text" required>
 								</div>
+								
+								<div class="inner-form">
+									<div class="label">Studente</div>
+									<input type="text" name="studente" type="text" required>
+								</div>
+
+								
+						</div>
+						
+						<div class="top-form">
+								
+
+								<div class="inner-form">
+									<div class="label">Email </div>
+									<input type="text" name="email" type="text" required>
+								</div>
+
 
 						</div>
 
@@ -80,13 +96,15 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 						</div>
 
 
-					Inserisci PDF: <input type="file" name="image" required="required">
+						<button type="submit" class="btn">Scarica PDF</button>
 
 
 
 								<div class="middle-form">
 								<div class="inner-form">
-									<button type="submit" class="btn">Invia</button>
+									<button type="submit" class="btn">Accetta</button>
+									<button type="submit" class="btn">Rifiuta</button>
+									
 							</div>
 						</div>
 

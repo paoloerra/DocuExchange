@@ -1,11 +1,11 @@
-RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Richiesta</title>
+		<title>Home: Admin</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -26,8 +26,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<div id="fh5co-offcanvass">
 			<ul>
 				<li class="active"><a href="#" data-nav-section="home"><i class="icon-left"></i>INDIETRO</a></li>
-				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
-				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
+				<li><a href="#"><i class="icon-user"></i> Admin: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
 			</ul>
 		</div>
@@ -52,56 +51,12 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 
 			<div id="fh5co-main">
 
-			<!-- REQUEST -->
-			<div class="wrapper">
-			<h1>RICHIESTA CONDIVISIONE</h1>
+				<!-- TABELLA -->
 
-			<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
-				<div class="form">
+				<!-- TABELLA -->
 
-					<div class="top-form">
-								<div class="inner-form">
-									<div class="label">Corso</div>
-									<input type="text" name="corso" type="text" required>
-								</div>
-
-								<div class="inner-form">
-									<div class="label">Professore</div>
-										<input type="text" name="professore" type="text" required>
-								</div>
-
-						</div>
-
-						
-						<div class="bottom-form">
-								<div class="inner-form">
-									<textarea name="descrizione" placeholder="Descrizione appunto, argomenti trattati."></textarea>
-								</div>
-						</div>
-
-
-					Inserisci PDF: <input type="file" name="image" required="required">
-
-
-
-								<div class="middle-form">
-								<div class="inner-form">
-									<button type="submit" class="btn">Invia</button>
-							</div>
-						</div>
 
 			</div>
-			</form>
-		</div>
-
-		<!-- END REQUEST-->
-
-
-
-
-
-
-		</div>
 
 
 	</div>
