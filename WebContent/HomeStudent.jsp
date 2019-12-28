@@ -25,7 +25,6 @@
 		<!-- NAVBAR -->
 		<div id="fh5co-offcanvass">
 			<ul>
-				<li class="active"><a href="#" data-nav-section="home"><i class="icon-left"></i>INDIETRO</a></li>
 				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
 				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
@@ -75,7 +74,7 @@
 							</div>
 							
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="Index.jsp" class="fh5co-figure">
+								<a href="RequestForm.jsp" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="images/share.png" class="img-responsive"></div>
 									</figure>
@@ -86,7 +85,7 @@
 							
 							<div class="clearfix visible-sm-block"></div>
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="Index.jsp" class="fh5co-figure">
+								<a href="ProfileStudent.jsp" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="images/profile.png" class="img-responsive"></div>
 									</figure>

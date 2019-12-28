@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Home: Admin</title>
+		<title>Profilo: Studente</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="css/icomoon.css">
 		<link rel="stylesheet" href="css/simple-line-icons.css">
@@ -46,27 +44,53 @@
 		<!-- END NAVBAR -->
 
 
-	<div id="fh5co-page">
-		<div id="fh5co-wrap">
-
-
-
-			<div id="fh5co-main">
-
-				<!-- TABELLA -->
-				<div class="card text-center">
-  					<div class="card-header">Featured</div>
-  					<div class="card-body">
-   				 		<h5 class="card-title">Special title treatment</h5>
-					    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
-  					</div>
-  					<div class="card-footer text-muted">2 days ago</div>
+		<div id="fh5co-page">
+			<div id="fh5co-wrap">
+				<div id="fh5co-main">
+					<!-- PROFILO -->
+					<div class="wrapper">
+					<h1>PROFILO ADMIN</h1>
+					<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
+						<div class="form">
+							<div class="top-form">
+								<div class="inner-form">
+									<div class="label">Nome</div>
+										<input type="text" name="corso" type="text" required>
+									</div>
+		
+								<div class="inner-form">
+									<div class="label">Cognome</div>
+										<input type="text" name="professore" type="text" required>
+									</div>
+										
+								<div class="inner-form">
+									<div class="label">Email</div>
+										<input type="text" name="professore" type="text" required>
+								</div>
+							</div>
+								
+							<div class="top-form">
+								<div class="inner-form">
+									<div class="label">Sesso</div>
+										<input type="text" name="corso" type="text" required>
+								</div>
+								<div class="inner-form">
+									<div class="label">Password</div>
+										<input type="text" name="professore" type="text" required>
+								</div>
+							</div>
+								
+							<div class="middle-form">
+								<div class="inner-form">
+									<button type="submit" class="btn">Modifica dati</button>
+								</div>
+							</div>	
+					</div>
 				</div>
-				<!-- TABELLA -->
+		
+				<!-- END REQUEST-->
 
-
-			</div>
+		</div>
 
 
 	</div>

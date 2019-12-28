@@ -5,7 +5,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Richiesta</title>
+		<title>Profilo: Studente</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -25,7 +25,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<!-- NAVBAR -->
 		<div id="fh5co-offcanvass">
 			<ul>
-				<li class="active"><a href="#" data-nav-section="home"><i class="icon-left"></i>INDIETRO</a></li>
+				<li class="active"><a href="HomeStudent.jsp" data-nav-section="home"><i class="icon-grid"></i> Home</a></li>
 				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
 				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>

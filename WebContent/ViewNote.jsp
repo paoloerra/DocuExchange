@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Home: Admin</title>
+		<title>Richiesta</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="css/icomoon.css">
 		<link rel="stylesheet" href="css/simple-line-icons.css">
@@ -38,7 +36,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href="HomeStuent.jsp"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href="HomeAdmin.jsp"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
@@ -53,20 +51,61 @@
 
 			<div id="fh5co-main">
 
-				<!-- TABELLA -->
-				<div class="card text-center">
-  					<div class="card-header">Featured</div>
-  					<div class="card-body">
-   				 		<h5 class="card-title">Special title treatment</h5>
-					    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
-  					</div>
-  					<div class="card-footer text-muted">2 days ago</div>
-				</div>
-				<!-- TABELLA -->
+			<!-- REQUEST -->
+			<div class="wrapper">
+			<h1>APPUNTO</h1>
 
+			<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
+				<div class="form">
+
+					<div class="top-form">
+								<div class="inner-form">
+									<div class="label">Corso</div>
+									<input type="text" name="corso" type="text" required>
+								</div>
+
+								<div class="inner-form">
+									<div class="label">Professore</div>
+										<input type="text" name="professore" type="text" required>
+								</div>
+								
+								<div class="inner-form">
+									<div class="label">Autore</div>
+									<input type="text" name="Autore" type="text" required>
+								</div>
+
+								
+						</div>
+						
+
+						
+						<div class="bottom-form">
+								<div class="inner-form">
+									<textarea name="descrizione" placeholder="Descrizione appunto, argomenti trattati."></textarea>
+								</div>
+						</div>
+
+
+						<button type="submit" class="btn">Scarica PDF</button>
+
+						<h4>RECENSIONI</h4>
+						
+						<h4>FAI UNA RECENSIONE</h4>
+						
+						
 
 			</div>
+			</form>
+		</div>
+
+		<!-- END REQUEST-->
+
+
+
+
+
+
+		</div>
 
 
 	</div>
