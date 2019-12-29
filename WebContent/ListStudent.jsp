@@ -5,14 +5,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Home: Admin</title>
+		<title>Richieste</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		
+				
 		<link rel="stylesheet" href="css/icomoon.css">
 		<link rel="stylesheet" href="css/simple-line-icons.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -54,15 +52,64 @@
 			<div id="fh5co-main">
 
 				<!-- TABELLA -->
-				<div class="card text-center">
-  					<div class="card-header">Featured</div>
-  					<div class="card-body">
-   				 		<h5 class="card-title">Special title treatment</h5>
-					    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
-  					</div>
-  					<div class="card-footer text-muted">2 days ago</div>
-				</div>
+					<div class="wrapper">
+						<h1>STUDENTI</h1>
+						<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
+						<div class="form">
+							<div class="top-form">
+								<div class="inner-form">
+									<div class="label">Cerca per nome</div>
+										<input type="text" name="professore" type="text" required>										
+									</div>
+									
+									<button type="submit" class="btn">Cerca</button>
+										
+							</div>
+							
+					</div>
+				</form>
+				
+				<table class="table table-bordered">
+						  <tbody>
+						    <tr>
+						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
+						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
+						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						    </tr>
+						     <tr>
+						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
+						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
+						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						    </tr> 
+						    <tr>
+						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
+						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
+						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						    </tr>
+						     <tr>
+						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
+						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
+						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						    </tr> 
+						    <tr>
+						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
+						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
+						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						    </tr>
+						     <tr>
+						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
+						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
+						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						    </tr> 
+						  </tbody>
+						</table>
+					</div>
 				<!-- TABELLA -->
 
 

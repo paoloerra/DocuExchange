@@ -8813,6 +8813,17 @@ label {
   color: black;
 }
 
+select {
+	border: 1px solid #141414;
+  padding: 15px 5px;
+  outline: none;
+  border-radius: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  color: black;
+}
+
 
 .form input:focus,
 .form textarea:focus {

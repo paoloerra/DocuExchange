@@ -15,10 +15,6 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<link rel="stylesheet" href="css/simple-line-icons.css">
 		<link rel="stylesheet" href="css/style.css">
 		
-		
-		
-
-		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.magnific-popup.min.js"></script>

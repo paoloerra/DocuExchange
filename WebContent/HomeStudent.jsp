@@ -64,7 +64,7 @@
 
 
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="Index.jsp" class="fh5co-figure">
+								<a href="ListNote.jsp" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="images/search1.png" class="img-responsive"></div>
 									</figure>
@@ -95,7 +95,7 @@
 							</div>
 							
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="Index.jsp" class="fh5co-figure">
+								<a href="ListStudent.jsp" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="images/searchStudente.png" class="img-responsive"></div>
 									</figure>

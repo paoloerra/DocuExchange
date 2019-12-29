@@ -15,7 +15,6 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<link rel="stylesheet" href="css/simple-line-icons.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
 		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -91,7 +90,12 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 
 						<button type="submit" class="btn">Scarica PDF</button>
 						
+						<h4>VALUTATO</h4>
+						<img src="images/starfull.png"><img src="images/starfull.png"><img src="images/starfull.png"><img src="images/starfull.png">
+						
 						<div class="bottom-form"></div>
+						
+						
 						
 
 						<h4>RECENSIONI</h4>

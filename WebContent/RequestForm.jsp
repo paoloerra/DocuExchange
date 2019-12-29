@@ -62,12 +62,22 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 					<div class="top-form">
 								<div class="inner-form">
 									<div class="label">Corso</div>
-									<input type="text" name="corso" type="text" required>
+										<select>
+										  <option value="volvo">Prova</option>
+										  <option value="saab">Prova</option>
+										  <option value="opel">Prova</option>
+										  <option value="audi">Prova</option>
+										</select>
 								</div>
 
 								<div class="inner-form">
 									<div class="label">Professore</div>
-										<input type="text" name="professore" type="text" required>
+										<select>
+										  <option value="volvo">Prova</option>
+										  <option value="saab">Prova</option>
+										  <option value="opel">Prova</option>
+										  <option value="audi">Prova</option>
+										</select>
 								</div>
 
 						</div>
