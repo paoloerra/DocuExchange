@@ -44,7 +44,7 @@
 
 							<div class="col-md-6 fh5co-text">
 								<h2 class="to-animate intro-animate-1">Studia con DocuExchange</h2>
-								<p class="to-animate intro-animate-2">Scopri un nuovo metodo di studio..Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+								<p class="to-animate intro-animate-2">Scopri un nuovo metodo di studio e resta in contatto con gli studenti della tua facoltà. Condividi, scarica e recensisci appunti di qualsiasi corso per svolgere al meglio il tuo esame.</p>
 								<p class="to-animate intro-animate-3"><a href="SignUp.jsp" class="btn btn-primary btn-md"><i class="icon-user"></i> Registrati</a><a href="Login.jsp" class="btn btn-primary btn-md"><i class="icon-login"></i> Accedi</a></p>
 							</div>
 
@@ -71,7 +71,7 @@
 								<div class="fh5co-text">
 										<span class="fh5co-icon"><i class="icon-cloud-download"></i></span>
 									<h4 class="fh5co-uppercase-sm">Ottieni appunti</h4>
-									<p>Scarica numerosi appunti condivisi da altri studenti.</p>
+									<p>Scarica tre appunti condivisi da altri studenti.</p>
 								</div>
 							</div>
 
@@ -90,7 +90,7 @@
 								<div class="fh5co-text">
 										<span class="fh5co-icon"><i class="icon-share"></i></span>
 									<h4 class="fh5co-uppercase-sm">Condividi</h4>
-									<p>Condividi i tuoi appunti.</p>
+									<p>Condividi i tuoi appunti e ottieni altri 3 download.</p>
 								</div>
 							</div>
 
