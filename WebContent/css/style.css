@@ -8802,7 +8802,7 @@ label {
 }
 
 .form input[type="text"],.form input[type="password"], .form input[type="number"]
-.form textarea {
+.form textarea, .form select{
   border: 1px solid #141414;
   padding: 15px 5px;
   outline: none;

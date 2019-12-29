@@ -86,6 +86,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 								</div>
 							</div>	
 					</div>
+				</form>
 				</div>
 		
 				<!-- END REQUEST-->
