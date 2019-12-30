@@ -74,38 +74,32 @@
 						    <tr>
 						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr>
 						     <tr>
 						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr> 
 						    <tr>
 						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr>
 						     <tr>
 						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr> 
 						    <tr>
 						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr>
 						     <tr>
 						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr> 
 						  </tbody>
 						</table>

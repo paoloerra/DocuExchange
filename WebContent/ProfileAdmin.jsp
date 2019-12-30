@@ -72,7 +72,10 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							<div class="top-form">
 								<div class="inner-form">
 									<div class="label">Sesso</div>
-										<input type="text" name="corso" type="text" required>
+										<select>
+										  <option value="volvo">Maschio</option>
+										  <option value="saab">Femmina</option>
+										</select>
 								</div>
 								<div class="inner-form">
 									<div class="label">Password</div>

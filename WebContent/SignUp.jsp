@@ -66,6 +66,16 @@
 			                      <input name="email" type="text" class="form-control" placeholder="p.erra1@studenti.unisa.it" required="required" />
 			                  </div>
 			              </div>
+			              
+			              <div class=" w3l-form-group">
+			                  <label>Sesso:</label>
+			                  <div class="group">
+			                  	<select class="form-control">
+									<option value="volvo">Maschio</option>
+									<option value="saab">Femmina</option>
+								</select>
+			                  </div>
+			              </div>
 
 			              <div class=" w3l-form-group">
 			                  <label>Password:</label>

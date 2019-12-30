@@ -93,28 +93,28 @@
 						      <th scope="row">1</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza</b></a></td>
+						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
 						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">2</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza</b></a></td>
+						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
 						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">3</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza</b></a></td>
+						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
 						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">4</th>
 						      <td><b>Titolo:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><a href="#" class="badge badge-dark"><b>Visualizza</b></a></td>
+						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
 						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
 						    </tr>
 						  </tbody>

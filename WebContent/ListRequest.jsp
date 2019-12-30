@@ -75,25 +75,25 @@
 						      <th scope="row">1</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><div style="text-align: center;"><a href="#" class="badge badge-dark"><b>Visualizza</b></a></div></td>
+						      <td><div style="text-align: center;"><a href="ViewRequest.jsp" class="badge badge-dark"><b>Visualizza</b></a></div></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">2</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><div style="text-align: center;"><a href="#" class="badge badge-dark"><b>Visualizza</b></a></div></td>
+						      <td><div style="text-align: center;"><a href="ViewRequest.jsp" class="badge badge-dark"><b>Visualizza</b></a></div></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">3</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><div style="text-align: center;"><a href="#" class="badge badge-dark"><b>Visualizza</b></a></div></td>
+						      <td><div style="text-align: center;"><a href="ViewRequest.jsp" class="badge badge-dark"><b>Visualizza</b></a></div></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">4</th>
 						      <td><b>Titolo:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
-						      <td><div style="text-align: center;"><a href="#" class="badge badge-dark"><b>Visualizza</b></a></div></td>
+						      <td><div style="text-align: center;"><a href="ViewRequest.jsp" class="badge badge-dark"><b>Visualizza</b></a></div></td>
 						    </tr>
 						  </tbody>
 						</table>
