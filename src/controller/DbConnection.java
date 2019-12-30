@@ -1,148 +1,67 @@
 package controller;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
-public class DbConnection {
 
-  /**
-   * Variables.
-   */
-  private static DbConnection instance = null;
-  private Connection conn;
-  private String databaseName;
-  private String userName;
-  private String password;
-  private int hostPort;
-  private String hostName;
+public class DBConnection {
 
-  /**
-   * Constructor.
-   */
-  public DbConnection() {
-    this.conn = null;
-    this.databaseName = "DocuExchange";
-    this.userName = "root";
-    this.password = "root";
-    this.hostPort = 3306;
-    this.hostName = "localhost";
+	private static List<Connection> freeDbConnections;
 
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-      String url = "jdbc:mysql://" + this.hostName + ":" + this.hostPort + "/" + this.databaseName
-          + "?useSSL=false";
-      this.conn = DriverManager.getConnection(url, this.userName, this.password);
-      this.conn.setAutoCommit(false);
-    } catch (Exception exc) {
-      System.out.println(exc.getMessage());
-    }
-  }
+	static {
+		freeDbConnections = new LinkedList<Connection>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("DB driver not found:"+ e.getMessage());
+		} 
+	}
+	
+	private static synchronized Connection createDBConnection() throws SQLException {
+		Connection newConnection = null;
+		String ip = "localhost";
+		String port = "3306";
+		String db = "DocuExchange";
+		String username = "root";
+		String password = "root";
 
-  /**
-   * Get the instance of the database.
-   */
-  public static DbConnection getInstance() {
-    if (instance == null) {
-      instance = new DbConnection();
-    }
-    return instance;
-  }
+		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ 
+					port+"/"+db + "?serverTimezone=UTC", username, password);
 
-  /**
-   * Returns the Connection type object.
-   */
-  public Connection getConn() {
-    return this.conn;
-  }
+		System.out.println("Create a new DB connection");
+		newConnection.setAutoCommit(false);
+		return newConnection;
+	}	
+	
+	public static synchronized Connection getConnection() throws SQLException {
+		Connection connection;
 
-  /**
-   * Set the connection with the database.
-   * 
-   * @param conn is the variable that contains the object that allows you to connect the database to
-   *        the code.
-   */
-  public void setConn(Connection conn) {
-    this.conn = conn;
-  }
+		if (!freeDbConnections.isEmpty()) {
+			connection = (Connection) freeDbConnections.get(0);
+			freeDbConnections.remove(0);
 
-  /**
-   * Get the name of the database.
-   */
-  public String getDatabaseName() {
-    return this.databaseName;
-  }
+			try {
+				if (connection.isClosed())
+					connection = getConnection();
+			} catch (SQLException e) {
+				connection.close();
+				connection = getConnection();
+			}
+		} else {
+			connection = createDBConnection();		
+		}
 
-  /**
-   * Set the name of the database.
-   * 
-   * @param databaseName is the variable that contains the name of the database.
-   */
-  public void setDatabaseName(String databaseName) {
-    this.databaseName = databaseName;
-  }
-
-  /**
-   * Get the name of the user.
-   */
-  public String getUserName() {
-    return this.userName;
-  }
-
-  /**
-   * Set the name of the user.
-   * 
-   * @param userName is the variable that contains the name of the user.
-   */
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  /**
-   * Get the password.
-   */
-  public String getPassword() {
-    return this.password;
-  }
-
-  /**
-   * Set the name of the user.
-   * 
-   * @param password is the variable that contains the password.
-   */
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  /**
-   * Get the number of the host port.
-   */
-  public int getHostPort() {
-    return this.hostPort;
-  }
-
-  /**
-   * Set the number of the host port.
-   * 
-   * @param hostPort is the variable that contains the number of the host port.
-   */
-  public void setHostPort(int hostPort) {
-    this.hostPort = hostPort;
-  }
-
-  
-  /**
-   * Get the name of the host port.
-   */
-  public String getHostName() {
-    return this.hostName;
-  }
-
-  /**
-   * Set the number of the host port.
-   * 
-   * @param hostName is the variable that contains the name of the host port.
-   */
-  public void setHostName(String hostName) {
-    this.hostName = hostName;
-  }
+		return connection;
+	}
+	
+	public static synchronized void releaseConnection(Connection connection) 
+			throws SQLException {
+		if(connection != null) freeDbConnections.add(connection);
+	}	
+	
+	
 }

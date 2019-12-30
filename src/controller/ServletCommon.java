@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,10 +26,8 @@ public class ServletCommon extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String error = "";
-	    PreparedStatement stmt = null;
-	    System.out.println("Sono qui");
 		int flag = Integer.parseInt(request.getParameter("flag"));
+<<<<<<< HEAD
 		System.out.println(flag);
 	    Connection conn = new DbConnection().getInstance().getConn();
 	    String sql = "";
@@ -65,12 +64,31 @@ public class ServletCommon extends HttpServlet {
 	            error += e.getMessage();
 	        }
 	    } 
+=======
+		String error = "";
+	    PreparedStatement stmt = null;
+		Connection connection  = null;
+		
+		String selectSQL = "SELECT * FROM studente";
+
+		if(flag == 1) { //Login
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(selectSQL);
+			} catch(SQLException e) {
+				System.out.print(e);
+			}
+			
+		}
+>>>>>>> b88939ee801d402607f78ade35b308cd4732f076
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/student/HomeStudent.jsp");
-        dispatcher.forward(request, response);
+	    dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
+		doGet(request, response); 
 	}
 	    
 
