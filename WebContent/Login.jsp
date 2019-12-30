@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Index</title>
+		<title>Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -21,7 +21,6 @@
 		<script src="js/main.js"></script>
 	</head>
 	<body>
-
 	<!-- NAVBAR -->
 		<div id="fh5co-menu" class="navbar">
 			<div class="container">
@@ -38,11 +37,11 @@
 				<div id="fh5co-main">
 					<!-- LOGIN -->
 						<div class=" w3l-login-form">
-							<form action="ServletCommon" method="POST">
+							<form action="ServletCommon?flag=1" method="POST">
 								<div class=" w3l-form-group">
 									<label>E-mail:</label>
 										<div class="group">
-											<input type="text" class="form-control" name="e-mail" placeholder="E-mail" required="required" />
+											<input type="text" class="form-control" name="email" placeholder="E-mail" required="required" />
 										</div>
 								</div>
 								<div class=" w3l-form-group">
@@ -55,7 +54,6 @@
 							</form>
 							<p class=" w3l-register-p">Non ha in un account?<a href="SignUp.jsp" class="register"> Registrati</a></p>
 						</div>
-
 				<!-- END LOGIN-->
 				</div>
 			</div>
