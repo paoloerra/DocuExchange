@@ -1,7 +1,7 @@
 package model;
 import interfacce.UserInterface;  
 
-public class Student implements UserInterface {
+public class Studente implements UserInterface {
 
 	  /**
 	   * Variables.
@@ -11,6 +11,8 @@ public class Student implements UserInterface {
 	  private String surname;
 	  private String password;
 	  private char sex;
+
+	  private int userType;//noi non ce l 'abbiamo nell odd
 
 	  /**
 	   * Contructor.
@@ -22,18 +24,19 @@ public class Student implements UserInterface {
 	   * @param password is the password that the Student uses to Log in the site.
 	   * @param userType specifies the type of the user (0,1,2).
 	   */
-	  public Student(String email, String name, String surname, char sex, String password) {
+	  public Studente(String email, String name, String surname, char sex, String password, int userType) {
 	    this.email = email;
 	    this.name = name;
 	    this.surname = surname;
 	    this.password = password;
 	    this.sex = sex;
+	    this.userType = userType;
 	  }
 
 	  /**
 	   * Empty Constructor.
 	   */
-	  public Student() {}
+	  public Studente() {}
 
 	  /**
 	   * Get the email address of the Student.
@@ -64,10 +67,17 @@ public class Student implements UserInterface {
 	  }
 
 	  /**
-	   * Get the password of the Admin.
+	   * Get the password of the Student.
 	   */
 	  public String getPassword() {
 	    return password;
+	  }
+	//in odd non cè
+	  /**
+	   * Get the type of the User (0,1,2).
+	   */
+	  public int getUserType() {
+	    return userType;
 	  }
 
 	  /**
@@ -80,27 +90,27 @@ public class Student implements UserInterface {
 	  }
 
 	  /**
-	   * Set the name of the Admin.
+	   * Set the name of the Student.
 	   * 
-	   * @param name is the name of the Admin.
+	   * @param name is the name of the Student.
 	   */
 	  public void setName(String name) {
 	    this.name = name;
 	  }
 
 	  /**
-	   * Set the surname of the Admin.
+	   * Set the surname of the Student.
 	   * 
-	   * @param surname is the surname of the Admin.
+	   * @param surname is the surname of the Student.
 	   */
 	  public void setSurname(String surname) {
 	    this.surname = surname;
 	  }
 
 	  /**
-	   * Set the sex of the Admin.
+	   * Set the sex of the Student.
 	   * 
-	   * @param sex specifies the sex of the Admin with one letter (M,F).
+	   * @param sex specifies the sex of the Student with one letter (M,F).
 	   */
 	  public void setSex(char sex) {
 	    this.sex = sex;
@@ -109,12 +119,20 @@ public class Student implements UserInterface {
 	  /**
 	   * Set the password of the Student.
 	   * 
-	   * @param password is the password that the Admin uses to Log in the site.
+	   * @param password is the password that the Student uses to Log in the site.
 	   */
 	  public void setPassword(String password) {
 	    this.password = password;
 	  }
-	
+	  //non cè in odd
+	  /**
+	   * Set the type of the user.
+	   * 
+	   * @param userType specifies the type of the user (0,1,2).
+	   */
+	  public void setUserType(int userType) {
+	    this.userType = userType;
+	  }
 
 	  /**
 	   * Specifies if the user is allowed to see the page.
