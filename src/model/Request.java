@@ -22,7 +22,7 @@ public class Request  {
 		 * @param descrizione description request
 		 * @param fileName filename of note
 		 */
-		public Note(int idRequest,String adminEmail,String studentEmail,String corso,String professore,String descrizione,String fileName) {
+		public Request(int idRequest,String adminEmail,String studentEmail,String corso,String professore,String descrizione,String fileName) {
 			this.idRequest=idRequest;
 			this.studentEmail=studentEmail;
 			this.adminEmail=adminEmail;
@@ -34,7 +34,7 @@ public class Request  {
 		/**
 		 * empty constructor
 		 */
-		public Note() {}
+		public Request() {}
 
 		/**
 		 * get email of admin

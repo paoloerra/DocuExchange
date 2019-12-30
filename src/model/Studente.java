@@ -24,7 +24,7 @@ public class Studente implements UserInterface {
 	   * @param password is the password that the Student uses to Log in the site.
 	   * @param userType specifies the type of the user (0,1,2).
 	   */
-	  public Student(String email, String name, String surname, char sex, String password, int userType) {
+	  public Studente(String email, String name, String surname, char sex, String password, int userType) {
 	    this.email = email;
 	    this.name = name;
 	    this.surname = surname;
@@ -36,7 +36,7 @@ public class Studente implements UserInterface {
 	  /**
 	   * Empty Constructor.
 	   */
-	  public Student() {}
+	  public Studente() {}
 
 	  /**
 	   * Get the email address of the Student.

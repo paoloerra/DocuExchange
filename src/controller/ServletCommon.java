@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import interfacce.UserInterface;
-import model.Student;
+import model.Studente;
 
 
 @WebServlet("/ServletCommon")
@@ -54,7 +54,7 @@ public class ServletCommon extends HttpServlet {
 	                  String nome = r.getString("Nome");
 	                  String cognome = r.getString("Cognome");
 	                  char sesso = r.getString("sesso").charAt(0);
-	                  Student student = new Student(email, nome, cognome, sesso, password);
+	                  Studente student = new Studente(email, nome, cognome, sesso, password);
 	                  request.getSession().setAttribute("student", student);
 	                }
 	                else {
