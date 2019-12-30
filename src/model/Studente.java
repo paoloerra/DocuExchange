@@ -67,7 +67,7 @@ public class Studente implements UserInterface {
 	  }
 
 	  /**
-	   * Get the password of the Admin.
+	   * Get the password of the Student.
 	   */
 	  public String getPassword() {
 	    return password;
@@ -90,27 +90,27 @@ public class Studente implements UserInterface {
 	  }
 
 	  /**
-	   * Set the name of the Admin.
+	   * Set the name of the Student.
 	   * 
-	   * @param name is the name of the Admin.
+	   * @param name is the name of the Student.
 	   */
 	  public void setName(String name) {
 	    this.name = name;
 	  }
 
 	  /**
-	   * Set the surname of the Admin.
+	   * Set the surname of the Student.
 	   * 
-	   * @param surname is the surname of the Admin.
+	   * @param surname is the surname of the Student.
 	   */
 	  public void setSurname(String surname) {
 	    this.surname = surname;
 	  }
 
 	  /**
-	   * Set the sex of the Admin.
+	   * Set the sex of the Student.
 	   * 
-	   * @param sex specifies the sex of the Admin with one letter (M,F).
+	   * @param sex specifies the sex of the Student with one letter (M,F).
 	   */
 	  public void setSex(char sex) {
 	    this.sex = sex;
@@ -119,7 +119,7 @@ public class Studente implements UserInterface {
 	  /**
 	   * Set the password of the Student.
 	   * 
-	   * @param password is the password that the Admin uses to Log in the site.
+	   * @param password is the password that the Student uses to Log in the site.
 	   */
 	  public void setPassword(String password) {
 	    this.password = password;
