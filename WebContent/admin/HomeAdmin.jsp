@@ -11,14 +11,14 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/simple-line-icons.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/icomoon.css">
+		<link rel="stylesheet" href="../css/simple-line-icons.css">
+		<link rel="stylesheet" href="../css/style.css">
 		
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/main.js"></script>
 	</head>
 	<body>
 
@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href="#"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href="#"><img src="../images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
@@ -64,7 +64,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="ListRequest.jsp" class="fh5co-figure">
 									<figure>
-										<div class="imageHome"><img src="images/listrequest.png" class="img-responsive"></div>
+										<div class="imageHome"><img src="../images/listrequest.png" class="img-responsive"></div>
 									</figure>
 									<h3 class="fh5co-figure-lead">Visualizza richieste</h3>
 									<p class="fh5co-figure-text">Visualizza la lista delle richieste in attesa di essere verificate.</p>
@@ -74,7 +74,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="ListStudent.jsp" class="fh5co-figure">
 									<figure>
-										<div class="imageHome"><img src="images/liststudenti.png" class="img-responsive"></div>
+										<div class="imageHome"><img src="../images/liststudenti.png" class="img-responsive"></div>
 									</figure>
 									<h3 class="fh5co-figure-lead">Visualizza studenti</h3>
 									<p class="fh5co-figure-text">Visualizza la lista degli studenti iscritti alla piattaforma.</p>
@@ -85,7 +85,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="ProfileAdmin.jsp" class="fh5co-figure">
 									<figure>
-										<div class="imageHome"><img src="images/profile.png" class="img-responsive"></div>
+										<div class="imageHome"><img src="../images/profile.png" class="img-responsive"></div>
 									</figure>
 									<h3 class="fh5co-figure-lead">Visualizza profilo</h3>
 									<p class="fh5co-figure-text">Visualizza i tuoi dati.</p>
@@ -111,7 +111,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="footer.html" %>
+	<%@include file="../footer.html" %>
 
 
 

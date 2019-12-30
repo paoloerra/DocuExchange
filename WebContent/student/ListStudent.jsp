@@ -11,14 +11,14 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 				
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/simple-line-icons.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/icomoon.css">
+		<link rel="stylesheet" href="../css/simple-line-icons.css">
+		<link rel="stylesheet" href="../css/style.css">
 		
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/main.js"></script>
 	</head>
 	<body>
 
@@ -36,7 +36,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href=""><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href=""><img src="../images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
@@ -72,22 +72,22 @@
 				<table class="table table-bordered">
 						  <tbody>
 						    <tr>
-						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
+						      <td><div style="text-align: center;"><img src="../images/girl.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
 						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr>
 						     <tr>
-						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
+						      <td><div style="text-align: center;"><img src="../images/man.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
 						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr> 
 						    <tr>
-						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
+						      <td><div style="text-align: center;"><img src="../images/man.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
 						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr>
 						     <tr>
-						      <td><div style="text-align: center;"><img src="images/man.png"></div></td>
+						      <td><div style="text-align: center;"><img src="../images/man.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
 						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr> 
@@ -97,7 +97,7 @@
 						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr>
 						     <tr>
-						      <td><div style="text-align: center;"><img src="images/girl.png"></div></td>
+						      <td><div style="text-align: center;"><img src="../images/girl.png"></div></td>
 						      <td><b>Nome:</b> Paolo<br><br><b>Cognome:</b> Erra<br></td>
 						      <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
 						    </tr> 
@@ -113,7 +113,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="footer.html" %>
+	<%@include file="../footer.html" %>
 
 
 

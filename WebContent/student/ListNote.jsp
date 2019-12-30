@@ -12,14 +12,14 @@
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
 		
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/simple-line-icons.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/icomoon.css">
+		<link rel="stylesheet" href="../css/simple-line-icons.css">
+		<link rel="stylesheet" href="../css/style.css">
 		
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/main.js"></script>
 	</head>
 	<body>
 
@@ -38,7 +38,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href=""><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href=""><img src="../images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
@@ -94,28 +94,28 @@
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
 						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">2</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
 						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">3</th>
 						      <td><b>Professore:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
 						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></td>
 						    </tr>
 						     <tr>
 						      <th scope="row">4</th>
 						      <td><b>Titolo:</b><br><b>Corso:</b><br><b>Autore:</b><br>
 						      </td>
 						      <td><a href="ViewNote.jsp" class="badge badge-dark"><b>Visualizza</b></a></td>
-						      <td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+						      <td><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></td>
 						    </tr>
 						  </tbody>
 						</table>
@@ -129,7 +129,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="footer.html" %>
+	<%@include file="../footer.html" %>
 
 
 

@@ -11,15 +11,14 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/simple-line-icons.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="../css/icomoon.css">
+		<link rel="stylesheet" href="../css/simple-line-icons.css">
+		<link rel="stylesheet" href="../css/style.css">
 		
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/main.js"></script>
 	</head>
 	<body>
 
@@ -38,7 +37,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 				<div class="row">
 					<div class="col-md-12">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href="#"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href="#"><img src="../images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
@@ -91,7 +90,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 						<button type="submit" class="btn">Scarica PDF</button>
 						
 						<h4>VALUTATO</h4>
-						<img src="images/starfull.png"><img src="images/starfull.png"><img src="images/starfull.png"><img src="images/starfull.png">
+						<img src="../images/starfull.png"><img src="../images/starfull.png"><img src="../images/starfull.png"><img src="../images/starfull.png">
 						
 						<div class="bottom-form"></div>
 						
@@ -107,7 +106,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 							    </div>
 							    <div class="card-footer">
-							      <small class="text-muted"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></small>
+							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
 							    </div>
 							  </div>
 							  <div class="card">
@@ -116,7 +115,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
 							    </div>
 							    <div class="card-footer">
-							      <small class="text-muted"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></small>
+							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
 							    </div>
 							  </div>
 							  <div class="card">
@@ -125,7 +124,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
 							    </div>
 							    <div class="card-footer">
-							      <small class="text-muted"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></small>
+							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
 							    </div>
 							  </div>
 							</div>
@@ -136,7 +135,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 							    </div>
 							    <div class="card-footer">
-							      <small class="text-muted"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></small>
+							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
 							    </div>
 							  </div>
 							  <div class="card">
@@ -145,7 +144,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
 							    </div>
 							    <div class="card-footer">
-							      <small class="text-muted"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></small>
+							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
 							    </div>
 							  </div>
 							  <div class="card">
@@ -154,7 +153,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
 							    </div>
 							    <div class="card-footer">
-							      <small class="text-muted"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></small>
+							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
 							    </div>
 							  </div>
 							</div>
@@ -169,7 +168,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							</div>
 						</div>
 						
-						<small class="text-muted"><img src="images/starempty.png"><img src="images/starempty.png"><img src="images/starempty.png"><img src="images/starempty.png"></small>
+						<small class="text-muted"><img src="../images/starempty.png"><img src="../images/starempty.png"><img src="../images/starempty.png"><img src="../images/starempty.png"></small>
 						
 						
 						<div class="bottom-form">
@@ -199,7 +198,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="footer.html" %>
+	<%@include file="../footer.html" %>
 
 
 
