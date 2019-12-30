@@ -11,8 +11,6 @@ public interface UserInterface {
   public char getSex();
 
   public String getPassword();
-//sempre in odd non c 'è
-  public int getUserType();
 
   // set
   public void setEmail(String e);
@@ -24,10 +22,6 @@ public interface UserInterface {
   public void setSex(char s);
 
   public void setPassword(String p);
-//idem
-  public void setUserType(int u);
-//anche quwesto
-//  public boolean validate();
 
 
 }
