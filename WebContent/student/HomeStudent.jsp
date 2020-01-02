@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface"%>
+    
+<%
+	String pageName = "HomeStudent.jsp";
+	String pageFolder = "student";
+	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
+    UserInterface u = (UserInterface) session.getAttribute("user");
+
+	if(!ck.isAllowed()){
+	  response.sendRedirect(request.getContextPath()+ck.getUrlRedirect());  
+	}
+	else {
+		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
+	}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,7 +39,7 @@
 		<!-- NAVBAR -->
 		<div id="fh5co-offcanvass">
 			<ul>
-				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
+				<li><a href="#"><i class="icon-user"></i> Studente: <%=u.getName()%> <%=u.getSurname()%></a></li>
 				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
 			</ul>
@@ -59,7 +73,7 @@
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
 								<h2 class="fh5co-lead">HOME STUDENTE</h2>
-								<p>Ciao Paolo</p>
+								<p>Ciao <%=u.getName() %></p>
 							</div>
 
 
@@ -122,7 +136,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="../footer.html" %>
+	<%@include file="/footer.html" %>
 
 
 

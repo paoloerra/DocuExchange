@@ -35,6 +35,7 @@ public class ServletCommon extends HttpServlet {
 		if(flag == 1) { //Login
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
+			System.out.println(email);
 			try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(selectSQL);

@@ -11,8 +11,8 @@ public class Studente implements UserInterface {
 	  private String surname;
 	  private String password;
 	  private char sex;
+	  private int userType;
 
-	  private int userType;//noi non ce l 'abbiamo nell odd
 
 	  /**
 	   * Contructor.
@@ -31,6 +31,7 @@ public class Studente implements UserInterface {
 	    this.password = password;
 	    this.sex = sex;
 	    this.userType = userType;
+
 	  }
 
 	  /**
@@ -72,14 +73,6 @@ public class Studente implements UserInterface {
 	  public String getPassword() {
 	    return password;
 	  }
-	//in odd non cè
-	  /**
-	   * Get the type of the User (0,1,2).
-	   */
-	  public int getUserType() {
-	    return userType;
-	  }
-
 	  /**
 	   * Set the email of the Admin.
 	   * 
@@ -124,19 +117,18 @@ public class Studente implements UserInterface {
 	  public void setPassword(String password) {
 	    this.password = password;
 	  }
-	  //non cè in odd
-	  /**
-	   * Set the type of the user.
-	   * 
-	   * @param userType specifies the type of the user (0,1,2).
-	   */
-	  public void setUserType(int userType) {
-	    this.userType = userType;
-	  }
 
 	  /**
 	   * Specifies if the user is allowed to see the page.
 	   */
+	  
+	  public int getUserType() {
+		  return this.userType;
+	  }
+	  
+	  public void setUserType(int UserType) {
+		  this.userType = UserType;
+	  }
 	  //NON HO CAPITO penso nella fase di testing si faccia
 	/*  @Override
 	  public boolean validate() {

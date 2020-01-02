@@ -11,6 +11,8 @@ public interface UserInterface {
   public char getSex();
 
   public String getPassword();
+  
+  public int getUserType();
 
   // set
   public void setEmail(String e);
@@ -22,6 +24,8 @@ public interface UserInterface {
   public void setSex(char s);
 
   public void setPassword(String p);
+  
+  public void setUserType(int u);
 
 
 }
