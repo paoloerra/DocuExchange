@@ -27,8 +27,6 @@ public class ServletStudent extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Sono quii");
-
 		String error = "";
 		String content = "";
 		String redirect = "";
@@ -77,7 +75,7 @@ public class ServletStudent extends HttpServlet {
 				throw new IllegalArgumentException("Formato non corretto");
 		    }
 			
-			String sql = "INSERT INTO studente (Email_studente, nome, cognome, password, sesso, tipo) VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO User (Email_User, Name, Surname, Password, Sex, type) VALUES (?, ?, ?, ?, ?, ?)";
 			try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);

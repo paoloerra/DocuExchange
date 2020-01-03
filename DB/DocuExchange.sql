@@ -1,69 +1,59 @@
 CREATE DATABASE IF NOT EXISTS DocuExchange;
 USE DocuExchange;
 
-CREATE TABLE Studente(
-	Email_Studente VARCHAR(35) NOT NULL,
-    Nome VARCHAR(20) NOT NULL,
-    Cognome VARCHAR(20) NOT NULL,
+CREATE TABLE User(
+	Email_User VARCHAR(35) NOT NULL,
+    Name VARCHAR(20) NOT NULL,
+    Surname VARCHAR(20) NOT NULL,
     Password VARCHAR(20) NOT NULL,
-    Sesso VARCHAR(1) NOT NULL,
-    PRIMARY KEY(Email_Studente)
+    Sex CHAR(1) NOT NULL,
+    Type INTEGER(1) NOT NULL,
+    PRIMARY KEY(Email_User)
 );
 
-CREATE TABLE Appunti(
-	ID_Appunto INTEGER(10) AUTO_INCREMENT,
-	Corso VARCHAR(40) NOT NULL,
-    Professore VARCHAR(20) NOT NULL,
-    Descrizione VARCHAR(255) NOT NULL,
+CREATE TABLE Note(
+	ID_Note INTEGER(10) AUTO_INCREMENT,
+	Course VARCHAR(40) NOT NULL,
+    Professor VARCHAR(20) NOT NULL,
+    Description VARCHAR(255) NOT NULL,
     FilePDF BLOB NOT NULL,
-    Email_Studente VARCHAR(35) NOT NULL,
-    PRIMARY KEY(ID_Appunto),
-    FOREIGN KEY(Email_Studente) REFERENCES Studente(Email_Studente)
+    Email_User VARCHAR(35) NOT NULL,
+    PRIMARY KEY(ID_Note),
+    FOREIGN KEY(Email_User) REFERENCES User(Email_User)
 );
 
-CREATE TABLE Recensione(
-	ID_Rcensione INT AUTO_INCREMENT,
-    Commento VARCHAR(255),
-    Stelline INTEGER(10) NOT NULL,
-    Email_Studente VARCHAR(35) NOT NULL,
-    ID_Appunto INTEGER(10) NOT NULL,
-    PRIMARY KEY(ID_Rcensione),
-    FOREIGN KEY(Email_Studente) REFERENCES Studente(Email_Studente),
-    FOREIGN KEY(ID_Appunto) REFERENCES Appunti(ID_Appunto)
+CREATE TABLE Review(
+	ID_Review INT AUTO_INCREMENT,
+    Comment VARCHAR(255),
+    Stars INTEGER(10) NOT NULL,
+    Email_User VARCHAR(35) NOT NULL,
+    ID_Note INTEGER(10) NOT NULL,
+    PRIMARY KEY(ID_Review),
+    FOREIGN KEY(Email_User) REFERENCES User(Email_User),
+    FOREIGN KEY(ID_Note) REFERENCES Note(ID_Note)
 );
 
-CREATE TABLE Admin(
-	Email_Admin VARCHAR(35) NOT NULL,
-    Nome VARCHAR(20) NOT NULL,
-    Cognome VARCHAR(20) NOT NULL,
-    Password VARCHAR(20) NOT NULL,
-    Sesso VARCHAR(1) NOT NULL,
-    PRIMARY KEY(Email_Admin)
-);
-
-CREATE TABLE Richiesta(
-	ID_Richiesta INTEGER(10) AUTO_INCREMENT,
-    Corso VARCHAR(40) NOT NULL,
-    Professore VARCHAR(20) NOT NULL,
-    Descrizione VARCHAR(255) NOT NULL,
+CREATE TABLE Request(
+	ID_Request INTEGER(10) AUTO_INCREMENT,
+    Course VARCHAR(40) NOT NULL,
+    Professor VARCHAR(20) NOT NULL,
+    Description VARCHAR(255) NOT NULL,
     FilePDF BLOB NOT NULL,
-    Email_Admin VARCHAR(35),
-    Email_Studente VARCHAR(35) NOT NULL,
-    PRIMARY KEY(ID_Richiesta),
-    FOREIGN KEY(Email_Admin) REFERENCES Admin(Email_Admin),
-    FOREIGN KEY(Email_Studente) REFERENCES Studente(Email_Studente)
+    Email_User VARCHAR(35) NOT NULL,
+    PRIMARY KEY(ID_Request),
+    FOREIGN KEY(Email_User) REFERENCES User(Email_User)
 );
 
-CREATE TABLE Professore(
-	Nome_Professore VARCHAR(30) NOT NULL,
-    PRIMARY KEY(Nome_Professore)
+CREATE TABLE Professor(
+	Nome_Professor VARCHAR(30) NOT NULL,
+    PRIMARY KEY(Nome_Professor)
 );
 
-CREATE TABLE Corso(
-	Nome_Corso VARCHAR(40) NOT NULL,
-    Nome_Professore VARCHAR(30) NOT NULL,
-    PRIMARY KEY(Nome_Corso),
-    FOREIGN KEY(Nome_Professore) REFERENCES Professore(Nome_Professore)
+CREATE TABLE Course(
+	Nome_Course VARCHAR(40) NOT NULL,
+    Nome_Professor VARCHAR(30) NOT NULL,
+    PRIMARY KEY(Nome_Course),
+    FOREIGN KEY(Nome_Professor) REFERENCES Professor(Nome_Professor)
 );
     
     
