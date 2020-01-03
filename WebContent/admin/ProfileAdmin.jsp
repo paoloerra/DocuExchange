@@ -1,11 +1,21 @@
 RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface"%>
+    
+<%
+	String pageName = "ProfileAdmin.jsp";
+	String pageFolder = "admin";
+	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
+    UserInterface u = (UserInterface) session.getAttribute("user");
+	if(!ck.isAllowed()){
+		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
+	}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Profilo: Studente</title>
+		<title>Profilo: Admin</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -26,7 +36,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<div id="fh5co-offcanvass">
 			<ul>
 				<li class="active"><a href="HomeAdmin.jsp" data-nav-section="home"><i class="icon-grid"></i> Home</a></li>
-				<li><a href="#"><i class="icon-user"></i> Admin: </a></li>
+				<li><a href="#"><i class="icon-user"></i> Admin: <%=u.getName()%> <%=u.getSurname()%></a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
 			</ul>
 		</div>
@@ -54,32 +64,39 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 						<div class="form">
 							<div class="top-form">
 								<div class="inner-form">
-									<div class="label">Nome</div>
-										<input type="text" name="corso" type="text" required>
+						<div class="label">Nome</div>
+										<input type="text" name="corso" type="text" value="<%=u.getName()%>" required>
 									</div>
 		
 								<div class="inner-form">
 									<div class="label">Cognome</div>
-										<input type="text" name="professore" type="text" required>
+										<input type="text" name="professore" type="text" value="<%=u.getSurname()%>" required>
 									</div>
 										
 								<div class="inner-form">
 									<div class="label">Email</div>
-										<input type="text" name="professore" type="text" required>
+										<input type="text" name="professore" type="text" value="<%=u.getEmail()%>" required>
 								</div>
 							</div>
 								
 							<div class="top-form">
 								<div class="inner-form">
 									<div class="label">Sesso</div>
-										<select>
-										  <option value="volvo">Maschio</option>
-										  <option value="saab">Femmina</option>
-										</select>
+										<%if(u.getSex() == 'M') {%>
+											<select>
+											  <option value="M">Maschio</option>
+											  <option value="F">Femmina</option>
+											</select>
+										<%} else {%>
+											<select>
+											  <option value="M">Femmina</option>
+											  <option value="F">Maschio</option>
+											</select>
+										<%} %>	
 								</div>
 								<div class="inner-form">
 									<div class="label">Password</div>
-										<input type="text" name="professore" type="text" required>
+										<input type="password" name="professore" type="text" value="<%=u.getPassword()%>" required>
 								</div>
 							</div>
 								

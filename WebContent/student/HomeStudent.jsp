@@ -6,12 +6,9 @@
 	String pageFolder = "student";
 	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
     UserInterface u = (UserInterface) session.getAttribute("user");
-
 	if(!ck.isAllowed()){
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
-
-	
 %>
 <!DOCTYPE html>
 <html>

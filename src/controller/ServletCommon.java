@@ -79,16 +79,17 @@ public class ServletCommon extends HttpServlet {
 		                result = 1;
 					}
 				}
-				if(count != 0) {
+				if(count != 1) {
 					error = "Login fallito.";
 					result = 0;
+					System.out.println(error);
 				}
 
 		     }
 		     catch(SQLException e) {
 		    	 System.out.print(e);
 		     }	
-		 }  	  
+		 }
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);

@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface"%>
+    
+<%
+	String pageName = "HomeAdmin.jsp";
+	String pageFolder = "admin";
+	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
+    UserInterface u = (UserInterface) session.getAttribute("user");
+	if(!ck.isAllowed()){
+		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
+	}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
