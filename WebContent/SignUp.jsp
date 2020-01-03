@@ -24,7 +24,6 @@
 		<script src="js/jquery.min.js"></script
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/pages/scripts_signUp.js"></script>	
-				
 		 -->
 		 
 		<script src="js/jquery-1.10.2.min.js"></script>	
@@ -54,13 +53,13 @@
 			            	<div class=" w3l-form-group">
 			                 	<label>Nome:</label>
 			                  	<div class="group">
-			                    	<input id="nome" type="text" class="form-control" placeholder="Nome" required="required" />
+			                    	<input id="nome" type="text" class="form-control" required="required" />
 			                  	</div>
 			              	</div>
 			             	 <div class=" w3l-form-group">
 			                 	<label>Cognome:</label>
 			                  	<div class="group">
-			                    	<input id="cognome" type="text" class="form-control" placeholder="Cognome" required="required" />
+			                    	<input id="cognome" type="text" class="form-control" required="required" />
 			                  	</div>
 			              	</div>
 			               	<div class=" w3l-form-group">
@@ -81,13 +80,13 @@
 			              <div class=" w3l-form-group">
 			              	<label>Password:</label>
 			                <div class="group">
-			                	<input id="password" type="password" class="form-control" placeholder="Password" required="required" />
+			                	<input id="password" type="password" class="form-control" required="required" />
 			              	</div>
 			              </div>
 			              <div class=" w3l-form-group">
 			              	<label>Verifica password:</label>
 			                <div class="group">
-			                	<input id="VerificaPassword" type="password" class="form-control" placeholder="Password" required="required" />
+			                	<input id="VerificaPassword" type="password" class="form-control" required="required" />
 			              	</div>
 			              </div>
 			              <button id="btn" type="submit">Registrati</button>
@@ -96,6 +95,6 @@
 			      </div>
 		</div>
 	</div>
-	<%@include file="footer.html" %>
+	<%@include file="/footer.html" %>
 	</body>
 </html>

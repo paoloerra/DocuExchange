@@ -8,11 +8,10 @@
     UserInterface u = (UserInterface) session.getAttribute("user");
 
 	if(!ck.isAllowed()){
-	  response.sendRedirect(request.getContextPath()+ck.getUrlRedirect());  
-	}
-	else {
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
+
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -39,7 +38,7 @@
 		<!-- NAVBAR -->
 		<div id="fh5co-offcanvass">
 			<ul>
-				<li><a href="#"><i class="icon-user"></i> Studente: <%=u.getName()%> <%=u.getSurname()%></a></li>
+				<li><a href="#"><i class="icon-user"></i> Studente: <%=u.getName() %> <%=u.getSurname() %> </a></li>
 				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
 				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
 			</ul>

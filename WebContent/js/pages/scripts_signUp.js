@@ -12,7 +12,6 @@ $(document).ready(function() {
 			if (password != verifyPassword) {
 				showAlert(1,"Controllare che le due password coincidano");
 			} else {
-				console.log("ci sono");
 				$.ajax({
 					url : "ServletStudent?flag=1",
 					type : "POST",
@@ -36,7 +35,7 @@ $(document).ready(function() {
 						}
 					},
 					error : function(msg) {
-						showAlert(1,"Formato non valido");
+						showAlert(1,"Errore registrazione");
 					}
 				});
 

@@ -19,6 +19,12 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/main.js"></script>
+		
+		<link rel="stylesheet" href="css/toastr.min.css">
+		<script src="js/jquery-1.10.2.min.js"></script>	
+		<script src="js/pages/scripts.js"></script>
+		<script src="js/pages/scripts_login.js"></script>
+		<script src="js/toastr.min.js"></script>
 	</head>
 	<body>
 	<!-- NAVBAR -->
@@ -37,20 +43,20 @@
 				<div id="fh5co-main">
 					<!-- LOGIN -->
 						<div class=" w3l-login-form">
-							<form action="ServletCommon?flag=1" method="POST">
+							<form id="Login">
 								<div class=" w3l-form-group">
 									<label>E-mail:</label>
 										<div class="group">
-											<input type="text" class="form-control" name="email" placeholder="E-mail" required="required" />
+											<input id="email" type="text" class="form-control" placeholder="E-mail" required="required" />
 										</div>
 								</div>
 								<div class=" w3l-form-group">
 									<label>Password:</label>
 										<div class="group">
-											<input type="password" class="form-control" name="password" placeholder="Password" required="required" />
+											<input id="password" type="password" class="form-control" placeholder="Password" required="required" />
 										</div>
 								</div>
-								<button type="submit">Login</button>
+								<button id="btn" type="submit">Login</button>
 							</form>
 							<p class=" w3l-register-p">Non ha in un account?<a href="SignUp.jsp" class="register"> Registrati</a></p>
 						</div>
