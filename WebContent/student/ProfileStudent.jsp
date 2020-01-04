@@ -28,6 +28,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/main.js"></script>
+		
 	</head>
 	<body>
 
@@ -51,44 +52,37 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 				</div>
 			</div>
 		</div>
-		<!-- END NAVBAR -->
-
-
 		<div id="fh5co-page">
 			<div id="fh5co-wrap">
 				<div id="fh5co-main">
-					<!-- PROFILO -->
 					<div class="wrapper">
-					<h1>PROFILO STUDENTE</h1>
-					<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
+						<h1>PROFILO STUDENTE</h1>
+						<form id="profile">
 						<div class="form">
 							<div class="top-form">
 								<div class="inner-form">
 									<div class="label">Nome</div>
-										<input type="text" name="corso" type="text" value="<%=u.getName()%>" required>
+										<input id="name" type="text" type="text" value="<%=u.getName()%>" required>
 									</div>
-		
 								<div class="inner-form">
 									<div class="label">Cognome</div>
-										<input type="text" name="professore" type="text" value="<%=u.getSurname()%>" required>
-									</div>
-										
+										<input id="surname" type="text" type="text" value="<%=u.getSurname()%>" required>
+									</div>	
 								<div class="inner-form">
 									<div class="label">Email</div>
-										<input type="text" name="professore" type="text" value="<%=u.getEmail()%>" required>
+										<input id="email" type="text" type="text" value="<%=u.getEmail()%>" required>
 								</div>
 							</div>
-								
 							<div class="top-form">
 								<div class="inner-form">
 									<div class="label">Sesso</div>
 										<%if(u.getSex() == 'M') {%>
-											<select>
+											<select id="sex">
 											  <option value="M">Maschio</option>
 											  <option value="F">Femmina</option>
 											</select>
 										<%} else {%>
-											<select>
+											<select id="sex">
 											  <option value="M">Femmina</option>
 											  <option value="F">Maschio</option>
 											</select>
@@ -96,16 +90,14 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 								</div>
 								<div class="inner-form">
 									<div class="label">Password</div>
-										<input type="password" name="professore" type="text" value="<%=u.getPassword()%>" required>
-								</div>
-							</div>
-								
-							<div class="middle-form">
-								<div class="inner-form">
-									<button type="submit" class="btn">Modifica dati</button>
+										<input id="password" type="password" type="text" value="<%=u.getPassword()%>" required>
 								</div>
 							</div>	
-												
+							<div class="middle-form">
+								<div class="inner-form">
+									<button id="btn" type="submit" class="">Modifica dati</button>
+								</div>
+							</div>							
 							<h4>Appunti pubblicati</h1>
 							<table class="table table-hover">
 								<thead>

@@ -29,7 +29,8 @@ public class ServletCommon extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String error = "";
+		System.out.println("sono quii");
+    	String error = "";
 		String content = "";
 		String redirect = "";
 		Integer result = 0;
@@ -87,15 +88,25 @@ public class ServletCommon extends HttpServlet {
 		     catch(SQLException e) {
 		    	 System.out.print(e);
 		     }	
-		 }
-		 JSONObject res = new JSONObject();
-		 res.put("result", result);
-		 res.put("error", error);
-		 res.put("content", content);
-		 res.put("redirect", redirect);
-		 PrintWriter out = response.getWriter();
-		 out.println(res);
-		 response.setContentType("json");
+		}
+		if(flag == 2) { //Modifica profilo
+			String email = request.getParameter("email");
+			String name = request.getParameter("name");
+			String surname = request.getParameter("surname");
+			String password = request.getParameter("password");
+			char sesso = request.getParameter("sesso").charAt(0);	
+			System.out.println(email);
+			result = 1;
+			content = "ok";
+		}
+		JSONObject res = new JSONObject();
+		res.put("result", result);
+		res.put("error", error);
+		res.put("content", content);
+		res.put("redirect", redirect);
+		PrintWriter out = response.getWriter();
+		out.println(res);
+		response.setContentType("json");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

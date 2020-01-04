@@ -71,8 +71,6 @@
 								<h2 class="fh5co-lead">HOME STUDENTE</h2>
 								<p>Ciao <%=u.getName() %></p>
 							</div>
-
-
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="ListNote.jsp" class="fh5co-figure">
 									<figure>
