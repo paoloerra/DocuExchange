@@ -23,11 +23,11 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.min.js"></script
 		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/pages/scripts_signUp.js"></script>	
 		 -->
 		 
 		<script src="js/jquery-1.10.2.min.js"></script>	
 		<script src="js/pages/scripts.js"></script>
+		
 		<script src="js/pages/scripts_signUp.js"></script>
 		<script src="js/toastr.min.js"></script>
 	

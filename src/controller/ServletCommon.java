@@ -38,6 +38,7 @@ public class ServletCommon extends HttpServlet {
 		Connection connection  = null;
 
 		int flag = Integer.parseInt(request.getParameter("flag"));
+		System.out.println(flag);
 		if (flag == 1) { // login
 			String email = request.getParameter("email");
 		    String password = request.getParameter("password");
@@ -90,14 +91,67 @@ public class ServletCommon extends HttpServlet {
 		     }	
 		}
 		if(flag == 2) { //Modifica profilo
+			String sql;
+		    UserInterface u = (UserInterface) request.getSession().getAttribute("user");
+		    int type = u.getUserType();
 			String email = request.getParameter("email");
-			String name = request.getParameter("name");
-			String surname = request.getParameter("surname");
-			String password = request.getParameter("password");
-			char sesso = request.getParameter("sesso").charAt(0);	
 			System.out.println(email);
-			result = 1;
-			content = "ok";
+			String prefix = "";
+		    if (email.length() > 0) {
+		    	prefix = email.substring(0, email.indexOf("@"));
+		    }
+		     if (email.length() == 0 || !email.endsWith("@studenti.unisa.it") || prefix.length() < 3 || prefix.indexOf(".") == -1) {
+		          throw new IllegalArgumentException("Formato non corretto");
+		        }
+			String name = request.getParameter("name");
+			System.out.println(name);
+			if (name.length() == 0 || name.length() > 20 || name.length() < 2 || name.matches(".*\\d+.*")) {
+				error = "nome non corretto";
+				result = 0;
+				throw new IllegalArgumentException("Formato non corretto");
+		     }
+			String surname = request.getParameter("surname");
+			if (surname.length() == 0 || surname.length() > 20 || surname.length() < 2 || surname.matches(".*\\d+.*")) {
+				throw new IllegalArgumentException("Formato non corretto");
+		     }
+			System.out.println(surname);
+			String password = request.getParameter("password");
+			System.out.println(password);
+			if (password.length() < 8) {
+				throw new IllegalArgumentException("Formato non corretto");
+		    }
+			char sex = request.getParameter("sex").charAt(0);
+			if (sex != 'M' && sex != 'F') {
+				throw new IllegalArgumentException("Valore non corretto");
+			 }			
+			     
+			System.out.println(sex);
+			
+			sql = "UPDATE user SET Name = ?, Surname = ?, Sex = ?, Password = ?, Email_user = ? WHERE email_user = ? AND Type = ?;";
+		    try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, name);
+				stmt.setString(2, surname);
+				stmt.setString(3, String.valueOf(sex));
+				stmt.setString(4, password);
+				stmt.setString(5, email);
+				stmt.setString(6, email);
+				stmt.setInt(7, type);
+
+				if(stmt.executeUpdate() == 1) {
+					result = 1;
+					content = "Modifica effettuata";
+				}
+				else {
+					result = 0;
+					error = "Modifica non effettuata";
+				}
+				connection.commit();	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
 		}
 		JSONObject res = new JSONObject();
 		res.put("result", result);

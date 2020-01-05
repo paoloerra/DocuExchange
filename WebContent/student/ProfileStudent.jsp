@@ -16,19 +16,27 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Profilo: Studente</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="../css/simple-line-icons.css">
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/icomoon.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/simple-line-icons.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/toastr.min.css">
 		
+		<!--  
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/main.js"></script>
-		
+		-->
+		<script src="../js/jquery-1.10.2.min.js"></script>	
+		<script src="../js/pages/scripts.js"></script>
+		<script src="../js/pages/scripts_ProfileEdit.js"></script>
+		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 
@@ -95,7 +103,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 							</div>	
 							<div class="middle-form">
 								<div class="inner-form">
-									<button id="btn" type="submit" class="">Modifica dati</button>
+									<button id="btn" type="submit" class="btn">Modifica dati</button>
 								</div>
 							</div>							
 							<h4>Appunti pubblicati</h1>
