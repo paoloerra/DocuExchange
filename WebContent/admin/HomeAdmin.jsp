@@ -93,7 +93,7 @@
 							
 							<div class="clearfix visible-sm-block"></div>
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="ProfileAdmin.jsp" class="fh5co-figure">
+								<a href="ProfilePrivateAdmin.jsp" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="../images/profile.png" class="img-responsive"></div>
 									</figure>

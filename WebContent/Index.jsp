@@ -43,7 +43,7 @@
 							<div class="col-md-6 fh5co-text">
 								<h2 class="to-animate intro-animate-1">Studia con DocuExchange</h2>
 								<p class="to-animate intro-animate-2">Scopri un nuovo metodo di studio e resta in contatto con gli studenti della tua facoltà. Condividi, scarica e recensisci appunti di qualsiasi corso per svolgere al meglio il tuo esame.</p>
-								<p class="to-animate intro-animate-3"><a href="SignUp.jsp" class="btn btn-primary btn-md"><i class="icon-user"></i> Registrati</a><a href="Login.jsp" class="btn btn-primary btn-md"><i class="icon-login"></i> Accedi</a></p>
+								<p class="to-animate intro-animate-3"><a href="student/SignUp.jsp" class="btn btn-primary btn-md"><i class="icon-user"></i> Registrati</a><a href="Login.jsp" class="btn btn-primary btn-md"><i class="icon-login"></i> Accedi</a></p>
 							</div>
 
 

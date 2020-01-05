@@ -13,24 +13,19 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/simple-line-icons.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/toastr.min.css">
-		
-		<!-- 
-		<script src="js/main.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.min.js"></script
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		 -->
-		 
-		<script src="js/jquery-1.10.2.min.js"></script>	
-		<script src="js/pages/scripts.js"></script>
-		
-		<script src="js/pages/scripts_signUp.js"></script>
-		<script src="js/toastr.min.js"></script>
+		<link rel="stylesheet" href="../css/icomoon.css">
+		<link rel="stylesheet" href="../css/simple-line-icons.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/toastr.min.css">
+				
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/main.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
 	
+		<script src="../js/pages/scripts.js"></script>
+		<script src="../js/pages/scripts_signUp.js"></script>
+		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 
@@ -38,7 +33,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-                  		<a href="Index.jsp"><img src="images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
+                  		<a href="../Index.jsp"><img src="../images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
 					</div>
 				</div>
 			</div>
