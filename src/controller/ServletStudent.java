@@ -85,7 +85,7 @@ public class ServletStudent extends HttpServlet {
 				stmt.setString(4, password);
 				stmt.setString(5, String.valueOf(sesso));
 				stmt.setInt(6, userType);
-				if (stmt.executeUpdate() > 0) {
+				if (stmt.executeQuery() > 0) {
 	                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 	                System.out.println(redirect);
 					user = new Studente(email, nome, cognome, sesso, password, userType, 3);
