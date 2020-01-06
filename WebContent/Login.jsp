@@ -57,7 +57,7 @@
 								</div>
 								<button id="btn" type="submit">Login</button>
 							</form>
-							<p class=" w3l-register-p">Non ha in un account?<a href="SignUp.jsp" class="register"> Registrati</a></p>
+							<p class=" w3l-register-p">Non ha in un account?<a href="student/SignUp.jsp" class="register"> Registrati</a></p>
 						</div>
 				<!-- END LOGIN-->
 				</div>
