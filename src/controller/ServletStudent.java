@@ -75,7 +75,7 @@ public class ServletStudent extends HttpServlet {
 				throw new IllegalArgumentException("Formato non corretto");
 		    }
 			
-			String sql = "INSERT INTO User (Email_User, Name, Surname, Password, Sex, type) VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO User (Email_User, Name, Surname, Password, Sex, type, LimitDownload) VALUES (?, ?, ?, ?, ?, ?, '3')";
 			try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);

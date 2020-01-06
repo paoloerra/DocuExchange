@@ -8,6 +8,7 @@ CREATE TABLE User(
     Password VARCHAR(20) NOT NULL,
     Sex CHAR(1) NOT NULL,
     Type INTEGER(1) NOT NULL,
+    LimitDownload INTEGER(1),
     PRIMARY KEY(Email_User)
 );
 
@@ -18,6 +19,7 @@ CREATE TABLE Note(
     Description VARCHAR(255) NOT NULL,
     FilePDF BLOB NOT NULL,
     Email_User VARCHAR(35) NOT NULL,
+    Checked INTEGER(1) NOT NULL,
     PRIMARY KEY(ID_Note),
     FOREIGN KEY(Email_User) REFERENCES User(Email_User)
 );
@@ -33,16 +35,6 @@ CREATE TABLE Review(
     FOREIGN KEY(ID_Note) REFERENCES Note(ID_Note)
 );
 
-CREATE TABLE Request(
-	ID_Request INTEGER(10) AUTO_INCREMENT,
-    Course VARCHAR(40) NOT NULL,
-    Professor VARCHAR(20) NOT NULL,
-    Description VARCHAR(255) NOT NULL,
-    FilePDF BLOB NOT NULL,
-    Email_User VARCHAR(35) NOT NULL,
-    PRIMARY KEY(ID_Request),
-    FOREIGN KEY(Email_User) REFERENCES User(Email_User)
-);
 
 CREATE TABLE Professor(
 	Nome_Professor VARCHAR(30) NOT NULL,
