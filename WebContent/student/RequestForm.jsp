@@ -1,5 +1,15 @@
-RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface"%>
+<%
+	String pageName = "RequestForm.jsp";
+	String pageFolder = "student";
+	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
+    UserInterface u = (UserInterface) session.getAttribute("user");
+    String email = u.getEmail();
+	if(!ck.isAllowed()){
+		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
+	}	
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,21 +31,20 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
+		<script src="../js/pages/scripts_request.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 
-		<jsp:include page="../partials/navbar.jsp"/>
-		
-
+	<jsp:include page="../partials/navbar.jsp"/>
 
 	<div id="fh5co-page">
 		<div id="fh5co-wrap">
 			<div id="fh5co-main">
 				<div class="wrapper">
 					<h1>RICHIESTA CONDIVISIONE</h1>
-						<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
+						<form id="request">
 							<div class="form">
 								<div class="top-form">
 									<div class="inner-form">
@@ -92,13 +101,13 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 								</div>
 								<div class="bottom-form">
 									<div class="inner-form">
-										<textarea name="descrizione" placeholder="Descrizione appunto, argomenti trattati."></textarea>
+										<textarea id="description" placeholder="Descrizione appunto, argomenti trattati."></textarea>
 									</div>
 								</div>
-								Inserisci PDF: <input type="file" name="image" required="required">
+								Inserisci PDF: <input type="file" name="image">
 								<div class="middle-form">
 									<div class="inner-form">
-										<button type="submit" class="btn">Invia</button>
+										<button id="btn" type="submit" class="btn">Invia</button>
 									</div>
 								</div>
 							</div>

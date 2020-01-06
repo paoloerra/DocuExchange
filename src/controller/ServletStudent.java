@@ -102,9 +102,24 @@ public class ServletStudent extends HttpServlet {
 			}	
 		}
 		if(flag == 2) { //Invio richiesta
+	       System.out.println("Sono nel flag 2");
+		   UserInterface student = (UserInterface) request.getSession().getAttribute("user");
+	       String email = student.getEmail();
+	       System.out.println(email);
 	       
+	       String course = request.getParameter("course");
+	       System.out.println(course);
+			
+	       String professor = request.getParameter("professor");
+	       System.out.println(professor);
+		   		        
+	       String description = request.getParameter("description");
+	       System.out.println(description);
+			
+			
+		   //String sql = "INSERT INTO User (Email_User, Name, Surname, Password, Sex, type, LimitDownload) VALUES (?, ?, ?, ?, ?, ?, '3')";
+			
 		}
-	    
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);
