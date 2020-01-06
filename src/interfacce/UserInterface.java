@@ -13,6 +13,8 @@ public interface UserInterface {
   public String getPassword();
   
   public int getUserType();
+  
+  public int getLimitDownload();
 
   // set
   public void setEmail(String e);
@@ -26,6 +28,9 @@ public interface UserInterface {
   public void setPassword(String p);
   
   public void setUserType(int u);
+  
+  public void setLimitDownload(int l);
+
 
 
 }

@@ -35,18 +35,6 @@ CREATE TABLE Review(
     FOREIGN KEY(ID_Note) REFERENCES Note(ID_Note)
 );
 
-
-CREATE TABLE Professor(
-	Nome_Professor VARCHAR(30) NOT NULL,
-    PRIMARY KEY(Nome_Professor)
-);
-
-CREATE TABLE Course(
-	Nome_Course VARCHAR(40) NOT NULL,
-    Nome_Professor VARCHAR(30) NOT NULL,
-    PRIMARY KEY(Nome_Course),
-    FOREIGN KEY(Nome_Professor) REFERENCES Professor(Nome_Professor)
-);
     
     
 	

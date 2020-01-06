@@ -80,6 +80,10 @@ public class Admin implements UserInterface {
   public int getUserType() {
     return userType;
   }
+  
+  public int getLimitDownload() {
+	  return 0;
+  }
 
   /**
    * Set the email of the Admin.
@@ -90,6 +94,8 @@ public class Admin implements UserInterface {
     this.email = email;
   }
 
+  public void setLimitDownload() {
+  }
   /**
    * Set the name of the Admin.
    * 
@@ -134,6 +140,11 @@ public class Admin implements UserInterface {
   public void setUserType(int userType) {
     this.userType = userType;
   }
+
+public void setLimitDownload(int l) {
+	// TODO Auto-generated method stub
+	
+}
 
   /**
    * Specifies if the user is allowed to see the page.

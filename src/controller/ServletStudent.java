@@ -88,7 +88,7 @@ public class ServletStudent extends HttpServlet {
 				if (stmt.executeUpdate() > 0) {
 	                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 	                System.out.println(redirect);
-					user = new Studente(email, nome, cognome, sesso, password, userType);
+					user = new Studente(email, nome, cognome, sesso, password, userType, 3);
 	                request.getSession().setAttribute("user", user);
 	                content = "Registrazione effettuata correttamente.";
 	                result = 1;
@@ -100,6 +100,9 @@ public class ServletStudent extends HttpServlet {
 			} catch(SQLException e) {
 				System.out.print(e);
 			}	
+		}
+		if(flag == 2) { //Invio richiesta
+	       
 		}
 	    
 		 JSONObject res = new JSONObject();

@@ -12,6 +12,7 @@ public class Studente implements UserInterface {
 	  private String password;
 	  private char sex;
 	  private int userType;
+	  private int limitDownload;
 
 
 	  /**
@@ -24,13 +25,14 @@ public class Studente implements UserInterface {
 	   * @param password is the password that the Student uses to Log in the site.
 	   * @param userType specifies the type of the user (0,1,2).
 	   */
-	  public Studente(String email, String name, String surname, char sex, String password, int userType) {
+	  public Studente(String email, String name, String surname, char sex, String password, int userType, int limitDownload) {
 	    this.email = email;
 	    this.name = name;
 	    this.surname = surname;
 	    this.password = password;
 	    this.sex = sex;
 	    this.userType = userType;
+	    this.limitDownload = limitDownload;
 
 	  }
 
@@ -72,6 +74,10 @@ public class Studente implements UserInterface {
 	   */
 	  public String getPassword() {
 	    return password;
+	  }
+	  
+	  public int getLimitDownload() {
+		  return limitDownload;
 	  }
 	  /**
 	   * Set the email of the Admin.
@@ -128,6 +134,10 @@ public class Studente implements UserInterface {
 	  
 	  public void setUserType(int UserType) {
 		  this.userType = UserType;
+	  }
+	  
+	  public void setLimitDownload(int limit) {
+		  this.limitDownload = limit;
 	  }
 	  //NON HO CAPITO penso nella fase di testing si faccia
 	/*  @Override
