@@ -4,7 +4,7 @@ $(document).ready(function() {
 			$(".preloader").show();	
 			
 			$.ajax({
-					url : '../ServletCommon?flag=4',
+					url : '../ServletCommon?flag=5',
 					type : "POST",
 					dataType : 'JSON',
 					async : true,
@@ -19,7 +19,7 @@ $(document).ready(function() {
 						}
 					},
 					error : function(msg) {
-						showAlert(1,"Errore registrazione");
+						showAlert(1,"Errore");
 					}
 				});
 

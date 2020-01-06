@@ -1,11 +1,13 @@
 package controller;
 
+import java.awt.List;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -160,7 +162,7 @@ public class ServletCommon extends HttpServlet {
 		}
 		if(flag == 3) { //Lista studenti
             redirect = request.getContextPath() + "/student/ListStudent.jsp";            
-            Collection<UserInterface> students = new LinkedList<UserInterface>();
+            ArrayList<UserInterface> students = new ArrayList<UserInterface>();
             String emailUser = userS.getEmail();
             System.out.println(emailUser);
             String sql = "SELECT * from user WHERE Type = 0 AND email_user != ?;";
@@ -186,7 +188,23 @@ public class ServletCommon extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		if(flag == 4) { //Logout
+		if(flag == 4) { //Visualizza profilo di uno studente
+			ArrayList<UserInterface> students = (ArrayList<UserInterface>) request.getSession().getAttribute("students");
+			System.out.println("Sono nel flag 4!");
+			int index = Integer.parseInt(request.getParameter("index"));
+			System.out.println(index);
+			UserInterface student = students.get(index);
+			if(student != null) {
+				System.out.println(student.getName());
+				request.getSession().setAttribute("profile", student);
+				result = 1;
+		        redirect = request.getContextPath() + "/student/ProfileStudent.jsp";  
+			} else {
+				result = 1;
+				error = "Errore visualizzazione profilo";
+			}
+		}
+		if(flag == 5) { //Logout
             redirect = request.getContextPath() + "/Index.jsp";  
             request.getSession().removeAttribute("user");
             request.getSession().invalidate();

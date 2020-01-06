@@ -32,15 +32,13 @@
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
+		<script src="../js/pages/scripts_showProfile.js"></script>
 		<script src="../js/pages/scripts.js"></script>
-		<script src="../js/pages/scripts_listStudent.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 
 	<jsp:include page="../partials/navbar.jsp"/>
-
-
 
 	<div id="fh5co-page">
 		<div id="fh5co-wrap">
@@ -60,10 +58,11 @@
 						</div>
 				</form>
 				
-					<table class="table table-bordered">
+					<table id="table" class="table table-bordered table-striped table-hover">
 						<tbody>
 						<%
 							if(students != null && students.size() > 0) {
+								int index = 0;
 								String sex = "";
 								Iterator<?> it = students.iterator();
 								while(it.hasNext()){
@@ -76,11 +75,12 @@
 									}
 						%>
 							<tr>
+								<td hidden><%=index %></td>
 								<td><div style="text-align: center;"><img src=<%=sex%>></div></td>
-							    <td><b>Nome: </b><%=bean.getName()%><br><br><b>Cognome: </b><%=bean.getSurname()%><br></td>
-							    <td><a href="ProfileStudent.jsp" class="badge badge-dark"><b>Visualizza profilo</b></a></td>
+							    <td><b>Nome: </b><%=bean.getName()%><br><br><b>Cognome: </b><%=bean.getSurname()%><br></td>							    						    
 							</tr>
 						<%
+								index++;
 							}
 						} else {
 						%>

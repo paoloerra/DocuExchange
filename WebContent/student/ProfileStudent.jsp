@@ -1,20 +1,22 @@
 RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, java.util.LinkedList, java.util.Collection"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, java.util.ArrayList, interfacce.UserInterface, java.util.LinkedList, java.util.Collection"%>
 <%
 	String pageName = "ProfileStudent.jsp";
 	String pageFolder = "student";
 	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
-    UserInterface u = (UserInterface) session.getAttribute("user");
+    UserInterface u = (UserInterface) session.getAttribute("profile");
 	if(!ck.isAllowed()){
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
+	String name = u.getName();
+	name = name.toUpperCase();
 %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Profilooo</title>
+		<title>Profilo: <%=u.getName()%></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -31,7 +33,8 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<script src="../js/bootstrap.min.js"></script>
 	
 		<script src="../js/pages/scripts.js"></script>
-		<script src="../js/pages/scripts_ProfileEdit.js"></script>
+		<script src="../js/pages/scripts_listStudent.js"></script>
+		<script src="../js/pages/scripts_showStudent.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
@@ -42,7 +45,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 			<div id="fh5co-wrap">
 				<div id="fh5co-main">
 					<div class="wrapper">
-						<h1>PROFILO DI PAOLO</h1>
+						<h1>PROFILO DI <%=name%></h1>
 						<form id="profile">
 						<div class="form">
 							<div class="top-form">
@@ -63,10 +66,6 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 								<div class="inner-form">
 									<div class="label">Sesso</div>
 										<input id="sex" type="text" type="text" value="<%=u.getEmail()%>" readonly>
-								</div>
-								<div class="inner-form">
-									<div class="label">Password</div>
-										<input id="password" type="password" type="text" value="<%=u.getPassword()%>" required>
 								</div>
 							</div>	
 							<div class="middle-form"></div>	
@@ -118,9 +117,5 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 
 	<!-- FOOTER -->
 	<jsp:include page="../partials/footer.jsp"/>
-
-
-
-
 	</body>
 </html>
