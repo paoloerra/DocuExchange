@@ -134,7 +134,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="footer.html" %>
+	<jsp:include page="partials/footer.jsp"/>
 
 
 

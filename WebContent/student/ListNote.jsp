@@ -23,27 +23,8 @@
 	</head>
 	<body>
 
-		<!-- NAVBAR -->
-		<div id="fh5co-offcanvass">
-			<ul>
-				<li class="active"><a href="HomeStudent.jsp" data-nav-section="home"><i class="icon-grid"></i> Home</a></li>
-				<li><a href="#"><i class="icon-user"></i> Studente: </a></li>
-				<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
-				<li><a href="#"><i class="icon-logout"></i> Logout</a></li>
-			</ul>
-		</div>
-		
-		<div id="fh5co-menu" class="navbar">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>					
-                  		<a href=""><img src="../images/DocuExchange_1.png" width="230" height="50" alt="simple logo"></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END NAVBAR -->
+		<jsp:include page="../partials/navbar.jsp"/>
+
 
 
 	<div id="fh5co-page">
@@ -129,7 +110,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<%@include file="../footer.html" %>
+	<jsp:include page="../partials/footer.jsp"/>
 
 
 

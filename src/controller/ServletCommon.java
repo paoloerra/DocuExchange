@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +38,10 @@ public class ServletCommon extends HttpServlet {
 		Integer result = 0;
 	    PreparedStatement stmt = null;
 		Connection connection  = null;
+		
+		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
 
+		
 		int flag = Integer.parseInt(request.getParameter("flag"));
 		System.out.println(flag);
 		if (flag == 1) { // login
@@ -152,6 +157,41 @@ public class ServletCommon extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  
+		}
+		if(flag == 3) { //Lista studenti
+            redirect = request.getContextPath() + "/student/ListStudent.jsp";            
+            Collection<UserInterface> students = new LinkedList<UserInterface>();
+            String emailUser = userS.getEmail();
+            System.out.println(emailUser);
+            String sql = "SELECT * from user WHERE Type = 0 AND email_user != ?;";
+            try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, emailUser);
+				ResultSet rs = stmt.executeQuery();	
+				while(rs.next()){
+					UserInterface student = new Studente();	
+					student.setName(rs.getString("Name"));
+					student.setSurname(rs.getString("Surname"));
+					student.setEmail(rs.getString("Email_User"));
+					student.setSex(rs.getString("sex").charAt(0));
+					student.setPassword("");
+					students.add(student);
+				}
+				System.out.println(students.size());
+				request.getSession().setAttribute("students", students);
+				result = 1;
+				content = "ok";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if(flag == 4) { //Logout
+            redirect = request.getContextPath() + "/Index.jsp";  
+            request.getSession().removeAttribute("user");
+            request.getSession().invalidate();
+            result = 1;
+            content = "Logout effettuato";
 		}
 		JSONObject res = new JSONObject();
 		res.put("result", result);

@@ -85,11 +85,11 @@
 			              	</div>
 			              </div>
 			              <button id="btn" type="submit">Registrati</button>
-			              <p class=" w3l-register-p">Hai un account?<a href="Login.jsp" class="register"> Effettua il login</a></p>
+			              <p class=" w3l-register-p">Hai un account?<a href="../Login.jsp" class="register"> Effettua il login</a></p>
 			          </form>
 			      </div>
 		</div>
 	</div>
-	<%@include file="/footer.html" %>
+	<jsp:include page="../partials/footer.jsp"/>
 	</body>
 </html>

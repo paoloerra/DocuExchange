@@ -31,7 +31,7 @@ $(document).ready(function() {
 							showAlert(0,msg.content);
 							setTimeout(function() {
 								window.location.href = msg.redirect;
-							}, 2000);
+							}, 500);
 						}
 					},
 					error : function(msg) {

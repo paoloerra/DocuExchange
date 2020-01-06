@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-	<head>
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-			<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-			<link rel="stylesheet" href="css/icomoon.css">
-			<link rel="stylesheet" href="css/simple-line-icons.css">
-			<link rel="stylesheet" href="css/style.css">
-	</head>
-	
-	<body>
-		<footer id="fh5co-footer" style="">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+  
+<footer id="fh5co-footer" style="">
 				<div class="fh5co-overlay"></div>
 				<div class="fh5co-footer-content">
 					<div class="container">
@@ -39,14 +30,9 @@
                   				<a href="#"><img src="../images/logofooter.png" width="230" height="50" alt=""></a>
 								<p class="fh5co-copyright"><small>&copy; 2019. All Rights Reserved.</p>
 								<p class="fh5co-copyright"><small>DocuExchange Unisa Informatica</p>
-								<p class="fh5co-copyright"><small>Progetto Ingegneria del Software 2019/2020</p>
-								
-								
+								<p class="fh5co-copyright"><small>Progetto Ingegneria del Software 2019/2020</p>							
 							</div>
-		
 						</div>
 					</div>
 				</div>
 			</footer>
-	</body>
-</html>
