@@ -1,4 +1,4 @@
-RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="controller.CheckSession, java.util.ArrayList, interfacce.UserInterface, java.util.LinkedList, java.util.Collection"%>
 <%
 	String pageName = "ProfileStudent.jsp";
@@ -43,7 +43,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 			<div id="fh5co-wrap">
 				<div id="fh5co-main">
 					<div class="wrapper">
-						<h1>PROFILO DI <%=name%></h1>
+						<h1>PROFILO DI <%=u.getName()%></h1>
 						<form id="profile">
 						<div class="form">
 							<div class="top-form">

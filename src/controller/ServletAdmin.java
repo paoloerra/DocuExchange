@@ -43,7 +43,6 @@ public class ServletAdmin extends HttpServlet {
 		Connection connection  = null;
 
 		int flag = Integer.parseInt(request.getParameter("flag"));
-		System.out.println(flag);
 		if(flag == 1) { //Visualizza richieste
             ArrayList<Note> requests = new ArrayList<Note>();
             String sql = "SELECT * from note WHERE Checked = 0;";
@@ -72,6 +71,7 @@ public class ServletAdmin extends HttpServlet {
 		}
 		if(flag == 2) { //Visualizza singola richiesta
 			int index = Integer.parseInt(request.getParameter("index"));
+			request.getSession().setAttribute("index", index);
 			ArrayList<Note> requests = (ArrayList<Note>) request.getSession().getAttribute("requests");
 			Note req = requests.get(index);
 			if(req != null) {
@@ -82,6 +82,41 @@ public class ServletAdmin extends HttpServlet {
 				result = 1;
 				error = "Errore visualizzazione profilo";
 			}
+		}
+		if(flag == 3) { //Verifica richiesta
+			ArrayList<Note> requests = (ArrayList<Note>) request.getSession().getAttribute("requests");
+			int index =(Integer) request.getSession().getAttribute("index");
+			int outcome = Integer.parseInt(request.getParameter("outcome"));
+			String id = request.getParameter("id");
+			System.out.println(id);
+			System.out.println(outcome);
+			String sql = "";
+			if(outcome == 1){ 
+				sql = "UPDATE note SET checked = 1 WHERE ID_Note = ?;";
+				requests.remove(index);
+			}
+			else if(outcome == 0){ 
+				sql = "DELETE FROM note WHERE ID_Note = ?";
+				requests.remove(index);
+			}
+			try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, id);
+				System.out.println(stmt.toString());
+				if(stmt.executeUpdate() == 1) {
+					result = 1;
+			        redirect = request.getContextPath() + "/admin/ListRequest.jsp";  
+				}
+				else {
+					result = 0;
+					error = "Richiesta non verificata";
+				}
+				connection.commit();	
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}  
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);

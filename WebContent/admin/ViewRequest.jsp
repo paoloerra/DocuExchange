@@ -10,6 +10,7 @@
 	}
 	
     Note req = (Note) session.getAttribute("req");
+    int id_request = req.getIdNote();
 
 %>
 <!DOCTYPE html>
@@ -33,6 +34,7 @@
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
+		<script src="../js/pages/scripts_checkRequest.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
@@ -51,7 +53,9 @@
 						<div class="top-form">
 							<div class="inner-form">
 								<div class="label">Corso</div>
-								<input type="text" type="text" value="<%=req.getCourse()%>" readonly>
+								<input type="text" type="text" value="<%=req.getCourse()%>" readonly>	
+								<input id="id" type="text" value="<%=id_request%>" hidden>								
+															
 							</div>
 							<div class="inner-form">
 								<div class="label">Professore</div>
@@ -65,7 +69,7 @@
 						<div class="top-form">
 							<div class="inner-form">
 								<div class="label">Email autore </div>
-								<input type="text" type="text" value="<%=req.getStudentEmail()%>" readonly>
+								<input type="text" id="email" type="text" value="<%=req.getStudentEmail()%>" readonly>
 							</div>
 						</div>
 						<div class="bottom-form">
@@ -76,8 +80,8 @@
 						<button type="submit" class="btn">Scarica PDF</button>
 						<div class="middle-form">
 							<div class="inner-form">
-								<button type="submit" class="btn">Accetta</button>
-								<button type="submit" class="btn">Rifiuta</button>	
+								<button id="btnAccepted" class="btn">Accetta</button>
+								<button id="btnRifiuted" class="btn">Rifiuta</button>	
 							</div>
 						</div>
 					</div>

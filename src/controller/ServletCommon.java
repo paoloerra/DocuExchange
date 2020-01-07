@@ -33,7 +33,6 @@ public class ServletCommon extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("sono quii");
     	String error = "";
 		String content = "";
 		String redirect = "";
