@@ -7,7 +7,10 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +21,7 @@ import javax.servlet.http.Part;
 import org.json.simple.JSONObject;
 
 import interfacce.UserInterface;
+import model.Note;
 import model.Studente;
 
 
@@ -137,7 +141,34 @@ public class ServletStudent extends HttpServlet {
 			} catch(SQLException e) {
 				System.out.print(e);
 			}	
-			
+		}
+		if(flag == 3) { //Visualizza lista appunti
+			System.out.println(flag);
+            ArrayList<Note> notes = new ArrayList<Note>();
+            String sql = "SELECT * from note WHERE Checked = 1;";
+            System.out.println(sql);
+            try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery();	
+				while(rs.next()){
+					Note n = new Note();	
+					n.setIdNote(rs.getInt("ID_Note"));
+					n.setCourse(rs.getString("Course"));
+					n.setProfessor(rs.getString("Professor"));
+					n.setDescription(rs.getString("Description"));
+					n.setStudentEmail(rs.getString("Email_User"));
+					n.setAutor(rs.getString("autor"));
+					n.setChecked(0);
+					n.setFileName("");
+					notes.add(n);
+				}
+				request.getSession().setAttribute("Notes", notes);
+				result = 1;
+				redirect =  request.getContextPath() + "/student/ListNote.jsp";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	     	
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
