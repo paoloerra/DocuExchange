@@ -106,6 +106,21 @@
 												if(a == 'Ricerca operativa') {
 													var array=["Cerulli Raffaele", "Carrabs Francesco"];
 												}
+												if(a == 'Calcolo scientifico') {
+													var array=["Conte Dajana"];
+												}
+												if(a == 'Grafica ed Interattivita') {
+													var array=["Abate Andrea Francesco"];
+												}
+												if(a == 'Sicurezza') {
+													var array=["De Santis Alfredo"];
+												}
+												if(a == 'Programmazione avanzata') {
+													var array=["De Bonis Annalisa"];
+												}
+												if(a == 'Interazione uomo macchina') {
+													var array=["Vitiello Giuliana"];
+												}
 												//non ho messo gli esami a scelta perchè è inutile 
 												var string = "";
 												for(i = 0; i <array.length; i++) {
@@ -134,6 +149,10 @@
 												<option>Programmazione distribuita</option>												
 												<option>Elementi di teoria della computazione</option>
 												<option>Ricerca operativa</option>
+												<option>Calcolo scientifico</option>
+												<option>Grafica ed Interattivita</option>
+												<option>Programmazione avanzata</option>
+												<option>Interazione uomo macchina</option>
 												</select>
 									</div>
 									<div class="inner-form">
