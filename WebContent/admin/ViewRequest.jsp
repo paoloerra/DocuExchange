@@ -1,5 +1,17 @@
-RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, model.Note"%>
+<%
+	String pageName = "ViewRequest.jsp";
+	String pageFolder = "admin";
+	CheckSession ck = new CheckSession(pageFolder, pageName, request.getSession());
+    UserInterface u = (UserInterface) session.getAttribute("user");
+	if(!ck.isAllowed()){
+		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
+	}
+	
+    Note req = (Note) session.getAttribute("req");
+
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,105 +24,68 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
 		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="../css/simple-line-icons.css">
+		<link rel="stylesheet" href="..>/css/simple-line-icons.css">
 		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/toastr.min.css">
 		
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/jquery-3.4.1.min.js"></script>
 		<script src="../js/main.js"></script>
+		<script src="../js/jquery.magnific-popup.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+	
+		<script src="../js/pages/scripts.js"></script>
+		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 
 	<jsp:include page="../partials/navbar.jsp"/>
 	
-
-
 	<div id="fh5co-page">
 		<div id="fh5co-wrap">
-
-
-
 			<div id="fh5co-main">
-
-			<!-- REQUEST -->
-			<div class="wrapper">
-			<h1>VERIFICA RICHIESTA</h1>
-
-			<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
-				<div class="form">
-
-					<div class="top-form">
-								<div class="inner-form">
-									<div class="label">Corso</div>
-									<input type="text" name="corso" type="text" required>
-								</div>
-
-								<div class="inner-form">
-									<div class="label">Professore</div>
-										<input type="text" name="professore" type="text" required>
-								</div>
-								
-								<div class="inner-form">
-									<div class="label">Studente</div>
-									<input type="text" name="studente" type="text" required>
-								</div>
-
-								
-						</div>
-						
+				<!-- REQUEST -->
+				<div class="wrapper">
+				<h1>VERIFICA RICHIESTA</h1>
+				<form id="form">
+					<div class="form">
 						<div class="top-form">
-								
-
-								<div class="inner-form">
-									<div class="label">Email </div>
-									<input type="text" name="email" type="text" required>
-								</div>
-
-
+							<div class="inner-form">
+								<div class="label">Corso</div>
+								<input type="text" type="text" value="<%=req.getCourse()%>" readonly>
+							</div>
+							<div class="inner-form">
+								<div class="label">Professore</div>
+								<input type="text" type="text" value="<%=req.getProfessor()%>" readonly>
+							</div>
+							<div class="inner-form">
+								<div class="label">Autore</div>
+								<input type="text" type="text" value="<%=req.getAutor()%>" readonly>
+							</div>	
 						</div>
-
-						
-						<div class="bottom-form">
-								<div class="inner-form">
-									<textarea name="descrizione" placeholder="Descrizione appunto, argomenti trattati."></textarea>
-								</div>
-						</div>
-
-
-						<button type="submit" class="btn">Scarica PDF</button>
-
-
-
-								<div class="middle-form">
-								<div class="inner-form">
-									<button type="submit" class="btn">Accetta</button>
-									<button type="submit" class="btn">Rifiuta</button>
-									
+						<div class="top-form">
+							<div class="inner-form">
+								<div class="label">Email autore </div>
+								<input type="text" type="text" value="<%=req.getStudentEmail()%>" readonly>
 							</div>
 						</div>
-
+						<div class="bottom-form">
+							<div class="inner-form">
+								<textarea readonly><%=req.getDescription()%></textarea>
+							</div>
+						</div>
+						<button type="submit" class="btn">Scarica PDF</button>
+						<div class="middle-form">
+							<div class="inner-form">
+								<button type="submit" class="btn">Accetta</button>
+								<button type="submit" class="btn">Rifiuta</button>	
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
-			</form>
 		</div>
-
-		<!-- END REQUEST-->
-
-
-
-
-
-
-		</div>
-
-
 	</div>
-
 	<!-- FOOTER -->
 	<jsp:include page="../partials/footer.jsp"/>
-
-
-
-
 	</body>
 </html>

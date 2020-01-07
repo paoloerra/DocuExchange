@@ -115,7 +115,7 @@ public class ServletStudent extends HttpServlet {
 	       File theFile = new File(file_name);
 	       FileInputStream input = new FileInputStream(theFile);
 	       		
-	       String sql = "INSERT INTO Note (Course, Professor, Description, Email_User, FilePDF ,Checked) VALUES (?, ?, ?, ?, ?, 0)";
+	       String sql = "INSERT INTO Note (Course, Professor, Description, Email_User, FilePDF , Autor, Checked) VALUES (?, ?, ?, ?, ?, ?, 0)";
 	       try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);
@@ -124,6 +124,7 @@ public class ServletStudent extends HttpServlet {
 				stmt.setString(3, description);
 				stmt.setString(4, email);
 				stmt.setBinaryStream(5, input);
+				stmt.setString(6, student.getName() +" "+student.getSurname());
 				if (stmt.executeUpdate() > 0) {
 	                System.out.println(redirect);
 	                content = "Invio richiesta effettuato.";

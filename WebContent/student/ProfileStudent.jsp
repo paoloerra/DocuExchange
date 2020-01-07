@@ -8,8 +8,6 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 	if(!ck.isAllowed()){
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
-	String name = u.getName();
-	name = name.toUpperCase();
 %>
 <!DOCTYPE html>
 <html>

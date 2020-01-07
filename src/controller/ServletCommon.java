@@ -190,7 +190,6 @@ public class ServletCommon extends HttpServlet {
 		}
 		if(flag == 4) { //Visualizza profilo di uno studente
 			ArrayList<UserInterface> students = (ArrayList<UserInterface>) request.getSession().getAttribute("students");
-			System.out.println("Sono nel flag 4!");
 			int index = Integer.parseInt(request.getParameter("index"));
 			System.out.println(index);
 			UserInterface student = students.get(index);

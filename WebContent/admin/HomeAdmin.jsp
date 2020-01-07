@@ -32,7 +32,7 @@
 		<script src="../js/bootstrap.min.js"></script>
 	
 		<script src="../js/pages/scripts.js"></script>
-		<script src="../js/pages/scripts_listStudent.js"></script>
+		<script src="../js/pages/scripts_listRequest.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
@@ -60,7 +60,7 @@
 
 
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="ListRequest.jsp" class="fh5co-figure">
+								<a id="btn" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="../images/listrequest.png" class="img-responsive"></div>
 									</figure>
