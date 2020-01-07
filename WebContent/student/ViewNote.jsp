@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, model.Note"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, model.Note, java.util.LinkedList, java.util.Collection, java.util.*, model.Review"%>
 <%
 	String pageName = "ViewNote.jsp";
 	String pageFolder = "student";
@@ -9,8 +9,10 @@
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
 	
-	 Note note = (Note) session.getAttribute("Note");
-	 int id_note = note.getIdNote();
+	Note note = (Note) session.getAttribute("Note");
+	int id_note = note.getIdNote();
+	Collection<?> Reviews = (Collection<?>) request.getSession().getAttribute("Reviews");
+	System.out.println("Sono nella jsp"+ Reviews.size());
 %>
 <!DOCTYPE html>
 <html>
@@ -94,69 +96,34 @@
 						<div class="bottom-form"></div>
 						
 						
-						
-
+						<%
+						if(Reviews != null && Reviews.size() > 0) {
+						Iterator<?> it = Reviews.iterator();
+						%>
 						<h4>RECENSIONI</h4>
-						
-							<div class="card-group">
-							  <div class="card">
-							    <div class="card-body">
-							      <h5 class="card-title">Paolo Erra</h5>
-							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							    </div>
-							    <div class="card-footer">
-							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
-							    </div>
-							  </div>
-							  <div class="card">
-							    <div class="card-body">
-							      <h5 class="card-title">Paolo Erra</h5>
-							      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-							    </div>
-							    <div class="card-footer">
-							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
-							    </div>
-							  </div>
-							  <div class="card">
-							    <div class="card-body">
-							      <h5 class="card-title">Paolo Erra</h5>
-							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-							    </div>
-							    <div class="card-footer">
-							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
-							    </div>
-							  </div>
-							</div>
-							<div class="card-group">
-							  <div class="card">
-							    <div class="card-body">
-							      <h5 class="card-title">Paolo Erra</h5>
-							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							    </div>
-							    <div class="card-footer">
-							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
-							    </div>
-							  </div>
-							  <div class="card">
-							    <div class="card-body">
-							      <h5 class="card-title">Paolo Erra</h5>
-							      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-							    </div>
-							    <div class="card-footer">
-							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
-							    </div>
-							  </div>
-							  <div class="card">
-							    <div class="card-body">
-							      <h5 class="card-title">Paolo Erra</h5>
-							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-							    </div>
-							    <div class="card-footer">
-							      <small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small>
-							    </div>
-							  </div>
-							</div>
-							
+						<div style="width: 920px; height:400px; overflow-y: scroll;">
+						<%
+						int i = 0;
+						while(i < 3 && it.hasNext()){
+							Review review = (Review) it.next();
+						%>
+						<div class="card">
+						  <div class="card-body">
+						    <h5 class="card-title"><%=review.getAutor()%></h5>
+						    <p class="card-text"><%=review.getComment()%>.</p>
+						    <p class="card-text">
+						    	<%int star = review.getStar();
+						    	int j = 0;
+						    	while(j < star){
+						    		j++;
+						    	%>
+						    	<img src="../images/star.png">
+						    	<% }%>
+						    </p>
+						  </div>
+						</div>
+						<% } }%>
+						</div>
 						<div class="bottom-form"></div>
 													
 						<h4>FAI UNA RECENSIONE</h4>

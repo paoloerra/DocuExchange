@@ -9,6 +9,7 @@ public class Review {
 	private int idNote;
 	private String comment;
 	private int star;
+	private String autor;
 	
 	
 	/**
@@ -20,13 +21,17 @@ public class Review {
 	 * @param star number of star
 	 */
 	
-	public Review(int idReview,String studentEmail,int idNote,String comment,int star) {
-		
+	public Review(int idReview,String studentEmail,int idNote,String comment,int star, String autor) {
 		this.idReview=idReview;
 		this.idNote=idNote;
 		this.comment=comment;
 		this.studentEmail=studentEmail;
 		this.star=star;
+		this.autor = autor;
+	}
+	
+	public Review() {
+		
 	}
 	/**
 	 * 
@@ -106,6 +111,13 @@ public class Review {
 		this.star = star;
 	}
 
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	
+	public String getAutor() {
+		return autor;
+	}
 
 	
 }

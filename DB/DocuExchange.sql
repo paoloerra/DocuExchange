@@ -30,6 +30,7 @@ CREATE TABLE Review(
     Comment VARCHAR(255),
     Stars INTEGER(10) NOT NULL,
     Email_User VARCHAR(35) NOT NULL,
+	Autor VARCHAR(35) NOT NULL,
     ID_Note INTEGER(10) NOT NULL,
     PRIMARY KEY(ID_Review),
     FOREIGN KEY(Email_User) REFERENCES User(Email_User),

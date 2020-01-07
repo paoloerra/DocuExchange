@@ -22,6 +22,7 @@ import org.json.simple.JSONObject;
 
 import interfacce.UserInterface;
 import model.Note;
+import model.Review;
 import model.Studente;
 
 
@@ -223,10 +224,30 @@ public class ServletStudent extends HttpServlet {
 			Note note = notes.get(index);
 			if(note != null) {
 				request.getSession().setAttribute("Note", note);
-				result = 1;
-		        redirect = request.getContextPath() + "/student/ViewNote.jsp";  
+	            ArrayList<Review> reviews = new ArrayList<Review>();
+	            String sql = "SELECT * from review WHERE ID_Note = ?;";
+	            try {
+					connection = DBConnection.getConnection();
+					stmt = connection.prepareStatement(sql);
+					stmt.setInt(1, note.getIdNote());
+					ResultSet rs = stmt.executeQuery();	
+					System.out.println(stmt.toString());
+					while(rs.next()){
+						Review review = new Review();
+						review.setComment(rs.getString("Comment"));
+						review.setStar(rs.getInt("Stars"));
+						review.setAutor(rs.getString("Autor"));
+						reviews.add(review);
+					}
+					System.out.println("Size:" +reviews.size());
+					request.getSession().setAttribute("Reviews", reviews);
+					result = 1;
+			        redirect = request.getContextPath() + "/student/ViewNote.jsp";  
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			} else {
-				result = 1;
+				result = 0;
 				error = "Errore visualizzazione appunto";
 			}
 		}
@@ -238,8 +259,8 @@ public class ServletStudent extends HttpServlet {
 	    	System.out.print(id_note);
 	    	String email = userS.getEmail();
 	    	System.out.println(email);
-	    	
-		    String sql = "INSERT INTO Review (Comment, Stars, Email_User, ID_Note) VALUES (?, ?, ?, ?)";
+	    	String autor = userS.getName()+" "+userS.getSurname();
+		    String sql = "INSERT INTO Review (Comment, Stars, Email_User, ID_Note, Autor) VALUES (?, ?, ?, ?, ?)";
 		    try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);
@@ -247,10 +268,19 @@ public class ServletStudent extends HttpServlet {
 				stmt.setInt(2, star);
 				stmt.setString(3, email);
 				stmt.setInt(4, id_note);
+				stmt.setString(5, autor);
 				if (stmt.executeUpdate() > 0) {
-	                System.out.println(redirect);
+					Review r = new Review();
+					r.setComment(review);
+					r.setStar(star);
+					r.setAutor(autor);
+		            ArrayList<Review> reviews = (ArrayList<Review>) request.getSession().getAttribute("Reviews");
+		            reviews.add(r);
+		            request.getSession().removeAttribute("Reviews");
+		            request.getSession().setAttribute("Reviews", reviews);
 	                content = "Recensione effettuata";
 	                result = 1;
+	                redirect = request.getContextPath() + "/student/ViewNote.jsp";  
 	              } else {
 	            	  result = 0;
 	            	  error = "Errore invio recensione";
@@ -258,13 +288,7 @@ public class ServletStudent extends HttpServlet {
 					connection.commit();
 			} catch(SQLException e) {
 				System.out.print(e);
-			}	
-
-	    	
-	    	
-	    	result = 1;
-	        redirect = request.getContextPath() + "/student/ViewNote.jsp";  
-
+			}
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);

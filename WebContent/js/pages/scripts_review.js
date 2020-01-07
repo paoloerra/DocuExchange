@@ -32,6 +32,9 @@ $(document).ready(function() {
 								showAlert(1,msg.error);
 							} else {
 								showAlert(0,msg.content);
+								setTimeout(function() {
+									window.location.href = msg.redirect;
+								}, 500);
 							}
 						},
 						error : function(msg) {
