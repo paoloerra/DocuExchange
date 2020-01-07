@@ -36,6 +36,9 @@
 	
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
 	</head>
 	<body>
 
@@ -160,8 +163,40 @@
 								<textarea name="Recensione" placeholder="Scrivi qui la tua recensione"></textarea>
 							</div>
 						</div>
+								
+						<style>
+						.checked {
+   					 		color: rgb(237, 138, 25)
+						}
+						</style>
+						<span  onmouseover="starmark(this)" onclick="result()" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+						<span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+						<span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+						<span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+						<span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+						<br/>
 						
-						<small class="text-muted"><img src="../images/starempty.png"><img src="../images/starempty.png"><img src="../images/starempty.png"><img src="../images/starempty.png"></small>
+						<script>
+							var count;
+							function starmark(item){
+								count=item.id[0];
+								sessionStorage.starRating = count;
+								var subid= item.id.substring(1);
+								for(var i=0;i<5;i++) {
+									if(i<count) {
+										document.getElementById((i+1)+subid).style.color="rgb(237, 138, 25)";
+									} else {
+										document.getElementById((i+1)+subid).style.color="black";
+									}
+								}
+							}
+							function result() {
+								//Rating : Count
+								//Review : Comment(id)
+								alert("Rating : "+count+"\nReview : "+document.getElementById("comment").value);
+							}
+							
+							</script>						
 						
 						
 						<div class="bottom-form">
