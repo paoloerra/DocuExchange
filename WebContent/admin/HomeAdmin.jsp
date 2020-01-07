@@ -69,16 +69,6 @@
 								</a>
 							</div>
 							
-							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="ListStudent.jsp" class="fh5co-figure">
-									<figure>
-										<div class="imageHome"><img src="../images/liststudenti.png" class="img-responsive"></div>
-									</figure>
-									<h3 class="fh5co-figure-lead">Visualizza studenti</h3>
-									<p class="fh5co-figure-text">Visualizza la lista degli studenti iscritti alla piattaforma.</p>
-								</a>
-							</div>
-							
 							<div class="clearfix visible-sm-block"></div>
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 								<a href="ProfilePrivateAdmin.jsp" class="fh5co-figure">

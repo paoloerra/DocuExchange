@@ -100,34 +100,6 @@
 				</div>
 
 				<!-- END SERVIZI -->
-
-
-
-<!--   
-				<div class="fh5co-bg-section cta" id="fh5co-cta" style="background-image: url(images/hero_bg.jpg); background-attachment: fixed;">
-					<div class="fh5co-overlay"></div>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="fh5co-hero-wrap">
-									<div class="fh5co-hero-intro text-center">
-										<div class="row">
-											<div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-												<h2 class="fh5co-lead to-animate">Non conosci DocuExchange?</h2>
-												<p class="fh5co-sub to-animate">Reindirizzamento alla pagina di spiegazione della piattaforma</p>
-												<div class="to-animate"><a href="#" class="btn btn-primary">Get Started!</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
--->
-
-
 		</div>
 
 

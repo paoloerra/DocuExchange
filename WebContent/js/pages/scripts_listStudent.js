@@ -4,7 +4,7 @@ $(document).ready(function() {
 			$(".preloader").show();	
 			
 			$.ajax({
-					url : '../ServletCommon?flag=3',
+					url : '../ServletStudent?flag=4',
 					type : "POST",
 					dataType : 'JSON',
 					async : true,

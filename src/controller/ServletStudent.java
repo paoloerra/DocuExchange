@@ -41,7 +41,10 @@ public class ServletStudent extends HttpServlet {
 		Integer result = 0;
 	    PreparedStatement stmt = null;
 		Connection connection  = null;
+		
+		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
 
+		System.out.println("ServletStudent");
 		int flag = Integer.parseInt(request.getParameter("flag"));
 		System.out.println(flag);
 		if(flag == 1) { //Registrazione
@@ -169,6 +172,49 @@ public class ServletStudent extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	     	
+		}
+		if(flag == 4) { //Lista studenti
+            redirect = request.getContextPath() + "/student/ListStudent.jsp";            
+            ArrayList<UserInterface> students = new ArrayList<UserInterface>();
+            String emailUser = userS.getEmail();
+            System.out.println(emailUser);
+            String sql = "SELECT * from user WHERE Type = 0 AND email_user != ?;";
+            try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, emailUser);
+				ResultSet rs = stmt.executeQuery();	
+				while(rs.next()){
+					UserInterface student = new Studente();	
+					student.setName(rs.getString("Name"));
+					student.setSurname(rs.getString("Surname"));
+					student.setEmail(rs.getString("Email_User"));
+					student.setSex(rs.getString("sex").charAt(0));
+					student.setPassword("");
+					students.add(student);
+				}
+				System.out.println(students.size());
+				request.getSession().setAttribute("students", students);
+				result = 1;
+				content = "ok";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if(flag == 5) { //Visualizza profilo di uno studente
+			ArrayList<UserInterface> students = (ArrayList<UserInterface>) request.getSession().getAttribute("students");
+			int index = Integer.parseInt(request.getParameter("index"));
+			System.out.println(index);
+			UserInterface student = students.get(index);
+			if(student != null) {
+				System.out.println(student.getName());
+				request.getSession().setAttribute("profile", student);
+				result = 1;
+		        redirect = request.getContextPath() + "/student/ProfileStudent.jsp";  
+			} else {
+				result = 1;
+				error = "Errore visualizzazione profilo";
+			}
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
