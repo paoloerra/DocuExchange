@@ -216,6 +216,20 @@ public class ServletStudent extends HttpServlet {
 				error = "Errore visualizzazione profilo";
 			}
 		}
+		if(flag == 6) { //Visualizza singolo appunto
+	    	int index = Integer.parseInt(request.getParameter("index"));
+			request.getSession().setAttribute("index", index);
+			ArrayList<Note> notes = (ArrayList<Note>) request.getSession().getAttribute("Notes");
+			Note note = notes.get(index);
+			if(note != null) {
+				request.getSession().setAttribute("Note", note);
+				result = 1;
+		        redirect = request.getContextPath() + "/student/ViewNote.jsp";  
+			} else {
+				result = 1;
+				error = "Errore visualizzazione appunto";
+			}
+		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);

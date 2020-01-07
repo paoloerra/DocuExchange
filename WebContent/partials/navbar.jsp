@@ -13,7 +13,7 @@
 		<ul>
 			<li class="active"><a href="HomeStudent.jsp" data-nav-section="home"><i class="icon-grid"></i> Home</a></li>
 			<li><a href="#"><i class="icon-user"></i> Studente: <%=u.getName() %> <%=u.getSurname() %> </a></li>
-			<li><a href="#"><i class="icon-download"></i> Download disponibili: </a></li>
+			<li><a href="#"><i class="icon-download"></i> Download disponibili: <%=u.getLimitDownload()%></a></li>
 			<li><a href="#" id="btnLogout"><i class="icon-logout"></i> Logout</a></li>
 		</ul>
 	</div>

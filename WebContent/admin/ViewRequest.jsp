@@ -25,7 +25,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
 		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="..>/css/simple-line-icons.css">
+		<link rel="stylesheet" href="../css/simple-line-icons.css">
 		<link rel="stylesheet" href="../css/style.css">
 		<link rel="stylesheet" href="../css/toastr.min.css">
 		

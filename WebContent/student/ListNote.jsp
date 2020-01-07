@@ -31,7 +31,7 @@
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
-		<script src="../js/pages/scripts_showRequest.js"></script>
+		<script src="../js/pages/scripts_showNote.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
@@ -76,7 +76,7 @@
 									<button type="submit" class="btn">Cerca</button>
 								</div>
 							</form>
-							<table class="table table-bordered">
+							<table id="table" class="table table-bordered">
 						  		<tbody>
 						  		<%
 								if(Notes != null && Notes.size() > 0) {
@@ -87,7 +87,7 @@
 									Note bean = (Note) it.next();
 									%>
 							    	<tr>
-							      		<th hidden><%=index %></th>
+							    		<td hidden><%=index %></td>
 							      		<td><b>Professore: </b><%=bean.getProfessor() %><br><b>Corso: </b><%=bean.getCourse() %><br><b>Autore: </b><%=bean.getAutor()%><br></td>
 							  			<td><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></td>
 							   		</tr>

@@ -17,9 +17,10 @@ CREATE TABLE Note(
 	Course VARCHAR(40) NOT NULL,
     Professor VARCHAR(20) NOT NULL,
     Description VARCHAR(255) NOT NULL,
-    FilePDF BLOB NOT NULL,
+    FilePDF LONGBLOB NOT NULL,
     Email_User VARCHAR(35) NOT NULL,
     Checked INTEGER(1) NOT NULL,
+    Autor VARCHAR(45) NOT NULL,
     PRIMARY KEY(ID_Note),
     FOREIGN KEY(Email_User) REFERENCES User(Email_User)
 );
