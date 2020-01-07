@@ -1,6 +1,9 @@
 package controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.json.simple.JSONObject;
 
@@ -85,7 +89,7 @@ public class ServletStudent extends HttpServlet {
 				stmt.setString(4, password);
 				stmt.setString(5, String.valueOf(sesso));
 				stmt.setInt(6, userType);
-				if (stmt.executeQuery() > 0) {
+				if (stmt.executeUpdate() > 0) {
 	                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 	                System.out.println(redirect);
 					user = new Studente(email, nome, cognome, sesso, password, userType, 3);
@@ -102,22 +106,36 @@ public class ServletStudent extends HttpServlet {
 			}	
 		}
 		if(flag == 2) { //Invio richiesta
-	       System.out.println("Sono nel flag 2");
 		   UserInterface student = (UserInterface) request.getSession().getAttribute("user");
 	       String email = student.getEmail();
-	       System.out.println(email);
-	       
 	       String course = request.getParameter("course");
-	       System.out.println(course);
-			
 	       String professor = request.getParameter("professor");
-	       System.out.println(professor);
-		   		        
 	       String description = request.getParameter("description");
-	       System.out.println(description);
-			
-			
-		   //String sql = "INSERT INTO User (Email_User, Name, Surname, Password, Sex, type, LimitDownload) VALUES (?, ?, ?, ?, ?, ?, '3')";
+	       String file_name = request.getParameter("file_upload");
+	       File theFile = new File(file_name);
+	       FileInputStream input = new FileInputStream(theFile);
+	       		
+	       String sql = "INSERT INTO Note (Course, Professor, Description, Email_User, FilePDF ,Checked) VALUES (?, ?, ?, ?, ?, 0)";
+	       try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, course);
+				stmt.setString(2, professor);
+				stmt.setString(3, description);
+				stmt.setString(4, email);
+				stmt.setBinaryStream(5, input);
+				if (stmt.executeUpdate() > 0) {
+	                System.out.println(redirect);
+	                content = "Invio richiesta effettuato.";
+	                result = 1;
+	              } else {
+	            	  result = 0;
+	            	  error = "Errore invio richiesta";
+	              }
+					connection.commit();
+			} catch(SQLException e) {
+				System.out.print(e);
+			}	
 			
 		}
 		 JSONObject res = new JSONObject();

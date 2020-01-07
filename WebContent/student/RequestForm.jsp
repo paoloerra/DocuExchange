@@ -44,7 +44,7 @@
 			<div id="fh5co-main">
 				<div class="wrapper">
 					<h1>RICHIESTA CONDIVISIONE</h1>
-						<form id="request">
+						<form id="request" enctype="multipart/form-data">
 							<div class="form">
 								<div class="top-form">
 									<div class="inner-form">
@@ -170,7 +170,7 @@
 										<textarea id="description" placeholder="Descrizione appunto, argomenti trattati."></textarea>
 									</div>
 								</div>
-								Inserisci PDF: <input type="file" name="image">
+								Inserisci PDF: <input type="file" accept="application/pdf" id="file_upload" name="file">
 								<div class="middle-form">
 									<div class="inner-form">
 										<button id="btn" type="submit" class="btn">Invia</button>
