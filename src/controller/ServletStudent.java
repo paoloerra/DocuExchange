@@ -230,6 +230,42 @@ public class ServletStudent extends HttpServlet {
 				error = "Errore visualizzazione appunto";
 			}
 		}
+		if(flag == 7) { //Scrivi recensione
+			System.out.println("Sono nella servlet student flag 7");
+	    	int star = Integer.parseInt(request.getParameter("count"));
+	    	String review = request.getParameter("review");
+	    	int id_note = Integer.parseInt(request.getParameter("id"));
+	    	System.out.print(id_note);
+	    	String email = userS.getEmail();
+	    	System.out.println(email);
+	    	
+		    String sql = "INSERT INTO Review (Comment, Stars, Email_User, ID_Note) VALUES (?, ?, ?, ?)";
+		    try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, review);
+				stmt.setInt(2, star);
+				stmt.setString(3, email);
+				stmt.setInt(4, id_note);
+				if (stmt.executeUpdate() > 0) {
+	                System.out.println(redirect);
+	                content = "Recensione effettuata";
+	                result = 1;
+	              } else {
+	            	  result = 0;
+	            	  error = "Errore invio recensione";
+	              }
+					connection.commit();
+			} catch(SQLException e) {
+				System.out.print(e);
+			}	
+
+	    	
+	    	
+	    	result = 1;
+	        redirect = request.getContextPath() + "/student/ViewNote.jsp";  
+
+		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);

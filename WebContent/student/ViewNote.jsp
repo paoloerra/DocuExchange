@@ -24,16 +24,17 @@
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
 		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../css/toastr.min.css">
 		<link rel="stylesheet" href="../css/icomoon.css">
 		<link rel="stylesheet" href="../css/simple-line-icons.css">
 		<link rel="stylesheet" href="../css/style.css">
-		<link rel="stylesheet" href="../css/toastr.min.css">
 		
 		<script src="../js/jquery-3.4.1.min.js"></script>
 		<script src="../js/main.js"></script>
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
+		<script src="../js/pages/scripts_review.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
 		
@@ -62,6 +63,8 @@
 								<div class="inner-form">
 									<div class="label">Corso</div>
 									<input type="text" value="<%=note.getCourse()%>"readonly>
+									<input id="id" type="text" value="<%=id_note%>" hidden>								
+									
 								</div>
 
 								<div class="inner-form">
@@ -160,7 +163,7 @@
 					
 						<div class="bottom-form">
 							<div class="inner-form">
-								<textarea name="Recensione" placeholder="Scrivi qui la tua recensione"></textarea>
+								<textarea id="review" placeholder="Scrivi qui la tua recensione"></textarea>
 							</div>
 						</div>
 								
@@ -169,39 +172,15 @@
    					 		color: rgb(237, 138, 25)
 						}
 						</style>
-						<span  onmouseover="starmark(this)" onclick="result()" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
-						<span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-						<span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-						<span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-						<span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+						<span  onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
 						<br/>
-						
-						<script>
-							var count;
-							function starmark(item){
-								count=item.id[0];
-								sessionStorage.starRating = count;
-								var subid= item.id.substring(1);
-								for(var i=0;i<5;i++) {
-									if(i<count) {
-										document.getElementById((i+1)+subid).style.color="rgb(237, 138, 25)";
-									} else {
-										document.getElementById((i+1)+subid).style.color="black";
-									}
-								}
-							}
-							function result() {
-								//Rating : Count
-								//Review : Comment(id)
-								alert("Rating : "+count+"\nReview : "+document.getElementById("comment").value);
-							}
-							
-							</script>						
-						
-						
 						<div class="bottom-form">
 								<div class="inner-form">
-									<button type="submit" class="btn">Recensisci</button>
+									<button id="btnreview" type="submit" class="btn">Recensisci</button>
 								</div>
 						</div>
 			</div>
