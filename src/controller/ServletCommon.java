@@ -32,7 +32,7 @@ public class ServletCommon extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String error = "";
 		String content = "";
 		String redirect = "";
@@ -168,7 +168,7 @@ public class ServletCommon extends HttpServlet {
 		response.setContentType("json");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    doGet(request, response);
 	}
 
