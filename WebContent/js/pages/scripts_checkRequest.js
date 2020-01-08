@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	var id = $("#id").val();
+	var email = $("#email").val();
+	var autor = $("#autor").val();
+	console.log(email);
+	console.log(autor);
 	console.log(id);
 
 	$("#btnAccepted").click(function() {
@@ -13,6 +17,8 @@ $(document).ready(function() {
 				data : {
 					"outcome" : 1,
 					"id" : id,
+					"email" : email,
+					"autor" : autor,
 				},
 				success : function(msg) {
 					if (!msg.result) {
@@ -43,7 +49,8 @@ $(document).ready(function() {
 			data : {
 				"outcome" : 0,
 				"id" : id,
-
+				"email" : email,
+				"autor" : autor,
 			},
 			success : function(msg) {
 				if (!msg.result) {

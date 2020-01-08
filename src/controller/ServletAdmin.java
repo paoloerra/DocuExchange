@@ -90,6 +90,10 @@ public class ServletAdmin extends HttpServlet {
 			int index =(Integer) request.getSession().getAttribute("index");
 			int outcome = Integer.parseInt(request.getParameter("outcome"));
 			String id = request.getParameter("id");
+			String email = request.getParameter("email");
+			String name = request.getParameter("autor");
+
+			System.out.println(email);
 			System.out.println(id);
 			System.out.println(outcome);
 			String sql = "";
@@ -107,6 +111,12 @@ public class ServletAdmin extends HttpServlet {
 				stmt.setString(1, id);
 				System.out.println(stmt.toString());
 				if(stmt.executeUpdate() == 1) {
+					if(outcome == 1){ 
+						SendEmail.SendAcceptedEmail(email, name);
+					}
+					else if(outcome == 0){ 
+						SendEmail.SendRifiutedEmail(email, name);
+					}
 					result = 1;
 			        redirect = request.getContextPath() + "/admin/ListRequest.jsp";  
 				}

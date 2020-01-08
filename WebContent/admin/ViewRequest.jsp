@@ -54,16 +54,16 @@
 							<div class="inner-form">
 								<div class="label">Corso</div>
 								<input type="text" type="text" value="<%=req.getCourse()%>" readonly>	
-								<input id="id" type="text" value="<%=id_request%>" hidden>								
+								<input id="id" value="<%=id_request%>" hidden>								
 															
 							</div>
 							<div class="inner-form">
 								<div class="label">Professore</div>
-								<input type="text" type="text" value="<%=req.getProfessor()%>" readonly>
+								<input type="text" id="professor" value="<%=req.getProfessor()%>" readonly>
 							</div>
 							<div class="inner-form">
 								<div class="label">Autore</div>
-								<input type="text" type="text" value="<%=req.getAutor()%>" readonly>
+								<input type="text" id="autor" value="<%=req.getAutor()%>" readonly>
 							</div>	
 						</div>
 						<div class="top-form">

@@ -136,7 +136,7 @@ public class ServletStudent extends HttpServlet {
 				stmt.setBinaryStream(5, input);
 				stmt.setString(6, student.getName() +" "+student.getSurname());
 				if (stmt.executeUpdate() > 0) {
-	                System.out.println(redirect);
+					SendEmail.SendRequestEmail(email, userS.getName(), course, professor, description);
 	                content = "Invio richiesta effettuato.";
 	                result = 1;
 	              } else {
