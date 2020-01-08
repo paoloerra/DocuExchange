@@ -1,6 +1,6 @@
 package model;
 
-import interfacce.UserInterface;  
+import interfaces.UserInterface;  
 
 public class Admin implements UserInterface {
 

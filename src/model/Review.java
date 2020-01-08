@@ -1,6 +1,8 @@
 package model;
 
-public class Review {
+import interfaces.ReviewInterface;
+
+public class Review implements ReviewInterface{
 	/**
 	 * variables
 	 */

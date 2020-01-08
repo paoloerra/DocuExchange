@@ -1,4 +1,4 @@
-package interfacce;
+package interfaces;
 
 public interface UserInterface {
   // get

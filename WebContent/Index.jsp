@@ -106,12 +106,7 @@
 	</div>
 
 	<!-- FOOTER -->
-	<jsp:include page="partials/footer.jsp"/>
-
-
-
-
-
+    <%@include file="partials/footer.jsp" %>
 	</body>
 </html>
 

@@ -1,5 +1,5 @@
-RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, java.util.LinkedList, java.util.Collection"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface, java.util.LinkedList, java.util.Collection"%>
 <%
 	String pageName = "ProfilePrivateStudent.jsp";
 	String pageFolder = "student";
@@ -56,7 +56,7 @@ RequestForm.jsp<%@ page language="java" contentType="text/html; charset=ISO-8859
 									</div>	
 								<div class="inner-form">
 									<div class="label">Email</div>
-										<input id="email" type="text" type="text" value="<%=u.getEmail()%>" required>
+										<input id="email" type="text" type="text" value="<%=u.getEmail()%>" readonly>
 								</div>
 							</div>
 							<div class="top-form">

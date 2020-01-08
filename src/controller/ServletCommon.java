@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfacce.UserInterface;
+import interfaces.UserInterface;
 import model.Admin;
 import model.Studente;
 
@@ -102,13 +102,6 @@ public class ServletCommon extends HttpServlet {
 		    int type = u.getUserType();
 			String email = request.getParameter("email");
 			System.out.println(email);
-			String prefix = "";
-		    if (email.length() > 0) {
-		    	prefix = email.substring(0, email.indexOf("@"));
-		    }
-		     if (email.length() == 0 || !email.endsWith("@studenti.unisa.it") || prefix.length() < 3 || prefix.indexOf(".") == -1) {
-		          throw new IllegalArgumentException("Formato non corretto");
-		        }
 			String name = request.getParameter("name");
 			System.out.println(name);
 			if (name.length() == 0 || name.length() > 20 || name.length() < 2 || name.matches(".*\\d+.*")) {
@@ -133,7 +126,7 @@ public class ServletCommon extends HttpServlet {
 			     
 			System.out.println(sex);
 			
-			sql = "UPDATE user SET Name = ?, Surname = ?, Sex = ?, Password = ?, Email_user = ? WHERE email_user = ? AND Type = ?;";
+			sql = "UPDATE user SET Name = ?, Surname = ?, Sex = ?, Password = ? WHERE email_user = ? AND Type = ?;";
 		    try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);
@@ -142,8 +135,7 @@ public class ServletCommon extends HttpServlet {
 				stmt.setString(3, String.valueOf(sex));
 				stmt.setString(4, password);
 				stmt.setString(5, email);
-				stmt.setString(6, email);
-				stmt.setInt(7, type);
+				stmt.setInt(6, type);
 
 				if(stmt.executeUpdate() == 1) {
 					result = 1;

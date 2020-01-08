@@ -1,5 +1,5 @@
 package model;
-import interfacce.UserInterface;  
+import interfaces.UserInterface;  
 
 public class Studente implements UserInterface {
 

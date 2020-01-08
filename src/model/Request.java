@@ -2,7 +2,7 @@ package model;
 
 import interfaces.NoteInterface;
 
-public class Note implements NoteInterface {
+public class Request implements NoteInterface {
 	/**
 	 * variables
 	 */
@@ -14,7 +14,7 @@ public class Note implements NoteInterface {
 	private String description;
 	private String fileName;
 	
-	private int checked; //1
+	private int checked; //0
 	/**
 	 * 
 	 * @param idNote is the id of note
@@ -25,7 +25,7 @@ public class Note implements NoteInterface {
 	 * @param fileName is the name of the file
 	 */
 	
-	public Note(int id,String studentEmail,String course,String professor,String description,String fileName, String autor, int checked) {
+	public Request(int id,String studentEmail,String course,String professor,String description,String fileName, String autor, int checked) {
 		this.id=id;
 		this.studentEmail=studentEmail;
 		this.course=course;
@@ -38,7 +38,7 @@ public class Note implements NoteInterface {
 	/**
 	 * empty constructor
 	 */
-	public Note() {}
+	public Request() {}
 	
 	public int getId() {
 		return this.id;

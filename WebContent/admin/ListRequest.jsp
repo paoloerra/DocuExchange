@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, model.Note, java.util.LinkedList, java.util.Collection, java.util.*"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface,interfaces.NoteInterface, java.util.LinkedList, java.util.Collection, java.util.*"%>
 <%
 	String pageName = "ListRequest.jsp";
 	String pageFolder = "admin";
@@ -64,7 +64,7 @@
 								String sex = "";
 								Iterator<?> it = Requests.iterator();
 								while(it.hasNext()){
-									Note bean = (Note) it.next();
+									NoteInterface bean = (NoteInterface) it.next();
 								%>
 							    	<tr>
 							    		<td hidden><%=index %></td>

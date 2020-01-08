@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, model.Note, java.util.LinkedList, java.util.Collection, java.util.*, model.Review"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface,interfaces.NoteInterface, interfaces.ReviewInterface, java.util.LinkedList, java.util.Collection, java.util.*, model.Review"%>
 <%
 	String pageName = "ViewNote.jsp";
 	String pageFolder = "student";
@@ -9,9 +9,9 @@
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
 	
-	Note note = (Note) session.getAttribute("Note");
-	int id_note = note.getIdNote();
-	Collection<?> Reviews = (Collection<?>) request.getSession().getAttribute("Reviews");
+	NoteInterface note = (NoteInterface) session.getAttribute("Note");
+	int id_note = note.getId();
+	Collection<?> Reviews= (Collection<?>) request.getSession().getAttribute("Reviews");
 	System.out.println("Sono nella jsp"+ Reviews.size());
 %>
 <!DOCTYPE html>
@@ -105,7 +105,7 @@
 						<%
 						int i = 0;
 						while(i < 3 && it.hasNext()){
-							Review review = (Review) it.next();
+							ReviewInterface review = (ReviewInterface) it.next();
 						%>
 						<div class="card">
 						  <div class="card-body">

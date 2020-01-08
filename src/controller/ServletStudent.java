@@ -20,7 +20,9 @@ import javax.servlet.http.Part;
 
 import org.json.simple.JSONObject;
 
-import interfacce.UserInterface;
+import interfaces.NoteInterface;
+import interfaces.ReviewInterface;
+import interfaces.UserInterface;
 import model.Note;
 import model.Review;
 import model.Studente;
@@ -148,7 +150,7 @@ public class ServletStudent extends HttpServlet {
 		}
 		if(flag == 3) { //Visualizza lista appunti
 			System.out.println(flag);
-            ArrayList<Note> notes = new ArrayList<Note>();
+            ArrayList<NoteInterface> notes = new ArrayList<NoteInterface>();
             String sql = "SELECT * from note WHERE Checked = 1;";
             System.out.println(sql);
             try {
@@ -156,8 +158,8 @@ public class ServletStudent extends HttpServlet {
 				stmt = connection.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery();	
 				while(rs.next()){
-					Note n = new Note();	
-					n.setIdNote(rs.getInt("ID_Note"));
+					NoteInterface n = new Note();	
+					n.setID(rs.getInt("ID_Note"));
 					n.setCourse(rs.getString("Course"));
 					n.setProfessor(rs.getString("Professor"));
 					n.setDescription(rs.getString("Description"));
@@ -220,20 +222,20 @@ public class ServletStudent extends HttpServlet {
 		if(flag == 6) { //Visualizza singolo appunto
 	    	int index = Integer.parseInt(request.getParameter("index"));
 			request.getSession().setAttribute("index", index);
-			ArrayList<Note> notes = (ArrayList<Note>) request.getSession().getAttribute("Notes");
-			Note note = notes.get(index);
+			ArrayList<NoteInterface> notes = (ArrayList<NoteInterface>) request.getSession().getAttribute("Notes");
+			NoteInterface note = notes.get(index);
 			if(note != null) {
 				request.getSession().setAttribute("Note", note);
-	            ArrayList<Review> reviews = new ArrayList<Review>();
+	            ArrayList<ReviewInterface> reviews = new ArrayList<ReviewInterface>();
 	            String sql = "SELECT * from review WHERE ID_Note = ?;";
 	            try {
 					connection = DBConnection.getConnection();
 					stmt = connection.prepareStatement(sql);
-					stmt.setInt(1, note.getIdNote());
+					stmt.setInt(1, note.getId());
 					ResultSet rs = stmt.executeQuery();	
 					System.out.println(stmt.toString());
 					while(rs.next()){
-						Review review = new Review();
+						ReviewInterface review = new Review();
 						review.setComment(rs.getString("Comment"));
 						review.setStar(rs.getInt("Stars"));
 						review.setAutor(rs.getString("Autor"));
@@ -274,7 +276,7 @@ public class ServletStudent extends HttpServlet {
 					r.setComment(review);
 					r.setStar(star);
 					r.setAutor(autor);
-		            ArrayList<Review> reviews = (ArrayList<Review>) request.getSession().getAttribute("Reviews");
+		            ArrayList<ReviewInterface> reviews = (ArrayList<ReviewInterface>) request.getSession().getAttribute("Reviews");
 		            reviews.add(r);
 		            request.getSession().removeAttribute("Reviews");
 		            request.getSession().setAttribute("Reviews", reviews);

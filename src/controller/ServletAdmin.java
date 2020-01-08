@@ -20,8 +20,10 @@ import javax.servlet.http.Part;
 
 import org.json.simple.JSONObject;
 
-import interfacce.UserInterface;
+import interfaces.NoteInterface;
+import interfaces.UserInterface;
 import model.Note;
+import model.Request;
 import model.Studente;
 
 
@@ -44,15 +46,15 @@ public class ServletAdmin extends HttpServlet {
 
 		int flag = Integer.parseInt(request.getParameter("flag"));
 		if(flag == 1) { //Visualizza richieste
-            ArrayList<Note> requests = new ArrayList<Note>();
+            ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
             String sql = "SELECT * from note WHERE Checked = 0;";
             try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery();	
 				while(rs.next()){
-					Note req = new Note();	
-					req.setIdNote(rs.getInt("ID_Note"));
+					NoteInterface req = new Request();
+					req.setID(rs.getInt("ID_Note"));
 					req.setCourse(rs.getString("Course"));
 					req.setProfessor(rs.getString("Professor"));
 					req.setDescription(rs.getString("Description"));
@@ -72,8 +74,8 @@ public class ServletAdmin extends HttpServlet {
 		if(flag == 2) { //Visualizza singola richiesta
 			int index = Integer.parseInt(request.getParameter("index"));
 			request.getSession().setAttribute("index", index);
-			ArrayList<Note> requests = (ArrayList<Note>) request.getSession().getAttribute("requests");
-			Note req = requests.get(index);
+			ArrayList<NoteInterface> requests = (ArrayList<NoteInterface>) request.getSession().getAttribute("requests");
+			NoteInterface req = requests.get(index);
 			if(req != null) {
 				request.getSession().setAttribute("req", req);
 				result = 1;
@@ -84,7 +86,7 @@ public class ServletAdmin extends HttpServlet {
 			}
 		}
 		if(flag == 3) { //Verifica richiesta
-			ArrayList<Note> requests = (ArrayList<Note>) request.getSession().getAttribute("requests");
+			ArrayList<NoteInterface> requests = (ArrayList<NoteInterface>) request.getSession().getAttribute("requests");
 			int index =(Integer) request.getSession().getAttribute("index");
 			int outcome = Integer.parseInt(request.getParameter("outcome"));
 			String id = request.getParameter("id");

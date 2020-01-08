@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, interfacce.UserInterface, model.Note"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface,interfaces.NoteInterface, model.Note"%>
 <%
 	String pageName = "ViewRequest.jsp";
 	String pageFolder = "admin";
@@ -9,8 +9,8 @@
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
 	
-    Note req = (Note) session.getAttribute("req");
-    int id_request = req.getIdNote();
+    NoteInterface req = (NoteInterface) session.getAttribute("req");
+    int id_request = req.getId();
 
 %>
 <!DOCTYPE html>
