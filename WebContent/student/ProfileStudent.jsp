@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, java.util.ArrayList,interfaces.UserInterface, java.util.LinkedList, java.util.Collection"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, java.util.ArrayList,interfaces.UserInterface, interfaces.NoteInterface, java.util.LinkedList, java.util.Collection, java.util.*"%>
 <%
 	String pageName = "ProfileStudent.jsp";
 	String pageFolder = "student";
@@ -8,6 +8,8 @@
 	if(!ck.isAllowed()){
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
+	Collection<?> notes = (Collection<?>) request.getSession().getAttribute("NotesStudent");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -31,8 +33,6 @@
 		<script src="../js/bootstrap.min.js"></script>
 	
 		<script src="../js/pages/scripts.js"></script>
-		<script src="../js/pages/scripts_listStudent.js"></script>
-		<script src="../js/pages/scripts_showStudent.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
@@ -69,10 +69,9 @@
 							<div class="middle-form"></div>	
 							</div>							
 							<h4>Appunti pubblicati</h1>
-							<table class="table table-hover">
+							<table id="table" class="table table-hover">
 								<thead>
 								 	<tr>
-								      <th scope="col">#</th>
 								      <th scope="col">Corso</th>
 								      <th scope="col">Professore</th>
 								      <th scope="col">Voto</th>
@@ -80,27 +79,30 @@
 								    </tr>
 								  </thead>
 								  <tbody>
-								    <tr>
-								      <th scope="row">1</th>
-								      <td>Matematica discreta</td>
-								      <td>Vincenzi</td>
-								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>
-								      <td><i class="icon-login"></i> Visualizza</td>
-								    </tr>
-								    <tr>
-								      <th scope="row">2</th>
-								     <td>Matematica discreta</td>
-								      <td>Vincenzi</td>
-								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>
-								      <td><i class="icon-login"></i> Visualizza</td>
-								    </tr>
-								    <tr>
-								      <th scope="row">3</th>
-								      <td>Matematica discreta</td>
-								      <td>Vincenzi</td>
-								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>
-								      <td><i class="icon-login"></i> Visualizza</td>
-								    </tr>
+								  <%
+									if(notes != null && notes.size() > 0) {
+										int index = 0;
+										Iterator<?> it = notes.iterator();
+										while(it.hasNext()){
+											NoteInterface bean = (NoteInterface) it.next();
+									  %>
+										    <tr>
+										      <td hidden><%=bean.getId() %></td>
+										      <td><%=bean.getCourse() %></td>
+										      <td><%=bean.getProfessor() %></td>
+										      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>
+										    </tr>
+										<%
+											index++;
+										}
+									} else {
+									%>
+									 	<tr>
+											<td colspan="5"><div><%=u.getName()%> non ha pubblicato appunti.</div></td>
+										 </tr>
+									<%
+									}
+									%>
 								  </tbody>
 								</table>
 					</div>

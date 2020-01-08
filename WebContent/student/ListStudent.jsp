@@ -10,6 +10,7 @@
 	}
 	
 	Collection<?> students = (Collection<?>) request.getSession().getAttribute("students");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -31,6 +32,7 @@
 		<script src="../js/main.js"></script>
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
+	
 	
 		<script src="../js/pages/scripts_showProfile.js"></script>
 		<script src="../js/pages/scripts.js"></script>

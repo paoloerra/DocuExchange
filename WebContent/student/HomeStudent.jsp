@@ -31,8 +31,10 @@
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
+	
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/pages/scripts_listStudent.js"></script>
+		<script src="../js/pages/scripts_showMyProfile.js"></script>
 		<script src="../js/pages/scripts_listNote.js"></script>
 		<script src="../js/toastr.min.js"></script>
 	</head>
@@ -79,7 +81,7 @@
 							
 							<div class="clearfix visible-sm-block"></div>
 							<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-								<a href="ProfilePrivateStudent.jsp" class="fh5co-figure">
+								<a id="btnProfile" class="fh5co-figure">
 									<figure>
 										<div class="imageHome"><img src="../images/profile.png" class="img-responsive"></div>
 									</figure>

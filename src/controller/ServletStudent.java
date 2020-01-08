@@ -210,8 +210,35 @@ public class ServletStudent extends HttpServlet {
 			System.out.println(index);
 			UserInterface student = students.get(index);
 			if(student != null) {
-				System.out.println(student.getName());
 				request.getSession().setAttribute("profile", student);
+				//Prelevo i suoi appunti pubblicati
+				 ArrayList<NoteInterface> notes = new ArrayList<NoteInterface>();
+		            String sql = "SELECT * from note WHERE Email_user = ? AND Checked = 1;";
+		            try {
+						connection = DBConnection.getConnection();
+						stmt = connection.prepareStatement(sql);
+						stmt.setString(1, student.getEmail());
+						System.out.println(stmt.toString());
+						ResultSet rs = stmt.executeQuery();	
+						while(rs.next()){
+							NoteInterface n = new Note();	
+							n.setID(rs.getInt("ID_Note"));
+							n.setCourse(rs.getString("Course"));
+							n.setProfessor(rs.getString("Professor"));
+							n.setDescription(rs.getString("Description"));
+							n.setStudentEmail(rs.getString("Email_User"));
+							n.setAutor(rs.getString("autor"));
+							n.setChecked(0);
+							n.setFileName("");
+							notes.add(n);
+						}
+						request.getSession().setAttribute("NotesStudent", notes);
+						result = 1;
+						redirect =  request.getContextPath() + "/student/ListNote.jsp";
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}	     	
+				//FINE
 				result = 1;
 		        redirect = request.getContextPath() + "/student/ProfileStudent.jsp";  
 			} else {
@@ -221,6 +248,7 @@ public class ServletStudent extends HttpServlet {
 		}
 		if(flag == 6) { //Visualizza singolo appunto
 	    	int index = Integer.parseInt(request.getParameter("index"));
+	    	System.out.println(index);
 			request.getSession().setAttribute("index", index);
 			ArrayList<NoteInterface> notes = (ArrayList<NoteInterface>) request.getSession().getAttribute("Notes");
 			NoteInterface note = notes.get(index);
@@ -291,6 +319,36 @@ public class ServletStudent extends HttpServlet {
 			} catch(SQLException e) {
 				System.out.print(e);
 			}
+		}
+		if(flag == 8) { //Visualizza profilo (Visualizza gli appunti)
+			System.out.println(flag);
+            ArrayList<NoteInterface> notes = new ArrayList<NoteInterface>();
+            String sql = "SELECT * from note WHERE Email_User = ?;";
+            System.out.println(sql);
+            try {
+				connection = DBConnection.getConnection();
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, userS.getEmail());
+				System.out.println(stmt.toString());
+				ResultSet rs = stmt.executeQuery();	
+				while(rs.next()){
+					NoteInterface n = new Note();	
+					n.setID(rs.getInt("ID_Note"));
+					n.setCourse(rs.getString("Course"));
+					n.setProfessor(rs.getString("Professor"));
+					n.setDescription(rs.getString("Description"));
+					n.setStudentEmail(rs.getString("Email_User"));
+					n.setAutor(rs.getString("autor"));
+					n.setChecked(rs.getInt("Checked"));
+					n.setFileName("");
+					notes.add(n);
+				}
+				request.getSession().setAttribute("MyNotes", notes);
+				result = 1;
+				redirect =  request.getContextPath() + "/student/ProfilePrivateStudent.jsp";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	     	
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);

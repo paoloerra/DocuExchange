@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface, java.util.LinkedList, java.util.Collection"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface, interfaces.NoteInterface, java.util.LinkedList, java.util.Collection, java.util.*"%>
 <%
 	String pageName = "ProfilePrivateStudent.jsp";
 	String pageFolder = "student";
@@ -8,6 +8,8 @@
 	if(!ck.isAllowed()){
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
+	Collection<?> Notes = (Collection<?>) request.getSession().getAttribute("MyNotes");
+	System.out.println(Notes.size());
 %>
 <!DOCTYPE html>
 <html>
@@ -88,34 +90,52 @@
 							<table class="table table-hover">
 								<thead>
 								 	<tr>
-								      <th scope="col">#</th>
 								      <th scope="col">Corso</th>
 								      <th scope="col">Professore</th>
+								      <th scope="col">Stato</th>
 								      <th scope="col">Voto</th>
 								    </tr>
 								  </thead>
 								  <tbody>
+								  <%
+									if(Notes != null && Notes.size() > 0) {
+									int index = 0;
+									String sex = "";
+									Iterator<?> it = Notes.iterator();
+									while(it.hasNext()){
+										NoteInterface bean = (NoteInterface) it.next();
+										String stato = "";
+										if(bean.getChecked() == 0) {
+											stato = "In attesa di verifica";
+										}
+										else if(bean.getChecked() == 1){
+											stato = "Pubblicato";
+										}
+									%>
 								    <tr>
-								      <th scope="row">1</th>
-								      <td>Matematica discreta</td>
-								      <td>Vincenzi</td>
+								      <th hidden><%=index %></th>
+								      <td><%=bean.getCourse() %></td>
+								      <td><%=bean.getProfessor()%></td>
+								      <% 
+								      	if(bean.getChecked() == 0) {%>
+										 	<td><div style="color:red;">In attesa di verifica</div></td>
+										<% }
+										else if(bean.getChecked() == 1){%>
+										 	<td><div style="color:green;">Pubblicato</div></td>
+										<% }%>
 								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>
-								      <td><i class="icon-login"></i> Visualizza - Elimina <i class="icon-delete"></i></td>
 								    </tr>
-								    <tr>
-								      <th scope="row">2</th>
-								     <td>Matematica discreta</td>
-								      <td>Vincenzi</td>
-								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>								      
-								      <td><i class="icon-login"></i> Visualizza - Elimina <i class="icon-delete"></i></td>
-								    </tr>
-								    <tr>
-								      <th scope="row">3</th>
-								      <td>Matematica discreta</td>
-								      <td>Vincenzi</td>
-								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>								      
-								      <td><i class="icon-login"></i> Visualizza - Elimina <i class="icon-delete"></i></td>
-								    </tr>
+								    <%
+									index++;
+								}
+							} else {
+								%>
+							 	 <tr>
+									<td colspan="3"><div style="text-align: center;">Non hai pubblicato appunti</div></td>
+								 </tr>
+								<%
+							}
+								%>
 								  </tbody>
 								</table>
 					</div>
