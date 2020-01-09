@@ -44,17 +44,26 @@ public class ServletAdminTest extends Mockito{
 	}
 	@Test
 	public void testSingolaRichiesta() throws ServletException, IOException { 
-		
+
 	NoteInterface newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello","prog.pdf","boh",0);
-	ArrayList<NoteInterface> requests = (ArrayList<NoteInterface>) request.getSession().getAttribute("requests");
+	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
+	requests.add(newNote);
 	request.getSession().setAttribute("requests", requests);
-	
-	
-	
-	request.addParameter("index", "1");
+	request.addParameter("index", "0");
     request.addParameter("flag", "2");
     servlet.doPost(request, response);
     assertEquals("json", response.getContentType());
 	}
+	@Test
+	public void testVerificaRichiesta() throws ServletException, IOException { 
 
+	NoteInterface newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello","prog.pdf","boh",0);
+	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
+	requests.add(newNote);
+	request.getSession().setAttribute("requests", requests);
+	request.addParameter("index", "0");
+    request.addParameter("flag", "3");
+    servlet.doPost(request, response);
+    assertEquals("json", response.getContentType());
+	}
 }
