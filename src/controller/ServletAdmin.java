@@ -1,9 +1,6 @@
 package controller;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,15 +13,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
-import interfaces.UserInterface;
-import model.Note;
 import model.Request;
-import model.Studente;
 
 
 
@@ -43,10 +36,14 @@ public class ServletAdmin extends HttpServlet {
 		Integer result = 0;
 	    PreparedStatement stmt = null;
 		Connection connection  = null;
-
+		
+		System.out.println("Servlet admin chiamata");
 		int flag = Integer.parseInt(request.getParameter("flag"));
+		System.out.println(flag);
+		
 		if(flag == 1) { //Visualizza richieste
             ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
+            System.out.println("ciao");
             String sql = "SELECT * from note WHERE Checked = 0;";
             try {
 				connection = DBConnection.getConnection();
@@ -72,6 +69,7 @@ public class ServletAdmin extends HttpServlet {
 			}	     	
 		}
 		if(flag == 2) { //Visualizza singola richiesta
+			System.out.println("Sono nel flag 2");
 			int index = Integer.parseInt(request.getParameter("index"));
 			request.getSession().setAttribute("index", index);
 			ArrayList<NoteInterface> requests = (ArrayList<NoteInterface>) request.getSession().getAttribute("requests");
@@ -129,6 +127,11 @@ public class ServletAdmin extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}  
+		}
+		if(flag == 4) { //Scarica richiesta
+			System.out.println("Sono nel flag 4");
+			result = 1;
+			
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);

@@ -14,7 +14,7 @@ public class Note implements NoteInterface {
 	private String description;
 	private String fileName;
 	
-	private int checked; //1
+	private int checked; 	//1
 	/**
 	 * 
 	 * @param idNote is the id of note
