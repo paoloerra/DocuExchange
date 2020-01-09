@@ -61,7 +61,11 @@ public class ServletAdminTest extends Mockito{
 	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 	requests.add(newNote);
 	request.getSession().setAttribute("requests", requests);
+
 	request.addParameter("index", "0");
+	request.addParameter("id", "1");
+	request.addParameter("email", "m.derosa1@studenti.unisa.it");
+	request.addParameter("autor", "boh");
     request.addParameter("flag", "3");
     servlet.doPost(request, response);
     assertEquals("json", response.getContentType());
