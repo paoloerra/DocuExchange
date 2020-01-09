@@ -44,6 +44,7 @@ public class ServletStudent extends HttpServlet {
 		Integer result = 0;
 	    PreparedStatement stmt = null;
 		Connection connection  = null;
+		System.out.println("Sono nella servlet student");
 		
 		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
 

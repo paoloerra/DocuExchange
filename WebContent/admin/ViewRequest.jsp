@@ -77,7 +77,7 @@
 								<textarea readonly><%=req.getDescription()%></textarea>
 							</div>
 						</div>
-						<button type="submit" class="btn">Scarica PDF</button>
+						<button id="download" class="btn">Scarica PDF</button>
 						<div class="middle-form">
 							<div class="inner-form">
 								<button id="btnAccepted" class="btn">Accetta</button>
