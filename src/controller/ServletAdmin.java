@@ -131,7 +131,8 @@ public class ServletAdmin extends HttpServlet {
 		if(flag == 4) { //Scarica richiesta
 			System.out.println("Sono nel flag 4");
 			result = 1;
-			
+			String id = request.getParameter("id");
+			System.out.println(id);		
 		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);

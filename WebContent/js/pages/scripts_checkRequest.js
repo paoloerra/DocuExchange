@@ -75,24 +75,19 @@ $(document).ready(function() {
 		console.log("sono qua")
 		$(".preloader").show();
 		$.ajax({
-			url : "../ServletAdmin?flag=3",
+			url : "../ServletAdmin?flag=4",
 			type : "POST",
 			dataType : 'JSON',
 			async : false,
 			data : {
-				"outcome" : 0,
 				"id" : id,
-				"email" : email,
-				"autor" : autor,
 			},
 			success : function(msg) {
 				if (!msg.result) {
-					showAlert(1, "Errore");
+					showAlert(1, "Errore download");
 				} else {
-					showAlert(0, "Richiesta rifiutata con successo");
-					setTimeout(function() {
-						window.location.href = msg.redirect;
-					}, 2000);					}
+					showAlert(0, "Download parito");
+					}
 			},
 			error : function(msg) {
 				showAlert(1, "Impossibile Recuperare i dati.");
