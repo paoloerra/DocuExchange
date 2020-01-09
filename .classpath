@@ -93,5 +93,6 @@
 	<classpathentry kind="lib" path="C:/Users/Michele/Desktop/libProget/spring-websocket-5.1.4.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Michele/Desktop/libProget/spring-websocket-5.1.4.RELEASE-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/Michele/Downloads/junit-jupiter-5.5.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
