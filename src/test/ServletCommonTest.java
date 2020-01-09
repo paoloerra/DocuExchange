@@ -1,5 +1,5 @@
 package test;
-
+//bisogna addatarlo con il documento fatto Login(8 test) Modifica Profilo(da vedere)-> per avere coerenza
 import static org.junit.Assert.*;
 
 import controller.ServletCommon;
@@ -59,7 +59,7 @@ public class ServletCommonTest extends Mockito {
 	    assertEquals("json", response.getContentType());
   }
   
-  @Test
+  @Test(expected = IllegalArgumentException.class)
   public void testUpdateFailName() throws ServletException, IOException {
 	 	UserInterface user = new Admin("f.ferrucci1@studenti.unisa.it","Filomena", "Ferrucci", 'F', "admin123",1);
 	    request.getSession().setAttribute("user", user);
@@ -73,7 +73,11 @@ public class ServletCommonTest extends Mockito {
 	    assertEquals("json", response.getContentType());
   }
   
-  @Test
+ 
+
+
+
+@Test(expected = IllegalArgumentException.class)
   public void testUpdateFailSurname() throws ServletException, IOException {
 	  	UserInterface user = new Admin("f.ferrucci1@studenti.unisa.it","Filomena", "Ferrucci", 'F', "admin123",1);
 	    request.getSession().setAttribute("user", user);
@@ -87,7 +91,7 @@ public class ServletCommonTest extends Mockito {
 	    assertEquals("json", response.getContentType());
   }
   
-  @Test
+  @Test(expected = IllegalArgumentException.class)
   public void testUpdateFailPass() throws ServletException, IOException {
 	  	UserInterface user = new Admin("f.ferrucci1@studenti.unisa.it","Filomena", "Ferrucci", 'F', "admin123",1);
 	    request.getSession().setAttribute("user", user);
@@ -100,7 +104,7 @@ public class ServletCommonTest extends Mockito {
 	    servlet.doPost(request, response);
 	    assertEquals("json", response.getContentType());
   }
-  @Test
+  @Test(expected = IllegalArgumentException.class)
   public void testUpdateFailSex() throws ServletException, IOException {
 	  	UserInterface user = new Admin("f.ferrucci1@studenti.unisa.it","Filomena", "Ferrucci", 'F', "admin123",1);
 	    request.getSession().setAttribute("user", user);
@@ -143,7 +147,7 @@ public class ServletCommonTest extends Mockito {
   }
 
   @Test
-  public void testLoginErrorFlag() throws ServletException, IOException {
+  public void testLogout() throws ServletException, IOException {
 
 	UserInterface user = new Admin("f.ferrucci1@studenti.unisa.it", "Lugia", "Melchionno", 'M', "password", 1);
 	request.getSession().setAttribute("user", user);
