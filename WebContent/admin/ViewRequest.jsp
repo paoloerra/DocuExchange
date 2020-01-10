@@ -77,7 +77,9 @@
 								<textarea readonly><%=req.getDescription()%></textarea>
 							</div>
 						</div>
-						<button id="download" class="btn">Scarica PDF</button>
+						
+						<button class="btn"><a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=1&id=<%=id_request%>"'>Scarica PDF</a></button>
+						
 						<div class="middle-form">
 							<div class="inner-form">
 								<button id="btnAccepted" class="btn">Accetta</button>

@@ -1,14 +1,26 @@
 package controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +35,8 @@ import model.Request;
 
 @WebServlet("/ServletAdmin")
 public class ServletAdmin extends HttpServlet {
+    private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
+
 	private static final long serialVersionUID = 1L;
        
     public ServletAdmin() {
@@ -129,11 +143,9 @@ public class ServletAdmin extends HttpServlet {
 				}  
 		}
 		if(flag == 4) { //Scarica richiesta
-			System.out.println("Sono nel flag 4");
-			result = 1;
-			String id = request.getParameter("id");
-			System.out.println(id);		
+	
 		}
+		
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);
@@ -141,12 +153,23 @@ public class ServletAdmin extends HttpServlet {
 		 res.put("redirect", redirect);
 		 PrintWriter out = response.getWriter();
 		 out.println(res);
+		
 		 response.setContentType("json");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    doGet(request, response);
 	}
-	    
+	
+	private static void close(Closeable resource) {
+        if (resource != null) {
+            try {
+                resource.close();
+            } catch (IOException e) {
+                // Do your thing with the exception. Print it, log it or mail it.
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
