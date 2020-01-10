@@ -18,6 +18,7 @@ public class SendEmail {
         String body = "Ciao "+name+", la tua richiesta di condivisione inviata e in attesa per la verifica\n\nCorso:"+course+"\nProfessore:"+professor+"\nDescrizione:"+description+"";
         sendFromGMail(from, pass, to, subject, body);
     }
+    //prova
     
     public static void SendAcceptedEmail(String toEmail, String name) {
     	String from = USER_NAME;
