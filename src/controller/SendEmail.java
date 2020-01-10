@@ -7,13 +7,13 @@ import javax.mail.internet.*;
 
 public class SendEmail {
 
-    private static String USER_NAME = "docuexchangeSTAFF";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "prova123!"; // GMail password
+    private static String USER_NAME = "docuexchangeSTAFF";  
+    private static String PASSWORD = "prova123!"; 
 
     public static void SendRequestEmail(String toEmail, String name, String course, String professor, String description) {
     	String from = USER_NAME;
         String pass = PASSWORD;
-        String[] to = { toEmail }; // list of recipient email addresses
+        String[] to = { toEmail }; 
         String subject = "Richiesta condivisione inviata";
         String body = "Ciao "+name+", la tua richiesta di condivisione inviata e in attesa per la verifica\n\nCorso:"+course+"\nProfessore:"+professor+"\nDescrizione:"+description+"";
         sendFromGMail(from, pass, to, subject, body);
@@ -22,7 +22,7 @@ public class SendEmail {
     public static void SendAcceptedEmail(String toEmail, String name) {
     	String from = USER_NAME;
         String pass = PASSWORD;
-        String[] to = { toEmail }; // list of recipient email addresses
+        String[] to = { toEmail }; 
         String subject = "Richiesta condivisione accettata";
         String body = "Ciao "+name+", la tua richiesta di condivisione è stata accettata, potrai scaricare altri 3 appunti.";
         sendFromGMail(from, pass, to, subject, body);

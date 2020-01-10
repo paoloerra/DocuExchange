@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import interfaces.UserInterface;
+
 /**
  * Servlet implementation class FileServlet
  */
@@ -35,7 +37,7 @@ public class DownloaderServlet extends HttpServlet {
 		System.out.println("Servlet File");
 		int flag = Integer.parseInt(request.getParameter("flag"));
 		
-		if(flag == 1) {	//Download
+		if(flag == 1) {	//Download richiesta Admin
 			int id = Integer.parseInt(request.getParameter("id"));
 			System.out.println(id);
 			ResultSet rs = null;
@@ -61,7 +63,6 @@ public class DownloaderServlet extends HttpServlet {
 				     try {
 				            in = new BufferedInputStream(input, DEFAULT_BUFFER_SIZE);
 				            out = new BufferedOutputStream(response.getOutputStream(), DEFAULT_BUFFER_SIZE);
-	
 				            byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
 				            int length;
 				            while ((length = input.read(buffer)) > 0) {
