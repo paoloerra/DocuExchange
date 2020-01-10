@@ -65,8 +65,9 @@ public class ServletCommon extends HttpServlet {
 						String pass_student = r.getString("Password");
 						String name_student = r.getString("Name");
 						String surname_student = r.getString("Surname");
+						int LimitDownload = r.getInt("LimitDownload");
 						char sex_student = r.getString("Sex").charAt(0);
-						UserInterface user = new Studente(email_student, name_student, surname_student, sex_student, pass_student, type, 3);
+						UserInterface user = new Studente(email_student, name_student, surname_student, sex_student, pass_student, type, LimitDownload);
 		                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 		                request.getSession().setAttribute("user", user);
 		                content = "Login corretto.";

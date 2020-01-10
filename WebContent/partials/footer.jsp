@@ -27,7 +27,7 @@
 							</div>
 		
 							<div class="col-md-3 col-sm-12 col-md-pull-9">
-                  				<a href="#"><img src="../images/logofooter.png" width="230" height="50" alt=""></a>
+                  				<a href="#"><img src="<%= request.getContextPath() %>/images/logofooter.png" width="230" height="50" alt=""></a>
 								<p class="fh5co-copyright"><small>&copy; 2019. All Rights Reserved.</p>
 								<p class="fh5co-copyright"><small>DocuExchange Unisa Informatica</p>
 								<p class="fh5co-copyright"><small>Progetto Ingegneria del Software 2019/2020</p>							

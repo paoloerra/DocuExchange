@@ -11,8 +11,11 @@
 	
 	NoteInterface note = (NoteInterface) session.getAttribute("Note");
 	int id_note = note.getId();
-	Collection<?> Reviews= (Collection<?>) request.getSession().getAttribute("Reviews");
-	System.out.println("Sono nella jsp"+ Reviews.size());
+	Collection<?> Reviews= (Collection<?>) request.getSession().getAttribute("Reviews");	
+	String error = (String) request.getAttribute("error");
+	System.out.println(error);
+	String msg = (String) request.getAttribute("msg");
+	System.out.println(error);
 %>
 <!DOCTYPE html>
 <html>
@@ -25,20 +28,20 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" href="../css/bootstrap.css">
-		<link rel="stylesheet" href="../css/toastr.min.css">
-		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="../css/simple-line-icons.css">
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/toastr.min.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/icomoon.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/simple-line-icons.css">
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
 		
-		<script src="../js/jquery-3.4.1.min.js"></script>
-		<script src="../js/main.js"></script>
-		<script src="../js/jquery.magnific-popup.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-	
-		<script src="../js/pages/scripts_review.js"></script>
-		<script src="../js/pages/scripts.js"></script>
-		<script src="../js/toastr.min.js"></script>
+		<script src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js"></script>
+		<script src="<%= request.getContextPath() %>/js/main.js"></script>
+		<script src="<%= request.getContextPath() %>/js/jquery.magnific-popup.min.js"></script>
+		<script src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
+
+		<script src="<%= request.getContextPath() %>/js/pages/scripts_review.js"></script>
+		<script src="<%= request.getContextPath() %>/js/pages/scripts.js"></script>
+		<script src="<%= request.getContextPath() %>/js/toastr.min.js"></script>
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
@@ -86,12 +89,18 @@
 									<textarea readonly><%=note.getDescription()%></textarea>
 								</div>
 						</div>
+						<%if(error != null) {
+							%>
+							<p style="color:red"><%=error %></p>
+						<%} %>
+						<%if(msg != null) {
+							%>
+							<p style="color:green"><%=error %></p>
+						<%} %>
 
-
-						<button type="submit" class="btn">Scarica PDF</button>
-						
+						<button class="btn"><a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=2&id=<%=id_note%>"'>Scarica PDF</a></button>
 						<h4>VALUTATO</h4>
-						<img src="../images/starfull.png"><img src="../images/starfull.png"><img src="../images/starfull.png"><img src="../images/starfull.png">
+						<img src="<%= request.getContextPath() %>/images/starfull.png">
 						
 						<div class="bottom-form"></div>
 						
@@ -117,7 +126,7 @@
 						    	while(j < star){
 						    		j++;
 						    	%>
-						    	<img src="../images/star.png">
+						    	<img src="<%= request.getContextPath() %>/images/star.png">
 						    	<% }%>
 						    </p>
 						  </div>
