@@ -88,21 +88,19 @@ public class DownloaderServlet extends HttpServlet {
 					stmt = connection.prepareStatement(sql);
 					stmt.setInt(1, user.getLimitDownload() - 1);
 					stmt.setString(2, user.getEmail());
-					System.out.println(stmt.toString());
 					stmt.executeUpdate();
 					connection.commit();
+					
 					user.setLimitDownload(user.getLimitDownload() - 1);
 					request.getSession().setAttribute("user", user);
 					
 					int id = Integer.parseInt(request.getParameter("id"));
-					System.out.println(id);
 					sql = "SELECT * from note WHERE ID_Note = ?;";
 					connection = DBConnection.getConnection();
 					stmt = connection.prepareStatement(sql);
 					stmt.setInt(1, id);
-					System.out.println(stmt.toString());
 					rs = stmt.executeQuery();
-					System.out.println("Query eseguita");	
+					
 					response.reset();
 					response.setBufferSize(DEFAULT_BUFFER_SIZE);
 					response.setContentType("application-pdf");
@@ -128,7 +126,6 @@ public class DownloaderServlet extends HttpServlet {
 						e.printStackTrace();
 					}  
 				} else {
-					System.out.println("Limite download è 0");
 					String error = "Il tuo limite di download è insufficiente, condividi un tuo appunto per scaricare 3 appunti.";
 					request.setAttribute("error", error);
 				}

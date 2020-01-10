@@ -55,7 +55,7 @@ public class ServletAdmin extends HttpServlet {
 		int flag = Integer.parseInt(request.getParameter("flag"));
 		System.out.println(flag);
 		
-		if(flag == 1) { //Visualizza richieste
+		if(flag == 1) { //Visualizza lista richieste in ListRequest.jsp
             ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
             System.out.println("ciao");
             String sql = "SELECT * from note WHERE Checked = 0;";
@@ -82,7 +82,7 @@ public class ServletAdmin extends HttpServlet {
 				e.printStackTrace();
 			}	     	
 		}
-		if(flag == 2) { //Visualizza singola richiesta
+		if(flag == 2) { //Visualizza singola richiesta in ViewRequest.jsp
 			System.out.println("Sono nel flag 2");
 			int index = Integer.parseInt(request.getParameter("index"));
 			request.getSession().setAttribute("index", index);
@@ -109,13 +109,11 @@ public class ServletAdmin extends HttpServlet {
 			System.out.println(id);
 			System.out.println(outcome);
 			String sql = "";
-			if(outcome == 1){ 
+			if(outcome == 1){ //SE è 1 la richiesta è accettata, l'appunto viene pubblicato e vengono aggiunti 3 download all'utente
 				sql = "UPDATE note SET checked = 1 WHERE ID_Note = ?;";
-				requests.remove(index);
 			}
-			else if(outcome == 0){ 
+			else if(outcome == 0){ //SE è 0 la richiesta è rifiutata, la richiesta viene cancellata;
 				sql = "DELETE FROM note WHERE ID_Note = ?";
-				requests.remove(index);
 			}
 			try {
 				connection = DBConnection.getConnection();
@@ -124,10 +122,21 @@ public class ServletAdmin extends HttpServlet {
 				System.out.println(stmt.toString());
 				if(stmt.executeUpdate() == 1) {
 					if(outcome == 1){ 
+						NoteInterface req = requests.get(index);
+						requests.remove(index);
+						String email_student = req.getStudentEmail();
+						sql = "UPDATE user SET LimitDownload = 3 WHERE Email_User = ?;";
+						connection = DBConnection.getConnection();
+						stmt = connection.prepareStatement(sql);
+						stmt.setString(1, email_student);
+						System.out.println(stmt.toString());
+						stmt.executeUpdate();
+						
 						SendEmail.SendAcceptedEmail(email, name);
 					}
 					else if(outcome == 0){ 
 						SendEmail.SendRifiutedEmail(email, name);
+						requests.remove(index);
 					}
 					result = 1;
 			        redirect = request.getContextPath() + "/admin/ListRequest.jsp";  
