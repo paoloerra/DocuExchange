@@ -19,6 +19,7 @@ public class SendEmail {
         sendFromGMail(from, pass, to, subject, body);
     }
     //prova
+    //prova2
     
     public static void SendAcceptedEmail(String toEmail, String name) {
     	String from = USER_NAME;
