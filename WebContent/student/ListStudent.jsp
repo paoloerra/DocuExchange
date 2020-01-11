@@ -61,7 +61,7 @@
 							</div>		
 						</div>
 				</form>
-				
+				<div style="width: 920px; height:600px; overflow-y: scroll;">
 					<table id="table" class="table table-bordered table-striped table-hover">
 						<tbody>
 						<%
@@ -96,6 +96,7 @@
 						%>
 						</tbody>
 					</table>
+				</div>
 			</div>
 				<!-- TABELLA -->
 

@@ -1,14 +1,15 @@
 $(document).ready(function() {
 	$("#search").click(function() {
-		var student = $("#student").val();
-		console.log(student);
+		console.log("sono qua");
+		var autor = $("#autor").val();
+		console.log(autor);
 					$.ajax({
-						url : "../ServletStudent?flag=10",
+						url : "../ServletAdmin?flag=4",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,
 						data : {
-							"student" : student,
+							"autor" : autor,
 						},
 						success : function(msg) {
 							if (!msg.result) {

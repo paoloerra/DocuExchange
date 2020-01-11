@@ -29,7 +29,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.UserInterface;
 import model.Request;
+import model.Studente;
 
 
 
@@ -149,8 +151,44 @@ public class ServletAdmin extends HttpServlet {
 					e.printStackTrace();
 				}  
 		}
-		if(flag == 4) { //Scarica richiesta
-	
+		if(flag == 4) { //Cerca richiesta
+			System.out.println(flag);
+			String autor = request.getParameter("autor");
+			System.out.println(autor);
+		try {
+            String sql = "";
+            ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
+			connection = DBConnection.getConnection();
+			if(autor == "") {	//Nessuna ricerca
+				System.out.println("aaa");
+        		sql = "SELECT * from Note WHERE Checked = 0";
+				stmt = connection.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery();	
+            }
+            else {
+            	sql = "SELECT * from Note WHERE Autor = ? AND Checked = 0;";
+    			stmt = connection.prepareStatement(sql);
+                stmt.setString(1, autor);
+            }
+			System.out.println(stmt.toString());
+			ResultSet rs = stmt.executeQuery();	
+			while(rs.next()){
+				NoteInterface req = new Request();
+				req.setID(rs.getInt("ID_Note"));
+				req.setCourse(rs.getString("Course"));
+				req.setProfessor(rs.getString("Professor"));
+				req.setDescription(rs.getString("Description"));
+				req.setStudentEmail(rs.getString("Email_User"));
+				req.setAutor(rs.getString("autor"));
+				req.setChecked(0);
+				requests.add(req);
+			}
+			request.getSession().setAttribute("requests", requests);
+			result = 1;
+			redirect =  request.getContextPath() + "/admin/ListRequest.jsp";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	     	
 		}
 		
 		 JSONObject res = new JSONObject();

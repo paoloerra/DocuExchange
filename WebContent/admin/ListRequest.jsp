@@ -30,7 +30,8 @@
 		<script src="../js/main.js"></script>
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
-	
+		
+		<script src="../js/pages/scripts_searchRequest.js"></script>
 		<script src="../js/pages/scripts_showRequest.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
@@ -44,18 +45,16 @@
 			<div id="fh5co-main">
 					<div class="wrapper">
 						<h1>RICHIESTE</h1>
-						<form action="AdminInsertSmartphone" method="POST" enctype="multipart/form-data">
 							<div class="form">
 								<div class="top-form">
 									<div class="inner-form">
 										<div class="label">Cerca per autore</div>
-										<input type="text" name="professore" type="text" required>										
+										<input type="text" id="autor" type="text" required>										
 									</div>
-									<button type="submit" class="btn">Cerca</button>
+									<button type="submit" id="search" class="btn">Cerca</button>
 								</div>
 							</div>
-						</form>
-						
+					<div style="width: 920px; height:600px; overflow-y: scroll;">
 						<table id="table" class="table table-bordered table-striped table-hover">
 							<tbody>
 							<%
@@ -83,6 +82,7 @@
 								%>
 						  </tbody>
 						</table>
+					</div>
 					</div>
 				<!-- TABELLA -->
 
