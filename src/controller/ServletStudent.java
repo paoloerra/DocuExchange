@@ -350,6 +350,49 @@ public class ServletStudent extends HttpServlet {
 				e.printStackTrace();
 			}	     	
 		}
+		if(flag == 9) { //Cerca appunti
+			System.out.println(flag);
+			String course = request.getParameter("course");
+			System.out.println(course);
+			String professor = request.getParameter("professor");
+			System.out.println(professor);
+            ArrayList<NoteInterface> Searchnotes = new ArrayList<NoteInterface>();
+            String sql = "";
+            try {
+				connection = DBConnection.getConnection();
+            	if(course == "" && professor == "") {
+            		sql = "SELECT * from note";
+    				stmt = connection.prepareStatement(sql);
+                }
+            	else {
+                    sql = "SELECT * from note WHERE Course = ? AND Professor = ?;";
+    				stmt = connection.prepareStatement(sql);
+                    stmt.setString(1, course);
+    				stmt.setString(2, professor);
+                }
+				System.out.println(stmt.toString());
+				ResultSet rs = stmt.executeQuery();	
+				while(rs.next()){
+					NoteInterface n = new Note();	
+					n.setID(rs.getInt("ID_Note"));
+					n.setCourse(rs.getString("Course"));
+					n.setProfessor(rs.getString("Professor"));
+					n.setDescription(rs.getString("Description"));
+					n.setStudentEmail(rs.getString("Email_User"));
+					n.setAutor(rs.getString("autor"));
+					n.setChecked(rs.getInt("Checked"));
+					Searchnotes.add(n);
+				}
+				request.getSession().removeAttribute("Notes");
+				request.getSession().setAttribute("Notes", Searchnotes);
+				result = 1;
+                redirect = request.getContextPath() + "/student/ListNote.jsp";
+                content = "Ricerca eseguita";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		}
+	
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);

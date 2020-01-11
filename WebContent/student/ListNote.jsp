@@ -31,6 +31,8 @@
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
+		<script src="../js/pages/scripts_searchNote.js"></script>
+		<script src="../js/pages/scripts_course.js"></script>
 		<script src="../js/pages/scripts_showNote.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
@@ -52,30 +54,47 @@
 								<div class="top-form">
 									<div class="inner-form">
 										<div class="label">Cerca per corso:</div>
-											<select>
-										  		<option value="volvo">Prova</option>
-										  		<option value="saab">Prova</option>
-										  		<option value="opel">Prova</option>
-										  		<option value="audi">Prova</option>
+											<select id="corso" onchange="random()">
+												<option></option>
+												<option>Programmazione I</option>
+												<option>Architettura degli elaboratori</option>
+												<option>Matematica discreta</option>
+												<option>Analisi Matematica</option>
+												<option>Programmazione e Strutture Dati</option>
+												<option>Metodi Matematici per Informatica</option>
+												<option>Programmazione Object Oriented</option>
+												<option>Sistemi operativi</option>
+												<option>Basi di dati</option>
+												<option>Calcolo delle probabilità e statistica matematica</option>
+												<option>Tecnologie Software per il Web</option>
+												<option>Reti di Calcolatori</option>
+												<option>Progettazione Algoritmi</option>												
+												<option>Ingegneria del software</option>
+												<option>Programmazione distribuita</option>												
+												<option>Elementi di teoria della computazione</option>
+												<option>Ricerca operativa</option>
+												<option>Calcolo scientifico</option>
+												<option>Grafica ed Interattivita</option>
+												<option>Programmazione avanzata</option>
+												<option>Interazione uomo macchina</option>
 											</select>
 									</div>
 									<div class="inner-form">
 										<div class="label">Cerca per professore:</div>
-											<select>
-										  		<option value="volvo">Prova</option>
-										  		<option value="saab">Prova</option>
-										  		<option value="opel">Prova</option>
-										  		<option value="audi">Prova</option>
+											<div id='output'></div>
+											<select id="professori">
+												<div id='output'>
+												
+												</div>
 											</select>
 										</div>
 									<div class="inner-form">
-										<div class="label">Cerca per autore</div>
-											<input type="text" name="professore" type="text" required>										
-										</div>					
+										<button id="search" class="btn">Cerca</button>
+									</div>					
 									</div>
-									<button type="submit" class="btn">Cerca</button>
 								</div>
 							</form>
+							<div style="width: 920px; height:600px; overflow-y: scroll;">
 							<table id="table" class="table table-bordered">
 						  		<tbody>
 						  		<%
@@ -96,14 +115,13 @@
 								}
 							} else {
 								%>
-							 	 <tr>
-									<td colspan="3"><div style="text-align: center;">AL MOMENTO NON CI SONO APPUNTI</div></td>
-								 </tr>
+									<div style="text-align: center; color: red">AL MOMENTO NON CI SONO APPUNTI</div>
 								<%
 							}
 								%>
 						  		</tbody>
 							</table>
+							</div>
 						</div>
 			</div>
 	</div>
