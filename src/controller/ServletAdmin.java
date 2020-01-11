@@ -110,7 +110,7 @@ public class ServletAdmin extends HttpServlet {
 			System.out.println(outcome);
 			String sql = "";
 			if(outcome == 1){ //SE è 1 la richiesta è accettata, l'appunto viene pubblicato e vengono aggiunti 3 download all'utente
-				sql = "UPDATE note SET checked = 1 WHERE ID_Note = ?;";
+				sql = "UPDATE note SET Checked = 1 WHERE ID_Note = ?;";
 			}
 			else if(outcome == 0){ //SE è 0 la richiesta è rifiutata, la richiesta viene cancellata;
 				sql = "DELETE FROM note WHERE ID_Note = ?";
@@ -125,13 +125,12 @@ public class ServletAdmin extends HttpServlet {
 						NoteInterface req = requests.get(index);
 						requests.remove(index);
 						String email_student = req.getStudentEmail();
-						sql = "UPDATE user SET LimitDownload = 3 WHERE Email_User = ?;";
-						connection = DBConnection.getConnection();
-						stmt = connection.prepareStatement(sql);
-						stmt.setString(1, email_student);
-						System.out.println(stmt.toString());
-						stmt.executeUpdate();
-						
+						String sql2 = "UPDATE user SET LimitDownload = 3 WHERE Email_User = ?;";
+						PreparedStatement stmt2;
+						stmt2 = connection.prepareStatement(sql2);
+						stmt2.setString(1, email_student);
+						System.out.println(stmt2.toString());
+						stmt2.executeUpdate();
 						SendEmail.SendAcceptedEmail(email, name);
 					}
 					else if(outcome == 0){ 
@@ -139,11 +138,10 @@ public class ServletAdmin extends HttpServlet {
 						requests.remove(index);
 					}
 					result = 1;
-			        redirect = request.getContextPath() + "/admin/ListRequest.jsp";  
-				}
-				else {
+			        redirect = request.getContextPath() + "/admin/ListRequest.jsp"; 
+				} else { 
 					result = 0;
-					error = "Richiesta non verificata";
+					error = "Errore verifica richiesta";
 				}
 				connection.commit();	
 				} catch (SQLException e) {

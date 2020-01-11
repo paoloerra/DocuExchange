@@ -78,7 +78,7 @@
 							</div>
 						</div>
 						
-						<button class="btn"><a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=1&id=<%=id_request%>"'>Scarica PDF</a></button>
+						<a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=1&id=<%=id_request%>"'><div class="btn">Scarica PDF</div></a>
 						
 						<div class="middle-form">
 							<div class="inner-form">

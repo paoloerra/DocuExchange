@@ -166,8 +166,7 @@ public class ServletStudent extends HttpServlet {
 					n.setDescription(rs.getString("Description"));
 					n.setStudentEmail(rs.getString("Email_User"));
 					n.setAutor(rs.getString("autor"));
-					n.setChecked(0);
-					n.setFileName("");
+					n.setChecked(1);
 					notes.add(n);
 				}
 				request.getSession().setAttribute("Notes", notes);

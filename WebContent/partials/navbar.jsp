@@ -43,5 +43,5 @@
 		</div>
 	</div>
 
-<script src="../js/pages/scripts_logout.js"></script>
+<script src="<%= request.getContextPath() %>/js/pages/scripts_logout.js"></script>
 		

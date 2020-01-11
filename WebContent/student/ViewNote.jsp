@@ -98,7 +98,7 @@
 							<p style="color:green"><%=error %></p>
 						<%} %>
 
-						<button class="btn"><a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=2&id=<%=id_note%>"'>Scarica PDF</a></button>
+						<a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=2&id=<%=id_note%>"'><div class="btn">Scarica PDF</div></a>
 						<h4>VALUTATO</h4>
 						<img src="<%= request.getContextPath() %>/images/starfull.png">
 						
