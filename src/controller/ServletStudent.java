@@ -392,7 +392,53 @@ public class ServletStudent extends HttpServlet {
 				e.printStackTrace();
 			}		
 		}
-	
+		if(flag == 10) { //Cerca studenti
+			System.out.println(flag);
+			String student = request.getParameter("student");
+			System.out.println(student);
+		try {
+            String sql = "";
+            ArrayList<UserInterface> Searchstudent = new ArrayList<UserInterface>();
+			connection = DBConnection.getConnection();
+			if(student == "") {	//Nessuna ricerca
+				System.out.println("aaa");
+        		sql = "SELECT * from user WHERE Type = 0";
+				stmt = connection.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery();	
+            }
+			else if(student.contains(" ")){ //Stringa formata da Nome e Cognome
+				String NameSurname[] = student.split(" ");
+				String name = NameSurname[0];
+				String surname = NameSurname[1];
+            	sql = "SELECT * from user WHERE Name = ? AND Surname = ? AND Type = 0;";
+    			stmt = connection.prepareStatement(sql);
+                stmt.setString(1, name);
+                stmt.setString(2, surname);
+			}
+            else {
+            	sql = "SELECT * from user WHERE Name = ? AND Type = 0;";
+    			stmt = connection.prepareStatement(sql);
+                stmt.setString(1, student);
+            }
+			System.out.println(stmt.toString());
+			ResultSet rs = stmt.executeQuery();	
+			while(rs.next()){
+				UserInterface s = new Studente();	
+				s.setName(rs.getString("Name"));
+					s.setSurname(rs.getString("Surname"));
+					s.setEmail(rs.getString("Email_User"));
+					s.setSex(rs.getString("sex").charAt(0));
+					Searchstudent.add(s);
+				}
+				request.getSession().removeAttribute("students");
+				request.getSession().setAttribute("students", Searchstudent);
+				result = 1;
+                redirect = request.getContextPath() + "/student/ListStudent.jsp";
+                content = "Ricerca eseguita";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		}
 		 JSONObject res = new JSONObject();
 		 res.put("result", result);
 		 res.put("error", error);

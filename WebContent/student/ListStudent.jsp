@@ -33,7 +33,7 @@
 		<script src="../js/jquery.magnific-popup.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	
-	
+		<script src="../js/pages/scripts_searchStudent.js"></script>
 		<script src="../js/pages/scripts_showProfile.js"></script>
 		<script src="../js/pages/scripts.js"></script>
 		<script src="../js/toastr.min.js"></script>
@@ -52,10 +52,12 @@
 						<div class="form">
 							<div class="top-form">
 								<div class="inner-form">
+								<form>
 									<div class="label">Cerca per nome</div>
-										<input type="text" name="professore" type="text" required>										
+										<input type="text" id="student" required>										
 									</div>
-									<button type="submit" class="btn">Cerca</button>	
+									<button type="submit" id="search" class="btn">Cerca</button>	
+								</form>
 							</div>		
 						</div>
 				</form>
