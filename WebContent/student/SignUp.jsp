@@ -4,28 +4,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Registrati</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		
-		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="../css/simple-line-icons.css">
-		<link rel="stylesheet" href="../css/style.css">
-		<link rel="stylesheet" href="../css/toastr.min.css">
-				
-		<script src="../js/jquery-3.4.1.min.js"></script>
-		<script src="../js/main.js"></script>
-		<script src="../js/jquery.magnific-popup.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
 	
-		<script src="../js/pages/scripts.js"></script>
+		<jsp:include page="/partials/includes.jsp"/>
+		
 		<script src="../js/pages/scripts_signUp.js"></script>
-		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 

@@ -13,28 +13,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Richieste</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 				
-		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="../css/simple-line-icons.css">
-		<link rel="stylesheet" href="../css/style.css">
-		<link rel="stylesheet" href="../css/toastr.min.css">
-		
-		<script src="../js/jquery-3.4.1.min.js"></script>
-		<script src="../js/main.js"></script>
-		<script src="../js/jquery.magnific-popup.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
+		<jsp:include page="/partials/includes.jsp"/>
 		
 		<script src="../js/pages/scripts_searchRequest.js"></script>
 		<script src="../js/pages/scripts_showRequest.js"></script>
-		<script src="../js/pages/scripts.js"></script>
-		<script src="../js/toastr.min.js"></script>
 	</head>
 	<body>
 
@@ -55,7 +39,7 @@
 								</div>
 							</div>
 					<div style="width: 920px; height:600px; overflow-y: scroll;">
-						<table id="table" class="table table-bordered table-striped table-hover">
+						<table id="table" class="table table-hover" style="color: #808080">
 							<tbody>
 							<%
 							if(Requests != null && Requests.size() > 0) {

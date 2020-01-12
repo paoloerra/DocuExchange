@@ -20,159 +20,108 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Appunto</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.css">
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/toastr.min.css">
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/icomoon.css">
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/simple-line-icons.css">
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
-		
-		<script src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js"></script>
-		<script src="<%= request.getContextPath() %>/js/main.js"></script>
-		<script src="<%= request.getContextPath() %>/js/jquery.magnific-popup.min.js"></script>
-		<script src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
-
+		<jsp:include page="/partials/includes.jsp"/>
 		<script src="<%= request.getContextPath() %>/js/pages/scripts_review.js"></script>
-		<script src="<%= request.getContextPath() %>/js/pages/scripts.js"></script>
-		<script src="<%= request.getContextPath() %>/js/toastr.min.js"></script>
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		
+		<!-- PER LE STELLINE -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
 	</head>
 	<body>
-
-	<jsp:include page="../partials/navbar.jsp"/>
-
-
-
-	<div id="fh5co-page">
-		<div id="fh5co-wrap">
-
-			<div id="fh5co-main">
-
-			<!-- REQUEST -->
-			<div class="wrapper">
-			<h1>APPUNTO</h1>
-
-			<form>
-				<div class="form">
-
-					<div class="top-form">
+		<jsp:include page="/partials/navbar.jsp"/>
+		<div id="fh5co-page">
+			<div id="fh5co-wrap">
+				<div id="fh5co-main">
+					<!-- REQUEST -->
+					<div class="wrapper">
+						<h1>APPUNTO</h1>
+						<div class="form">
+							<div class="top-form">
 								<div class="inner-form">
 									<div class="label">Corso</div>
 									<input type="text" value="<%=note.getCourse()%>"readonly>
 									<input id="id" type="text" value="<%=id_note%>" hidden>								
-									
 								</div>
-
 								<div class="inner-form">
 									<div class="label">Professore</div>
 									<input type="text" value="<%=note.getProfessor()%>"readonly>
-								</div>
-								
+								</div>			
 								<div class="inner-form">
 									<div class="label">Autore</div>
 									<input type="text" value="<%=note.getAutor()%>"readonly>
-								</div>
-
-								
-						</div>
-						<div class="bottom-form">
+								</div>		
+							</div>
+							<div class="bottom-form">
 								<div class="inner-form">
 									<textarea readonly><%=note.getDescription()%></textarea>
 								</div>
-						</div>
-						<%if(error != null) {
-							%>
-							<p style="color:red"><%=error %></p>
-						<%} %>
-						<%if(msg != null) {
-							%>
-							<p style="color:green"><%=error %></p>
-						<%} %>
-
-						<a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=2&id=<%=id_note%>"'><div class="btn">Scarica PDF</div></a>
-						<h4>VALUTATO</h4>
-						<img src="<%= request.getContextPath() %>/images/starfull.png">
-						
-						<div class="bottom-form"></div>
-						
-						
-						<%
-						if(Reviews != null && Reviews.size() > 0) {
-						Iterator<?> it = Reviews.iterator();
-						%>
-						<h4>RECENSIONI</h4>
-						<div style="width: 920px; height:400px; overflow-y: scroll;">
-						<%
-						int i = 0;
-						while(i < 3 && it.hasNext()){
-							ReviewInterface review = (ReviewInterface) it.next();
-						%>
-						<div class="card">
-						  <div class="card-body">
-						    <h5 class="card-title"><%=review.getAutor()%></h5>
-						    <p class="card-text"><%=review.getComment()%>.</p>
-						    <p class="card-text">
-						    	<%int star = review.getStar();
-						    	int j = 0;
-						    	while(j < star){
-						    		j++;
-						    	%>
-						    	<img src="<%= request.getContextPath() %>/images/star.png">
-						    	<% }%>
-						    </p>
-						  </div>
-						</div>
-						<% } }%>
-						</div>
-						<div class="bottom-form"></div>
-													
-						<h4>FAI UNA RECENSIONE</h4>
-					
-						<div class="bottom-form">
-							<div class="inner-form">
-								<textarea id="review" placeholder="Scrivi qui la tua recensione"></textarea>
+							</div>
+							<%if(error != null) {%>
+								<p style="color:red"><%=error %></p>
+							<%}%>
+							<a style="color:white" href="<%=request.getContextPath() %>/DownloaderServlet?flag=2&id=<%=id_note%>"'><div class="btn">Scarica PDF</div></a>
+							<div class="bottom-form"></div>
+							<%if(Reviews != null && Reviews.size() > 0) {
+								Iterator<?> it = Reviews.iterator();%>
+								<h4>RECENSIONI</h4>
+								<div style="width: 920px; height:400px; overflow-y: scroll;">
+									<%int i = 0;
+									int som = 0;
+									while(i < 3 && it.hasNext()){
+										ReviewInterface review = (ReviewInterface) it.next();%>
+										<div class="card">
+							  				<div class="card-body">
+											    <h5 class="card-title"><%=review.getAutor()%></h5>
+											    <p class="card-text"><%=review.getComment()%>.</p>
+											    <p class="card-text">
+							    				<%int star = review.getStar();
+							    				som = star + som;
+							    				int j = 0;
+							    				while(j < star){
+							    					j++;%>
+							    				<img src="<%= request.getContextPath() %>/images/star.png">
+							    				<%}%>
+							    				</p>
+							  				</div>
+										</div>
+									<%} 
+					    			int med = som / Reviews.size();%>
+				    			</div>
+				    			<div class="bottom-form"></div>
+									<h4>MEDIA RECENSIONI</h4>
+									<%i = 0;
+									while(i < med) {
+										i++;%>
+										<img src="<%= request.getContextPath() %>/images/starfull.png">
+				    				<%}%>
+				    		<%}%>
+							<div class="bottom-form"></div>							
+								<h4>FAI UNA RECENSIONE</h4>
+								<div class="bottom-form">
+									<div class="inner-form">
+										<textarea id="review" placeholder="Scrivi qui la tua recensione"></textarea>
+									</div>
+								</div>		
+								<style>
+								.checked {
+		   					 		color: rgb(237, 138, 25)
+								}
+								</style>
+								<span  onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+								<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+								<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+								<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+								<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+								<br/>
+								<div class="bottom-form">
+									<div class="inner-form">
+										<button id="btnreview" type="submit" class="btn">Recensisci</button>
+									</div>
+								</div>
 							</div>
 						</div>
-								
-						<style>
-						.checked {
-   					 		color: rgb(237, 138, 25)
-						}
-						</style>
-						<span  onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
-						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-						<span onmouseover="scripts_review:starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-						<br/>
-						<div class="bottom-form">
-								<div class="inner-form">
-									<button id="btnreview" type="submit" class="btn">Recensisci</button>
-								</div>
-						</div>
-			</div>
-			</form>
-		</div>
-
-		</div>
-
-
-	</div>
-
-	<!-- FOOTER -->
-	<jsp:include page="../partials/footer.jsp"/>
-
-
-
-
+					</div>
+				</div>
+		<!-- FOOTER -->
+		<jsp:include page="../partials/footer.jsp"/>
 	</body>
 </html>
