@@ -84,7 +84,8 @@
 							  				</div>
 										</div>
 									<%} 
-					    			int med = som / Reviews.size();%>
+					    			int med = som / Reviews.size();
+					    			%>
 				    			</div>
 				    			<div class="bottom-form"></div>
 									<h4>MEDIA RECENSIONI</h4>

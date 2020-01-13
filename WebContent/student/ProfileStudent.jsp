@@ -9,7 +9,7 @@
 		  response.sendRedirect(request.getContextPath()+"/Login.jsp");  
 	}
 	Collection<?> notes = (Collection<?>) request.getSession().getAttribute("NotesStudent");
-
+	String name = u.getName().toUpperCase();
 %>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
 			<div id="fh5co-wrap">
 				<div id="fh5co-main">
 					<div class="wrapper">
-						<h1>PROFILO DI <%=u.getName()%></h1>
+						<h1>PROFILO DI <%=name%></h1>
 						<form id="profile">
 						<div class="form">
 							<div class="top-form">
