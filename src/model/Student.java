@@ -1,7 +1,7 @@
 package model;
 import interfaces.UserInterface;  
 
-public class Studente implements UserInterface {
+public class Student implements UserInterface {
 
 	  /**
 	   * Variables.
@@ -23,9 +23,9 @@ public class Studente implements UserInterface {
 	   * @param surname is the surname of the Student.
 	   * @param sex specifies the sex of the Student with one letter (M,F).
 	   * @param password is the password that the Student uses to Log in the site.
-	   * @param userType specifies the type of the user (0,1,2).
+	   * @param userType specifies the type of the user (0,1).
 	   */
-	  public Studente(String email, String name, String surname, char sex, String password, int userType, int limitDownload) {
+	  public Student(String email, String name, String surname, char sex, String password, int userType, int limitDownload) {
 	    this.email = email;
 	    this.name = name;
 	    this.surname = surname;
@@ -39,7 +39,7 @@ public class Studente implements UserInterface {
 	  /**
 	   * Empty Constructor.
 	   */
-	  public Studente() {}
+	  public Student() {}
 
 	  /**
 	   * Get the email address of the Student.
@@ -138,13 +138,5 @@ public class Studente implements UserInterface {
 	  
 	  public void setLimitDownload(int limit) {
 		  this.limitDownload = limit;
-	  }
-	  //NON HO CAPITO penso nella fase di testing si faccia
-	/*  @Override
-	  public boolean validate() {
-	    return new Stub().database.containsKey(getEmail())
-	        && new Stub().database.containsValue(getPassword());
-	  }
-	*/
-	
+	  }	
 }

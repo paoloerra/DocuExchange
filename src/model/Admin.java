@@ -12,8 +12,7 @@ public class Admin implements UserInterface {
   private String surname;
   private String password;
   private char sex;
-
-  private int userType;//noi non ce l 'abbiamo nell odd
+  private int userType;
 
   /**
    * Contructor.
@@ -73,16 +72,12 @@ public class Admin implements UserInterface {
   public String getPassword() {
     return password;
   }
-//in odd non cè
+  
   /**
-   * Get the type of the User (0,1,2).
+   * Get the type of the User (0,1).
    */
   public int getUserType() {
     return userType;
-  }
-  
-  public int getLimitDownload() {
-	  return 0;
   }
 
   /**
@@ -94,8 +89,7 @@ public class Admin implements UserInterface {
     this.email = email;
   }
 
-  public void setLimitDownload() {
-  }
+  
   /**
    * Set the name of the Admin.
    * 
@@ -131,30 +125,20 @@ public class Admin implements UserInterface {
   public void setPassword(String password) {
     this.password = password;
   }
-  //non cè in odd
+  
   /**
    * Set the type of the user.
    * 
-   * @param userType specifies the type of the user (0,1,2).
+   * @param userType specifies the type of the user (0,1).
    */
   public void setUserType(int userType) {
     this.userType = userType;
   }
 
-public void setLimitDownload(int l) {
-	// TODO Auto-generated method stub
-	
-}
-
-  /**
-   * Specifies if the user is allowed to see the page.
-   */
-  //NON HO CAPITO penso nella fase di testing si faccia
-/*  @Override
-  public boolean validate() {
-    return new Stub().database.containsKey(getEmail())
-        && new Stub().database.containsValue(getPassword());
+  public void setLimitDownload(int l) {}
+  public int getLimitDownload() {
+	  return 0;
   }
-*/
+
 }
 

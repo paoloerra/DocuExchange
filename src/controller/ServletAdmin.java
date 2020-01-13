@@ -31,7 +31,7 @@ import org.json.simple.JSONObject;
 import interfaces.NoteInterface;
 import interfaces.UserInterface;
 import model.Request;
-import model.Studente;
+import model.Student;
 
 
 

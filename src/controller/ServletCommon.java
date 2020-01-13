@@ -21,7 +21,7 @@ import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
 import model.Admin;
-import model.Studente;
+import model.Student;
 
 
 @WebServlet("/ServletCommon")
@@ -67,7 +67,7 @@ public class ServletCommon extends HttpServlet {
 						String surname_student = r.getString("Surname");
 						int LimitDownload = r.getInt("LimitDownload");
 						char sex_student = r.getString("Sex").charAt(0);
-						UserInterface user = new Studente(email_student, name_student, surname_student, sex_student, pass_student, type, LimitDownload);
+						UserInterface user = new Student(email_student, name_student, surname_student, sex_student, pass_student, type, LimitDownload);
 		                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 		                request.getSession().setAttribute("user", user);
 		                content = "Login corretto.";

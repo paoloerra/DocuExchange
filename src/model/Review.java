@@ -13,7 +13,6 @@ public class Review implements ReviewInterface{
 	private int star;
 	private String autor;
 	
-	
 	/**
 	 * constructor
 	 * @param idReview id of review
@@ -21,8 +20,7 @@ public class Review implements ReviewInterface{
 	 * @param idNote id of the note
 	 * @param comment comment of the note
 	 * @param star number of star
-	 */
-	
+	 */	
 	public Review(int idReview,String studentEmail,int idNote,String comment,int star, String autor) {
 		this.idReview=idReview;
 		this.idNote=idNote;
@@ -32,9 +30,13 @@ public class Review implements ReviewInterface{
 		this.autor = autor;
 	}
 	
+	/**
+	 * Empty constructor
+	 */
 	public Review() {
 		
 	}
+	
 	/**
 	 * 
 	 * @return id of review

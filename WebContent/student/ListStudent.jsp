@@ -36,7 +36,7 @@
 							<div class="top-form">
 								<div class="inner-form">
 								<form>
-									<div class="label">Cerca per nome</div>
+									<div class="label">Cerca studente</div>
 										<input type="text" id="student" required>										
 									</div>
 									<button type="submit" id="search" class="btn">Cerca</button>	

@@ -37,6 +37,11 @@ CREATE TABLE Review(
     FOREIGN KEY(ID_Note) REFERENCES Note(ID_Note)
 );
 
+INSERT INTO `docuexchange`.`user` (`Email_User`, `Name`, `Surname`, `Password`, `Sex`, `Type`, `LimitDownload`) 
+	VALUES ('p.erra1@studenti.unisa.it', 'Paolo', 'Erra', 'prova123', 'M', '0', '3');
+
+INSERT INTO `docuexchange`.`user` (`Email_User`, `Name`, `Surname`, `Password`, `Sex`, `Type`, `LimitDownload`) 
+	VALUES ('a.dmin1@studenti.unisa.it', 'Luca', 'Prisco', 'prova123', 'M', '1', '0');
     
     
 	

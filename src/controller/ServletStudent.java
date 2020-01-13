@@ -25,7 +25,7 @@ import interfaces.ReviewInterface;
 import interfaces.UserInterface;
 import model.Note;
 import model.Review;
-import model.Studente;
+import model.Student;
 
 
 
@@ -103,7 +103,7 @@ public class ServletStudent extends HttpServlet {
 				if (stmt.executeUpdate() > 0) {
 	                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 	                System.out.println(redirect);
-					user = new Studente(email, nome, cognome, sesso, password, userType, 3);
+					user = new Student(email, nome, cognome, sesso, password, userType, 3);
 	                request.getSession().setAttribute("user", user);
 	                content = "Registrazione effettuata correttamente.";
 	                result = 1;
@@ -188,7 +188,7 @@ public class ServletStudent extends HttpServlet {
 				stmt.setString(1, emailUser);
 				ResultSet rs = stmt.executeQuery();	
 				while(rs.next()){
-					UserInterface student = new Studente();	
+					UserInterface student = new Student();	
 					student.setName(rs.getString("Name"));
 					student.setSurname(rs.getString("Surname"));
 					student.setEmail(rs.getString("Email_User"));
@@ -423,7 +423,7 @@ public class ServletStudent extends HttpServlet {
 			System.out.println(stmt.toString());
 			ResultSet rs = stmt.executeQuery();	
 			while(rs.next()){
-				UserInterface s = new Studente();	
+				UserInterface s = new Student();	
 				s.setName(rs.getString("Name"));
 					s.setSurname(rs.getString("Surname"));
 					s.setEmail(rs.getString("Email_User"));
