@@ -92,8 +92,13 @@
 									while(i < med) {
 										i++;%>
 										<img src="<%= request.getContextPath() %>/images/starfull.png">
-				    				<%}%>
-				    		<%}%>
+				    				<%}
+				    				while(i < 5) {
+				    					i++;%>
+				    					<img src="<%= request.getContextPath() %>/images/starblack.png">
+				    				<% }
+				    				
+				    		}%>
 							<div class="bottom-form"></div>							
 								<h4>FAI UNA RECENSIONE</h4>
 								<div class="bottom-form">
