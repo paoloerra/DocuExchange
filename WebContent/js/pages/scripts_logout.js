@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$("#btnLogout").click(function() {
-			console.log("Sono qui");
 			$(".preloader").show();	
 			
 			$.ajax({
@@ -11,11 +10,9 @@ $(document).ready(function() {
 					success : function(msg) {
 						if (!msg.result) {
 							showAlert(1,msg.error);
-						} else {
-							showAlert(0,msg.content);
-							setTimeout(function() {
-								window.location.href = msg.redirect;
-							}, 2000);
+						} 
+						else {
+							window.location.href = msg.redirect;
 						}
 					},
 					error : function(msg) {

@@ -106,10 +106,6 @@ public class ServletAdmin extends HttpServlet {
 			String id = request.getParameter("id");
 			String email = request.getParameter("email");
 			String name = request.getParameter("autor");
-
-			System.out.println(email);
-			System.out.println(id);
-			System.out.println(outcome);
 			String sql = "";
 			if(outcome == 1){ //SE è 1 la richiesta è accettata, l'appunto viene pubblicato e vengono aggiunti 3 download all'utente
 				sql = "UPDATE note SET Checked = 1 WHERE ID_Note = ?;";
@@ -159,8 +155,7 @@ public class ServletAdmin extends HttpServlet {
             String sql = "";
             ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 			connection = DBConnection.getConnection();
-			if(autor == "") {	//Nessuna ricerca
-				System.out.println("aaa");
+			if(autor == "") {	//Nessuna ricerca, vengono mostrate tutte le richieste.
         		sql = "SELECT * from Note WHERE Checked = 0";
 				stmt = connection.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery();	
