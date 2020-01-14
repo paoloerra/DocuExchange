@@ -449,7 +449,7 @@ public class ServletStudent extends HttpServlet {
 		 response.setContentType("json");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    doGet(request, response);
 	}
 	    
