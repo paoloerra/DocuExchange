@@ -121,7 +121,7 @@ public class ServletCommonTest extends Mockito {
   //studente
   @Test
   public void testLoginStudent() throws ServletException, IOException {
-    request.addParameter("email", "m.derosa1@studenti.unisa.it");
+    request.addParameter("email", "m.derosa102@studenti.unisa.it");
     request.addParameter("password", "Abracadabra");
     request.addParameter("flag", "1");
     servlet.doGet(request, response);

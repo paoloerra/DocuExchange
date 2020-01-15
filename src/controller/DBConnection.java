@@ -10,6 +10,7 @@ import java.util.List;
 
 public class DBConnection {
 
+	private static DBConnection instance = null;
 	private static List<Connection> freeDbConnections;
 
 	static {
@@ -57,11 +58,7 @@ public class DBConnection {
 
 		return connection;
 	}
-	
-	public static synchronized void releaseConnection(Connection connection) 
-			throws SQLException {
-		if(connection != null) freeDbConnections.add(connection);
-	}	
+
 	
 	
 }

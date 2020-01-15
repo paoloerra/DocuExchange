@@ -46,6 +46,7 @@ public class ServletStudentTest extends Mockito{
 	    request = new MockHttpServletRequest();
 	    response = new MockHttpServletResponse();
 	  }
+
 //mettere inserimento e cancellazione traamite email->non messa perchè da errore
 	  
 	@Test(expected = IllegalArgumentException.class)//nome minore di 2
@@ -278,12 +279,12 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test
-	public void Visulizza_singoloAppunto() throws ServletException, IOException { //aggiungere nel db
+	public void Visulizza_singoloAppunto() throws ServletException, IOException { //aggiungere review nel db
 		Student newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		NoteInterface newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello","prog.pdf","boh",1);
+		NoteInterface newNote=new Note(38,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello","prog.pdf","boh",1);
+		
 		ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
-		ArrayList<Student> students = new ArrayList<Student>();
-		students.add(newstudent);
+		
 		requests.add(newNote);
 
 		request.addParameter("index", "0");
@@ -297,14 +298,16 @@ public class ServletStudentTest extends Mockito{
 	}
 
 	@Test
-	public void ScriviRecensioni() throws ServletException, IOException { //aggiungere nel db
+	public void ScriviRecensioni() throws ServletException, IOException { //aggiungere review  nel db
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		ArrayList<Review> reviews = new ArrayList<Review>();
-		request.getSession().setAttribute("reviews", reviews);
+		Review r=new Review(1, "m.derosa102@studenti.unisa.it", 38, "adfa", 4,"Michele de Rosa");
+		reviews.add(r);
+		request.getSession().setAttribute("Reviews", reviews);
 		request.addParameter("count", "4");
-		request.addParameter("stars", "4");
+	
 		request.addParameter("review", "questa è una review");
-		request.addParameter("id", "0");
+		request.addParameter("id", "38");
 
 		request.getSession().setAttribute("user", newstudent);
 
