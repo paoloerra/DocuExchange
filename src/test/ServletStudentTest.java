@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -27,6 +28,9 @@ import model.Review;
 import model.Student;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class ServletStudentTest extends Mockito{
 		  private ServletStudent servlet;
@@ -50,7 +54,7 @@ public class ServletStudentTest extends Mockito{
 //mettere inserimento e cancellazione traamite email->non messa perchè da errore
 	  
 	@Test(expected = IllegalArgumentException.class)//nome minore di 2
-	public void TC_1_1() throws ServletException, IOException { 
+	public void TC_1_1_1() throws ServletException, IOException { 
 		request.addParameter("nome","");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -62,7 +66,7 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test(expected = IllegalArgumentException.class)//nome maggiore di 20
-	public void TC_1_2() throws ServletException, IOException { 
+	public void TC_1_1_2() throws ServletException, IOException { 
 		request.addParameter("nome","Micheleeeeeeeeeeeeeeeeeeeeee");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -74,7 +78,7 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test(expected = IllegalArgumentException.class)//Formato non corretto ->nome
-	public void TC_1_3() throws ServletException, IOException { 
+	public void TC_1_1_3() throws ServletException, IOException { 
 		request.addParameter("nome","Michele1");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -86,7 +90,7 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test(expected = IllegalArgumentException.class)//cognome <2
-	public void TC_1_4() throws ServletException, IOException { 
+	public void TC_1_1_4() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","d");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -98,7 +102,7 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test(expected = IllegalArgumentException.class)//cognome >20
-	public void TC_1_5() throws ServletException, IOException { 
+	public void TC_1_1_5() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -110,7 +114,7 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test(expected = IllegalArgumentException.class)//formato non corretto ->cognome
-	public void TC_1_6() throws ServletException, IOException { 
+	public void TC_1_1_6() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa1");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -123,7 +127,7 @@ public class ServletStudentTest extends Mockito{
 	}
 	
 	@Test(expected = IllegalArgumentException.class)//modificare in documentazione
-	public void TC_1_7() throws ServletException, IOException { 
+	public void TC_1_1_7() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -136,7 +140,7 @@ public class ServletStudentTest extends Mockito{
 	}
 
 	@Test(expected = IllegalArgumentException.class)//prefisso email<3
-	public void TC_1_8() throws ServletException, IOException { 
+	public void TC_1_1_8() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.@studenti.unisa.it");
@@ -149,7 +153,7 @@ public class ServletStudentTest extends Mockito{
 	}
 
 	@Test(expected = IllegalArgumentException.class)//formato non corretto ->email
-	public void TC_1_9() throws ServletException, IOException { 
+	public void TC_1_1_9() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@hotmail.it");
@@ -162,7 +166,7 @@ public class ServletStudentTest extends Mockito{
 	}
 	
 	@Test
-	public void TC_1_10() throws ServletException, IOException { //se email è gia in db
+	public void TC_1_1_10() throws ServletException, IOException { //se email è gia in db
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -187,8 +191,8 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	
-	@Test(expected = IllegalArgumentException.class)//formato non corretto ->password ->aggiungere a servlet non c'è controllo
-	public void TC_1_12() throws ServletException, IOException { 
+	@Test(expected = IllegalArgumentException.class)//formato non corretto ->password ->aggiungere a servlet non c'è controllo->Aggiunto 
+	public void TC_1_1_12() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -200,7 +204,7 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 	@Test//registrazione effettuata
-	public void TC_1_13() throws ServletException, IOException { 
+	public void TC_1_1_13() throws ServletException, IOException { 
 		request.addParameter("nome","Michele");
 		request.addParameter("cognome","de Rosa");
 		request.addParameter("email","m.derosa1@studenti.unisa.it");
@@ -218,7 +222,101 @@ public class ServletStudentTest extends Mockito{
 
 //Testing invio richiesta
 	@Test
-	public void TC_1_3_1() throws ServletException, IOException { //risovere problema reltivo a sendemail
+	public void TC_1_3_1() throws ServletException, IOException {
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+
+		request.addParameter("email","m.derosa1@studenti.unisa.it");;
+		request.addParameter("course","");
+		request.addParameter("professor","Nappi Michele");
+		request.addParameter("description","Questo è il corso di POO");
+		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.getSession().setAttribute("user", newstudent);
+
+		request.addParameter("flag", "2");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	
+	@Test
+	public void TC_1_3_2() throws ServletException, IOException { 
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+
+		request.addParameter("email","m.derosa1@studenti.unisa.it");;
+		request.addParameter("course","Programmazione I");
+		request.addParameter("professor","");
+		request.addParameter("description","Questo è il corso di POO");
+		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.getSession().setAttribute("user", newstudent);
+
+		request.addParameter("flag", "2");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test
+	public void TC_1_3_3() throws ServletException, IOException { 
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+
+		request.addParameter("email","m.derosa1@studenti.unisa.it");;
+		request.addParameter("course","");
+		request.addParameter("professor","Nappi Michele");
+		request.addParameter("description","Questo è il corso di POO");
+		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.getSession().setAttribute("user", newstudent);
+
+		request.addParameter("flag", "2");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test
+	public void TC_1_3_4() throws ServletException, IOException { 
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+
+		request.addParameter("email","m.derosa1@studenti.unisa.it");;
+		request.addParameter("course","Programmazione I");
+		request.addParameter("professor","Nappi Michele");
+		request.addParameter("description","Questa è il corso di POO ."
+				+ "...................................................................................."
+				+ ".........................................................."
+				+ "........................................................"
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................");
+		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.getSession().setAttribute("user", newstudent);
+
+		request.addParameter("flag", "2");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test
+	public void TC_1_3_5() throws ServletException, IOException { 
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+
+		request.addParameter("email","m.derosa1@studenti.unisa.it");;
+		request.addParameter("course","Programmazione I");
+		request.addParameter("professor","Nappi Michele");
+		request.addParameter("description","Questo è il corso di POO");
+		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.txt");
+		request.getSession().setAttribute("user", newstudent);
+
+		request.addParameter("flag", "2");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	//Richiesta effetuata
+	@Test
+	public void TC_1_3_7() throws ServletException, IOException { 
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 
 		request.addParameter("email","m.derosa1@studenti.unisa.it");;
@@ -232,7 +330,6 @@ public class ServletStudentTest extends Mockito{
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());
 	}
-
 //testing lista Richiesta
 	@Test
 	public void Visulizza_ListaRichiesta() throws ServletException, IOException { //aggiungere appunti in db senno nn va
@@ -297,8 +394,84 @@ public class ServletStudentTest extends Mockito{
 		assertEquals("json", response.getContentType());
 	}
 
+	
+	//test scrivi recensioni
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_4_1() throws ServletException, IOException { //aggiungere review  nel db
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+		ArrayList<Review> reviews = new ArrayList<Review>();
+		Review r=new Review(1, "m.derosa102@studenti.unisa.it", 38, "adfa", 4,"Michele de Rosa");
+		reviews.add(r);
+		request.getSession().setAttribute("Reviews", reviews);
+		request.addParameter("count", "4");
+	
+		request.addParameter("review", "");
+		request.addParameter("id", "38");
+
+		request.getSession().setAttribute("user", newstudent);
+
+
+		request.addParameter("flag", "7");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_4_2() throws ServletException, IOException { //aggiungere review  nel db
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+		ArrayList<Review> reviews = new ArrayList<Review>();
+		Review r=new Review(1, "m.derosa102@studenti.unisa.it", 38, "adfa", 4,"Michele de Rosa");
+		reviews.add(r);
+		request.getSession().setAttribute("Reviews", reviews);
+		request.addParameter("count", "4");
+	
+		request.addParameter("review", "");
+		request.addParameter("id", "38");
+
+		request.getSession().setAttribute("user", newstudent);
+
+
+		request.addParameter("flag", "7");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test(expected = NumberFormatException.class)
+	public void TC_1_4_3() throws ServletException, IOException { //aggiungere review  nel db
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+		ArrayList<Review> reviews = new ArrayList<Review>();
+		Review r=new Review(1, "m.derosa102@studenti.unisa.it", 38, "adfa", 4,"Michele de Rosa");
+		reviews.add(r);
+		request.getSession().setAttribute("Reviews", reviews);
+	
+	
+		request.addParameter("review", "ottimi appunti ordinati e completi"
+				+ "...................................................................................."
+				+ ".........................................................."
+				+ "........................................................"
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................"
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................."
+				+ "........................................................");
+		request.addParameter("id", "38");
+
+		request.getSession().setAttribute("user", newstudent);
+
+
+		request.addParameter("flag", "7");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
 	@Test
-	public void ScriviRecensioni() throws ServletException, IOException { //aggiungere review  nel db
+	public void TC_1_4_4() throws ServletException, IOException { //aggiungere review  nel db
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		ArrayList<Review> reviews = new ArrayList<Review>();
 		Review r=new Review(1, "m.derosa102@studenti.unisa.it", 38, "adfa", 4,"Michele de Rosa");
@@ -327,6 +500,7 @@ public class ServletStudentTest extends Mockito{
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());
 	}
+	//Ricerca Appunti
 	@Test
 	public void CercaAppunti() throws ServletException, IOException { //aggiungere nel db
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
@@ -338,31 +512,32 @@ public class ServletStudentTest extends Mockito{
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());
 	}
-	@Test
-	public void CercaStudentiVuoto() throws ServletException, IOException { //aggiungere nel db
+	//ricercaStudenti
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_5_1() throws ServletException, IOException {
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		request.getSession().setAttribute("user", newstudent);
-		request.addParameter("student","");
+		request.addParameter("student","Pa");
 		
 		request.addParameter("flag", "10");
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());
 	}
-	@Test
-	public void CercaStudentiNome() throws ServletException, IOException { //aggiungere nel db
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_5_2() throws ServletException, IOException {
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		request.getSession().setAttribute("user", newstudent);
-		request.addParameter("student","Michele");
+		request.addParameter("student","Paolo Erraaaaaaaaaaaaaaaaaaaaa");
 		
 		request.addParameter("flag", "10");
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());
 	}
-	@Test
-	public void CercaStudentiFull() throws ServletException, IOException { //aggiungere nel db
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_5_3() throws ServletException, IOException { 
 		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		request.getSession().setAttribute("user", newstudent);
-		request.addParameter("student","Michele de Rosa");
+		request.addParameter("student","Paolo Erra12");
 		
 		request.addParameter("flag", "10");
 		servlet.doPost(request, response);
@@ -370,7 +545,16 @@ public class ServletStudentTest extends Mockito{
 	}
 
 
-
+	@Test
+	public void TC_1_5_4() throws ServletException, IOException { 
+		UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+		request.getSession().setAttribute("user", newstudent);
+		request.addParameter("student","Paolo Erra");
+		
+		request.addParameter("flag", "10");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
 
 
 

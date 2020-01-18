@@ -86,7 +86,7 @@ public class ServletStudent extends HttpServlet {
 		        
 			String password = request.getParameter("password");
 			System.out.println(password);
-			if (password.length() < 8) {
+			if (password.length() < 8 || password.matches(".*\\W+.*")) {//aggiunto 
 				throw new IllegalArgumentException("Formato non corretto");
 		    }
 			
@@ -291,6 +291,9 @@ public class ServletStudent extends HttpServlet {
 	    	System.out.println(email);
 	    	String autor = userS.getName()+" "+userS.getSurname();
 		    String sql = "INSERT INTO Review (Comment, Stars, Email_User, ID_Note, Autor) VALUES (?, ?, ?, ?, ?)";
+		    if (review.length() > 255 || review.length() <1) {
+				throw new IllegalArgumentException("Commento troppo lungo");
+		        }
 		    try {
 				connection = DBConnection.getConnection();
 				stmt = connection.prepareStatement(sql);
@@ -400,6 +403,9 @@ public class ServletStudent extends HttpServlet {
             String sql = "";
             ArrayList<UserInterface> Searchstudent = new ArrayList<UserInterface>();
 			connection = DBConnection.getConnection();
+			if (student.length() == 2 || student.length() == 1  || student.length() > 20  || student.matches(".*\\d+.*")) {
+				throw new IllegalArgumentException("Formato non corretto");
+		        }
 			if(student == "") {	//Nessuna ricerca
 				System.out.println("aaa");
         		sql = "SELECT * from user WHERE Type = 0";

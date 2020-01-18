@@ -16,7 +16,7 @@ $(document).ready(function() {
 	$("#btnreview").click(function() {
 		var review = $("#review").val();
 		var id = $("#id").val();
-			if (review != "") {
+			if (review != "" && id != undefined) {
 					$.ajax({
 						url : "../ServletStudent?flag=7",
 						type : "POST",

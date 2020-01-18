@@ -155,6 +155,9 @@ public class ServletAdmin extends HttpServlet {
             String sql = "";
             ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 			connection = DBConnection.getConnection();
+			if (autor.length() == 2 || autor.length() == 1  || autor.length() > 20 || autor.matches(".*\\d+.*")) {
+				throw new IllegalArgumentException("Formato non corretto");
+		        }
 			if(autor == "") {	//Nessuna ricerca, vengono mostrate tutte le richieste.
         		sql = "SELECT * from Note WHERE Checked = 0";
 				stmt = connection.prepareStatement(sql);

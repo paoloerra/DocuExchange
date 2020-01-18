@@ -65,10 +65,35 @@ public class ServletAdminTest extends Mockito{
     servlet.doPost(request, response);
     assertEquals("json", response.getContentType());
 	}
-	@Test
-	public void testCercaRichiesta() throws ServletException, IOException { 
+	//Test ricercaRichiesta
+	@Test(expected = IllegalArgumentException.class)
+	public void	TC_1_6_1() throws ServletException, IOException { 
 
-	request.addParameter("autor", "Michele");
+	request.addParameter("autor", "Pa");
+    request.addParameter("flag", "4");
+    servlet.doPost(request, response);
+    assertEquals("json", response.getContentType());
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_6_2() throws ServletException, IOException { 
+
+	request.addParameter("autor", "Paolo Erraaaaaaaaaaaaaaaaaa");
+    request.addParameter("flag", "4");
+    servlet.doPost(request, response);
+    assertEquals("json", response.getContentType());
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void TC_1_6_3() throws ServletException, IOException { 
+
+	request.addParameter("autor", "Paolo Erra12");
+    request.addParameter("flag", "4");
+    servlet.doPost(request, response);
+    assertEquals("json", response.getContentType());
+	}
+	@Test
+	public void TC_1_6_4() throws ServletException, IOException { 
+
+	request.addParameter("autor", "Paolo Erra");
     request.addParameter("flag", "4");
     servlet.doPost(request, response);
     assertEquals("json", response.getContentType());

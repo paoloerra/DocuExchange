@@ -117,13 +117,22 @@ public class ServletCommon extends HttpServlet {
 			System.out.println(surname);
 			String password = request.getParameter("password");
 			System.out.println(password);
-			if (password.length() < 8) {
+			if (password.length() < 8 || password.matches(".*\\W+.*")) {
 				throw new IllegalArgumentException("Formato non corretto");
 		    }
 			char sex = request.getParameter("sex").charAt(0);
 			if (sex != 'M' && sex != 'F') {
 				throw new IllegalArgumentException("Valore non corretto");
 			 }			
+			  String prefix = "";
+		        if (email.length() > 0) {
+		          prefix = email.substring(0, email.indexOf("@"));
+		        }
+		        if (email.length() == 0 
+		            || !email.endsWith("@studenti.unisa.it") 
+		            || prefix.length() < 3 || prefix.indexOf(".") == -1) {
+		          throw new IllegalArgumentException("Formato non corretto");
+		        }
 			     
 			System.out.println(sex);
 			
