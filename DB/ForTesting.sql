@@ -1,2 +1,0 @@
-INSERT INTO `docuexchange`.`note` (`ID_Note`, `Course`, `Professor`, `Description`, `FilePDF`, `Email_User`, `Checked`, `Autor`) VALUES ('39', 'Metodi Matematici per Informatica', 'De Felice Clelia', 'Questa è una descrizione', "", 'm.derosa102@studenti.unisa.it', '1', 'Michele de Rosa');
-INSERT INTO `docuexchange`.`review` (`ID_Review`, `Comment`, `Stars`, `Email_User`, `Autor`, `ID_Note`) VALUES ('1', 'Questo è un commento', '4', 'm.derosa102@studenti.unisa.it', 'Michele de Rosa', '38');
