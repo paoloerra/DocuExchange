@@ -26,6 +26,11 @@ public class AdminCheckRequest extends HttpServlet {
         super();
     }
 
+    /**
+     * This servlet allows the admin to verify a student sharing request. 
+     * Approved request: the note is published on the platform
+     * Request rejected:The request is canceled.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("AdminCheckRequest chiamata");
 		String error = ""; 

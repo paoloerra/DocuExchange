@@ -33,7 +33,9 @@ public class StudentShowProfile extends HttpServlet {
     public StudentShowProfile() {
         super();
     }
-
+    /**
+     * This servlet allows the student to view the profile of another student.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentShowProfile chiamata");
 		String error = "";

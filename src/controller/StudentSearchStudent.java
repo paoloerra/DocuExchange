@@ -26,6 +26,15 @@ public class StudentSearchStudent extends HttpServlet {
         super();
     }
 
+    /**
+     * This servlet allows the student to search for other students by their first and last name.
+     * Accepted parameters:
+     * Name and surname
+     * Example: Paolo Erra
+     * 
+     * First name
+     * Example: Paolo
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentSearchStudent chiamata");
 		String error = "";

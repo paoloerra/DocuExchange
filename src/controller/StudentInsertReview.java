@@ -25,7 +25,10 @@ public class StudentInsertReview extends HttpServlet {
     public StudentInsertReview() {
         super();
     }
-
+    
+    /**
+     * This servlet allows the student to write a review.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentInsertReview chiamata");
 		String error = "";

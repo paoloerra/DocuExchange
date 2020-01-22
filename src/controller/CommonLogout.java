@@ -20,7 +20,9 @@ public class CommonLogout extends HttpServlet {
     public CommonLogout() {
         super();
     }
-
+    /**
+     * This servlet allows the admin and student to log out.
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("CommonLogout chiamata");
     	String error = "";

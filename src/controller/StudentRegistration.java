@@ -23,6 +23,9 @@ public class StudentRegistration extends HttpServlet {
         super();
     }
 
+    /**
+     * This servlet allows the student to register.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentRegistration chiamata");
 		String error = "";

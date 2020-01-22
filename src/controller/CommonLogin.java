@@ -22,7 +22,9 @@ public class CommonLogin extends HttpServlet {
     public CommonLogin() {
         super();
     }
-
+    /**
+     * This servlet allows the admin and student to log in.
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("Servlet CommonLogin chiamata");
     	String error = "";

@@ -22,7 +22,9 @@ public class AdminShowRequest extends HttpServlet {
     public AdminShowRequest() {
         super();
     }
-
+    /**
+     * This servlet allows the admin to view a single request.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("AdminShowRequest chiamata");
 		String error = "";

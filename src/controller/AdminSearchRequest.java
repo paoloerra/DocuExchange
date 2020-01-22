@@ -25,6 +25,12 @@ public class AdminSearchRequest extends HttpServlet {
         super();
     }
 
+    /**
+     * This servlet allows the admin to search for requests through the author of the request.
+     * accepted parameter: name and surname
+     * example: Paolo Erra
+     * 
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("AdminSearchRequest chiamata");
 		String error = "";

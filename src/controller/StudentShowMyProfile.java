@@ -23,7 +23,9 @@ public class StudentShowMyProfile extends HttpServlet {
     public StudentShowMyProfile() {
         super();
     }
-
+    /**
+     * This servlet allows the student to view their profile.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentShowMyProfile chiamata");
 		String error = "";

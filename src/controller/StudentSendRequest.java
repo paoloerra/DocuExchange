@@ -25,7 +25,9 @@ public class StudentSendRequest extends HttpServlet {
     public StudentSendRequest() {
         super();
     }
-
+    /**
+     * This servlet allows the student to send a sharing request.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentSendRequest chiamata");
 		String error = "";

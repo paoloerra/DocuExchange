@@ -22,7 +22,9 @@ public class CommonEditProfile extends HttpServlet {
     public CommonEditProfile() {
         super();
     }
-
+    /**
+     * This servlet allows the admin and student to modify their data.
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("CommonEditProfile chiamata");
     	String error = "";

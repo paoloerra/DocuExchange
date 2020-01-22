@@ -33,7 +33,9 @@ public class StudentShowNote extends HttpServlet {
     public StudentShowNote() {
         super();
     }
-
+    /**
+     * This servlet allows the student to view a single note.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentShowNote chiamata");
 		String error = "";

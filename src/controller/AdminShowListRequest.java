@@ -23,7 +23,10 @@ public class AdminShowListRequest extends HttpServlet {
     public AdminShowListRequest() {
         super();
     }
-
+    
+    /**
+     * This servlet allows the admin to view the list of requests.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("AdminShowListRequest chiamata");
 		String error = "";

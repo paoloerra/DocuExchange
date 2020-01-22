@@ -23,7 +23,10 @@ public class StudentListNote extends HttpServlet {
     public StudentListNote() {
         super();
     }
-
+    
+    /**
+     * This servlet allows the student to view the list of published notes.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("ServletStudentListNote chiamata");
 		String error = "";

@@ -24,6 +24,9 @@ public class StudentSearchNote extends HttpServlet {
         super();
     }
 
+    /**
+     * This servlet allows the student to search for notes by entering the name of the course and the name of the professor.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("StudentSearchNote chiamata");
 		String error = "";

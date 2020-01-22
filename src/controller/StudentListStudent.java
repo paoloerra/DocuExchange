@@ -23,6 +23,9 @@ public class StudentListStudent extends HttpServlet {
         super();
     }
 
+    /**
+     * This servlet allows the student to view the list of students registered on the platform.
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("ServletStudentListStudent chiamata");
 		String error = "";
