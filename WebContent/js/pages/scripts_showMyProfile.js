@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$("#btnProfile").click(function() {
 					$.ajax({
-						url : "../ServletStudent?flag=8",
+						url : "../StudentShowMyProfile",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,

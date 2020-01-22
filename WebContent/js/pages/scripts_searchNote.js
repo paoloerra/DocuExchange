@@ -3,7 +3,7 @@ $(document).ready(function() {
 		var course = $("#corso").val();
 		var professor = $("#professori").val();
 					$.ajax({
-						url : "../ServletStudent?flag=9",
+						url : "../StudentSearchNote",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,

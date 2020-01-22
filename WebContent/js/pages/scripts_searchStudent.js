@@ -3,7 +3,7 @@ $(document).ready(function() {
 		var student = $("#student").val();
 		console.log(student);
 					$.ajax({
-						url : "../ServletStudent?flag=10",
+						url : "../StudentSearchStudent",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,

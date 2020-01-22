@@ -7,7 +7,7 @@ $(document).ready(function() {
 			$(".preloader").show();
 
 			$.ajax({
-				url : "ServletCommon?flag=1",
+				url : "CommonLogin",
 				type : "POST",
 				dataType : 'JSON',
 				async : false,

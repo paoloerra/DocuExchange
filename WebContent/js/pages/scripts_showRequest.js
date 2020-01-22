@@ -4,7 +4,7 @@ $(document).ready(function() {
 		   var index=$(this).find('td:first').html();		   
 		   $(".preloader").show();
 			$.ajax({
-				url : "../ServletAdmin?flag=2",
+				url : "../AdminShowRequest",
 				type : "POST",
 				dataType : 'JSON',
 				async : false,

@@ -18,7 +18,7 @@ $(document).ready(function() {
 		var id = $("#id").val();
 			if (review != "" && id != undefined) {
 					$.ajax({
-						url : "../ServletStudent?flag=7",
+						url : "../StudentInsertReview",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,

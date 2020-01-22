@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 			$(".preloader").show();
 			$.ajax({
-				url : "../ServletAdmin?flag=3",
+				url : "../AdminCheckRequest",
 				type : "POST",
 				dataType : 'JSON',
 				async : false,
@@ -42,7 +42,7 @@ $(document).ready(function() {
 	$("#btnRifiuted").click(function() {
 		$(".preloader").show();
 		$.ajax({
-			url : "../ServletAdmin?flag=3",
+			url : "../AdminCheckRequest",
 			type : "POST",
 			dataType : 'JSON',
 			async : false,

@@ -79,13 +79,8 @@ public class UserDAO {
 					student.setPassword("");
 					students.add(student);
 				}
-				if(students.isEmpty()) {
-					return null;
-				}
-				else {
-					connection.commit();
-					return students;
-				}
+				connection.commit();
+				return students;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

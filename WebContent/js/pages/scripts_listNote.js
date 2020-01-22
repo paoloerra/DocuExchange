@@ -1,10 +1,9 @@
 $(document).ready(function() {
 	$("#listNote").click(function() {
-			console.log("Sono qui");
 			$(".preloader").show();	
 			
 			$.ajax({
-					url : '../ServletStudent?flag=3',
+					url : '../StudentListNote',
 					type : "POST",
 					dataType : 'JSON',
 					async : true,

@@ -4,7 +4,7 @@ $(document).ready(function() {
 			$(".preloader").show();	
 			
 			$.ajax({
-					url : '../ServletAdmin?flag=1',
+					url : '../AdminShowListRequest',
 					type : "POST",
 					dataType : 'JSON',
 					async : true,

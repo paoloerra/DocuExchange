@@ -16,7 +16,7 @@ $(document).ready(function() {
 		} else {
 			if (course != undefined && professor != undefined && description != undefined) {
 					$.ajax({
-						url : "../ServletStudent?flag=2",
+						url : "../StudentSendRequest",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,

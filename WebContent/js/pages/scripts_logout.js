@@ -3,7 +3,7 @@ $(document).ready(function() {
 			$(".preloader").show();	
 			
 			$.ajax({
-					url : '../ServletCommon?flag=5',
+					url : '../CommonLogout',
 					type : "POST",
 					dataType : 'JSON',
 					async : true,

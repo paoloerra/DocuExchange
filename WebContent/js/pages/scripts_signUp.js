@@ -13,7 +13,7 @@ $(document).ready(function() {
 				showAlert(1,"Controllare che le due password coincidano");
 			} else {
 				$.ajax({
-					url : "../ServletStudent?flag=1",
+					url : "../StudentRegistration",
 					type : "POST",
 					dataType : 'JSON',
 					async : false,

@@ -4,7 +4,7 @@ $(document).ready(function() {
 		var autor = $("#autor").val();
 		console.log(autor);
 					$.ajax({
-						url : "../ServletAdmin?flag=4",
+						url : "../AdminSearchRequest",
 						type : "POST",
 						dataType : 'JSON',
 						async : false,

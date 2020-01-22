@@ -7,7 +7,7 @@ $(document).ready(function() {
 		   $(".preloader").show();
 
 			$.ajax({
-				url : "../ServletStudent?flag=5",
+				url : "../StudentShowProfile",
 				type : "POST",
 				dataType : 'JSON',
 				async : false,

@@ -17,7 +17,7 @@ $(document).ready(function() {
 			$(".preloader").show();	
 			
 			$.ajax({
-					url : '../ServletCommon?flag=2',
+					url : '../CommonEditProfile',
 					type : "POST",
 					dataType : 'JSON',
 					async : true,

@@ -81,14 +81,10 @@ public class NoteDAO {
 					n.setChecked(1);
 					notes.add(n);
 				}
-				if(notes.isEmpty()) {
-					return null;
-				}
-				else {
-					connection.commit();
-					return notes;
-				}
+				connection.commit();
+				return notes;
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
