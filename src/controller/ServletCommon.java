@@ -1,15 +1,7 @@
 package controller;
 
-import java.awt.List;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
-import model.Admin;
-import model.Student;
+import DAO.UserDAO;
 
 
 @WebServlet("/ServletCommon")
@@ -39,111 +30,68 @@ public class ServletCommon extends HttpServlet {
 		Integer result = 0;
 		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
 		int flag = Integer.parseInt(request.getParameter("flag"));
-	    PreparedStatement stmt = null;
-		Connection connection = null;
-		try {
-			connection = DBConnection.getConnection();
-			if(connection != null) {
-				if (flag == 1) { // login
-					String email = request.getParameter("email");
-				    String password = request.getParameter("password");
-				    String sql ="select * from User WHERE Email_User=? AND Password=?"; 
-				    stmt = connection.prepareStatement(sql);
-				    stmt.setString(1, email);
-				    stmt.setString(2, password);
-				    System.out.println(stmt.toString());
-				    ResultSet r = stmt.executeQuery();
-				    int count = 0;
-				    	while(r.next()){
-							count++;
-							int type = r.getInt("Type");
-							if(type == 0) {
-								String email_student = r.getString("Email_User");
-								String pass_student = r.getString("Password");
-								String name_student = r.getString("Name");
-								String surname_student = r.getString("Surname");
-								int LimitDownload = r.getInt("LimitDownload");
-								char sex_student = r.getString("Sex").charAt(0);
-								UserInterface user = new Student(email_student, name_student, surname_student, sex_student, pass_student, type, LimitDownload);
-				                redirect = request.getContextPath() + "/student/HomeStudent.jsp";
-				                request.getSession().setAttribute("user", user);
-				                content = "Login corretto.";
-				                result = 1;
-							}
-							else if(type == 1) {
-								String email_admin = r.getString("Email_User");
-								String pass_admin = r.getString("Password");
-								String name_admin = r.getString("Name");
-								String surname_admin = r.getString("Surname");
-								char sex_admin = r.getString("Sex").charAt(0);
-								UserInterface user = new Admin(email_admin, name_admin, surname_admin, sex_admin, pass_admin, type);
-				                redirect = request.getContextPath() + "/admin/HomeAdmin.jsp";
-				                request.getSession().setAttribute("user", user);
-				                content = "Login corretto.";
-				                result = 1;
-							}
-						}
-						if(count != 1) {
-							error = "Login fallito.";
-							result = 0;
-						}
-				}	
+		
+		if (flag == 1) { // login
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+		    UserInterface user = UserDAO.SelectLoginUser(email, password);
+		    if(user == null) {
+		    	error = "Login fallito.";
+		    	result = 0;
+		    }
+		    if(user.getUserType() == 0) {
+		    	redirect = request.getContextPath() + "/student/HomeStudent.jsp";
+		        request.getSession().setAttribute("user", user);
+                content = "Login corretto.";
+                result = 1;
+		    }
+		    else if(user.getUserType() == 1) {
+		    	redirect = request.getContextPath() + "/admin/HomeAdmin.jsp";
+		    	request.getSession().setAttribute("user", user);
+		        content = "Login corretto.";
+                result = 1;
+		    }
+		}	
+			
+		if(flag == 2) { //Modifica profilo
+		    UserInterface u = (UserInterface) request.getSession().getAttribute("user");
+		    int type = u.getUserType();
+			String name = request.getParameter("name");
+			if (name.length() == 0 || name.length() > 20 || name.length() < 2 || name.matches(".*\\d+.*")) {
+				error = "nome non corretto";
+				result = 0;
+				throw new IllegalArgumentException("Formato non corretto");
 			}
-			if(flag == 2) { //Modifica profilo
-				String sql;
-			    UserInterface u = (UserInterface) request.getSession().getAttribute("user");
-			    int type = u.getUserType();
-				String email = request.getParameter("email");
-				System.out.println(email);
-				String name = request.getParameter("name");
-				System.out.println(name);
-				if (name.length() == 0 || name.length() > 20 || name.length() < 2 || name.matches(".*\\d+.*")) {
-					error = "nome non corretto";
-					result = 0;
-					throw new IllegalArgumentException("Formato non corretto");
-			     }
-				String surname = request.getParameter("surname");
-				if (surname.length() == 0 || surname.length() > 20 || surname.length() < 2 || surname.matches(".*\\d+.*")) {
-					throw new IllegalArgumentException("Formato non corretto");
-			     }
-				System.out.println(surname);
-				String password = request.getParameter("password");
-				System.out.println(password);
-				if (password.length() < 8 || password.matches(".*\\W+.*")) {
-					throw new IllegalArgumentException("Formato non corretto");
-			    }
-				char sex = request.getParameter("sex").charAt(0);
-				if (sex != 'M' && sex != 'F') {
-					throw new IllegalArgumentException("Valore non corretto");
-				 }			
-				String prefix = "";
-			    if (email.length() > 0) {
-			    	prefix = email.substring(0, email.indexOf("@"));
-			    }
-			    if (email.length() == 0 || !email.endsWith("@studenti.unisa.it") || prefix.length() < 3 || prefix.indexOf(".") == -1) {
-			    	throw new IllegalArgumentException("Formato non corretto");
-			    }				
-				sql = "UPDATE user SET Name = ?, Surname = ?, Sex = ?, Password = ? WHERE email_user = ? AND Type = ?;";
-				stmt = connection.prepareStatement(sql);
-				stmt.setString(1, name);
-				stmt.setString(2, surname);
-				stmt.setString(3, String.valueOf(sex));
-				stmt.setString(4, password);
-				stmt.setString(5, email);
-				stmt.setInt(6, type);
-				if(stmt.executeUpdate() == 1) {
-					result = 1;
-					content = "Modifica effettuata";
-				}
-				else {
-					result = 0;
-					error = "Modifica non effettuata";
-				}
+			u.setName(name);
+			
+			String surname = request.getParameter("surname");
+			if (surname.length() == 0 || surname.length() > 20 || surname.length() < 2 || surname.matches(".*\\d+.*")) {
+				throw new IllegalArgumentException("Formato non corretto");
+		    }
+			u.setSurname(surname);
+				
+			String password = request.getParameter("password");
+			if (password.length() < 8 || password.matches(".*\\W+.*")) {
+				throw new IllegalArgumentException("Formato non corretto");
+		    }
+			u.setPassword(password);
+				
+			char sex = request.getParameter("sex").charAt(0);
+			if (sex != 'M' && sex != 'F') {
+				throw new IllegalArgumentException("Valore non corretto");
 			}
-			connection.commit();	
-		} catch (SQLException exception) {
-			exception.printStackTrace();
+			u.setSex(sex);		
+				
+			if(UserDAO.UpdateProfileUser(u) == true) {
+				result = 1;
+				content = "Modifica effettuata";
+			}
+			else {
+				result = 0;
+				error = "Modifica non effettuata";				
+			}
 		}
+		 
 		if(flag == 5) { //Logout
             redirect = request.getContextPath() + "/Index.jsp";  
             request.getSession().removeAttribute("user");

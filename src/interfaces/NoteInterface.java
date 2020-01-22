@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.io.FileInputStream;
+
 public interface NoteInterface {
   // get
 	public int getId();
@@ -7,7 +9,7 @@ public interface NoteInterface {
 	public String getCourse();
 	public String getProfessor();
 	public String getDescription();
-	public String getFileName();
+	public FileInputStream getFile();
 	public String getAutor();
 	public int getChecked();
 	
@@ -17,7 +19,7 @@ public interface NoteInterface {
 	public void setCourse(String course);
 	public void setProfessor(String professor);
 	public void setDescription(String description);
-	public void setFileName(String fileName);
+	public void setFile(FileInputStream file);
 	public void setAutor(String autor);
 	public void setChecked(int checked);
 }

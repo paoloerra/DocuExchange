@@ -1,5 +1,7 @@
 package model;
 
+import java.io.FileInputStream;
+
 import interfaces.NoteInterface;
 
 public class Note implements NoteInterface {
@@ -12,7 +14,8 @@ public class Note implements NoteInterface {
 	private String course;
 	private String professor;
 	private String description;
-	private String fileName;
+	private FileInputStream file;
+	
 	private int checked; //1
 	/**
 	 * 
@@ -25,13 +28,13 @@ public class Note implements NoteInterface {
 	 * @param checked it's 0 if it's a request, 1 if it's a published note.
 	 */
 	
-	public Note(int id,String studentEmail,String course,String professor,String description,String fileName, String autor, int checked) {
+	public Note(int id,String studentEmail,String course,String professor,String description, FileInputStream file, String autor, int checked) {
 		this.id=id;
 		this.studentEmail=studentEmail;
 		this.course=course;
 		this.professor=professor;
 		this.description=description;
-		this.fileName=fileName;
+		this.file = file;
 		this.checked = checked;
 		this.autor = autor;
 	}
@@ -79,8 +82,8 @@ public class Note implements NoteInterface {
 	/**
 	 * Get the name of file.
 	 */
-	public String getFileName() {
-		return this.fileName;
+	public FileInputStream getFile() {
+		return this.file;
 	}
 	
 	/**
@@ -149,8 +152,8 @@ public class Note implements NoteInterface {
 	 * 
 	 * @param fileName is the name of file of note.
 	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFile(FileInputStream file) {
+		this.file = file;
 	}
 	
 	/**
