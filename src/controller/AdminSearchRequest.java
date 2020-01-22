@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.Closeable;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -73,15 +72,4 @@ public class AdminSearchRequest extends HttpServlet {
 	    doGet(request, response);
 	}
 	
-	private static void close(Closeable resource) {
-        if (resource != null) {
-            try {
-                resource.close();
-            } catch (IOException e) {
-                // Do your thing with the exception. Print it, log it or mail it.
-                e.printStackTrace();
-            }
-        }
-    }
-
 }

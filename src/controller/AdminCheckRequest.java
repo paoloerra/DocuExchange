@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.Closeable;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -46,31 +45,32 @@ public class AdminCheckRequest extends HttpServlet {
 		String name = request.getParameter("autor");
 		
 		if(outcome == 1){ //SE è 1 la richiesta è accettata, l'appunto viene pubblicato e vengono aggiunti 3 download all'utente
-			if(NoteDAO.UpdateRequestAccept(id) == false) {
+			NoteInterface req = requests.get(index);
+			String email_student = req.getStudentEmail();
+			if(NoteDAO.UpdateRequestAccept(id) && UserDAO.UpdateResetLimitDownloadStudent(email_student) == true) {
+				requests.remove(index);
+				SendEmail.SendAcceptedEmail(email, name);
+				result = 1;
+				redirect = request.getContextPath() + "/admin/ListRequest.jsp";
+			}
+			else {
 				result = 0;
 				error = "Errore la richiesta non è stata accettata";
 			}
-			NoteInterface req = requests.get(index);
-			requests.remove(index);
-			String email_student = req.getStudentEmail();
-			if(UserDAO.UpdateResetLimitDownloadStudent(email_student) == false) {
-				result = 0;
-				error = "Errore il limite download non è stato resettato";
-			}
-			SendEmail.SendAcceptedEmail(email, name);
 		}
-		
 		else if(outcome == 0){ //SE è 0 la richiesta è rifiutata, la richiesta viene cancellata;
-			if(NoteDAO.UpdateRequestRifiuted(id) == false) {
+			if(NoteDAO.UpdateRequestRifiuted(id) == true) {
+				SendEmail.SendRifiutedEmail(email, name);
+				requests.remove(index);
+				result = 1;
+				redirect = request.getContextPath() + "/admin/ListRequest.jsp";
+			}
+			else {
 				result = 0;
 				error = "Errore la richiesta non è stata rifiutata";
 			}
-			SendEmail.SendRifiutedEmail(email, name);
-			requests.remove(index);
 		}
-		result = 1;
-		redirect = request.getContextPath() + "/admin/ListRequest.jsp"; 
-	
+		 	
 		JSONObject res = new JSONObject();
 		res.put("result", result);
 		res.put("error", error);
@@ -85,15 +85,6 @@ public class AdminCheckRequest extends HttpServlet {
 	    doGet(request, response);
 	}
 	
-	private static void close(Closeable resource) {
-        if (resource != null) {
-            try {
-                resource.close();
-            } catch (IOException e) {
-                // Do your thing with the exception. Print it, log it or mail it.
-                e.printStackTrace();
-            }
-        }
-    }
+
 
 }
