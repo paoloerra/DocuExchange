@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import controller.DBConnection;
 import interfaces.NoteInterface;
 import model.Note;
 import model.Request;

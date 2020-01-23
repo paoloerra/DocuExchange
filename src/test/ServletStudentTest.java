@@ -16,7 +16,7 @@ import org.mockito.Mockito;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import controller.DBConnection;
+import DAO.DBConnection;
 import controller.ServletAdmin;
 import controller.ServletCommon;
 import controller.ServletStudent;
