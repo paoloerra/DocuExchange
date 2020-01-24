@@ -33,6 +33,7 @@ public class ReviewDAO {
 				stmt.setInt(1, id);
 				ResultSet rs = stmt.executeQuery();	
 				while(rs.next()){
+					
 					ReviewInterface review = new Review();
 					review.setComment(rs.getString("Comment"));
 					review.setStar(rs.getInt("Stars"));

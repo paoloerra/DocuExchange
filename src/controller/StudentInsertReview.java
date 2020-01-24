@@ -41,7 +41,8 @@ public class StudentInsertReview extends HttpServlet {
     	String comment = request.getParameter("review");
     	int id_note = Integer.parseInt(request.getParameter("id"));
 		String autor = userS.getName()+" "+userS.getSurname();
-		    	
+		    	System.out.println(comment.length());
+		    	System.out.println(comment);
 		if (comment.length() > 255 || comment.length() <1) {
 			throw new IllegalArgumentException("Commento troppo lungo");
 		}

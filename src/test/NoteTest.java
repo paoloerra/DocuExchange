@@ -2,122 +2,162 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import org.junit.Test;
-
 import model.Note;
-import model.Request;
 
 public class NoteTest {
 
-	Note n=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-
 
 	@Test
-	public void RequesEmptyTest(){
+	public void NoteEmptyTest(){
 		Note n=new Note();
 		assertNotNull(n);
 	}
 	
+	@Test
+	public void getIdTest() throws FileNotFoundException { 
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals(1,r.getId()); 
+	}
+	@Test
+	public void getStudentEmailTest() throws FileNotFoundException { 
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+
+		assertEquals("aaa@studenti.unisa.it",r.getStudentEmail());
+	}
+	@Test
+	public void getCourseTest() throws FileNotFoundException  { 
+
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals("Programmazione I",r.getCourse());	}
+
 	
 	@Test
-	public void getIdTest() { 
-		assertEquals(1,n.getId());
+	public void getProfessorTest() throws FileNotFoundException  { 
+
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals("Nappi Michele",r.getProfessor());	
 		}
 	
 	@Test
-	public void getStudentEmailTest() { 
-		assertEquals("aaa@studenti.unisa.it",n.getStudentEmail());
+	public void getDescriptionTest() throws FileNotFoundException  {
+
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals("descrizione",r.getDescription());	
 		}
+	
+	
+	@Test
+	public void getFileNameTest() throws FileNotFoundException  {
+
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals(file,r.getFile());	}
+	
 
 	@Test
-	public void getCourseTest() { 
-		assertEquals("Programmazione I",n.getCourse());	
-	}
+	public void getAutorTest() throws FileNotFoundException { 
 
-	@Test
-	public void getProfessorTest() { 
-		assertEquals("Nappi Michele",n.getProfessor());	
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals("aaa",r.getAutor());	
 		}
 	
 	@Test
-	public void getDescriptionTest() {
-		assertEquals("descrizione",n.getDescription());	
+	public void getCheckedTest() throws FileNotFoundException { 
+
+		FileInputStream file = new FileInputStream(new File("file.pdf"));
+		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+		assertEquals(0,r.getChecked());
 		}
-	
-	
-	@Test
-	public void getFileNameTest() { 
-		assertEquals("file.pdf",n.getFileName());	
-		}
-	
-	@Test
-	public void getAutorTest() {
-		assertEquals("aaa",n.getAutor());	
-	}
-	
-	@Test
-	public void getCheckedTest() { 
-		assertEquals(1,n.getChecked());
-	}
 	
 	//metodi set
 	@Test
-	public void setIDTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa",1);
-	ns.setID(2);
-	assertEquals(2,ns.getId());
+	public void setIDTest() throws FileNotFoundException{
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+	rs.setID(2);
+	assertEquals(2,rs.getId());
 	}
 	
 	@Test
-	public void setStudentEmailTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setStudentEmail("bbb@studenti.unisa.it");
-	assertEquals("bbb@studenti.unisa.it",ns.getStudentEmail());
+	public void setStudentEmailTest() throws FileNotFoundException{
+
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+	rs.setStudentEmail("bbb@studenti.unisa.it");
+	assertEquals("bbb@studenti.unisa.it",rs.getStudentEmail());
 		
 	}
 	
 	@Test
-	public void setCourseTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setCourse("Metodi Matematici per Informatica");
-	assertEquals("Metodi Matematici per Informatica",ns.getCourse());
+	public void setCourseTest() throws FileNotFoundException{
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+	rs.setCourse("Metodi Matematici per Informatica");
+	assertEquals("Metodi Matematici per Informatica",rs.getCourse());
 			
 	}
 	
 	@Test
-	public void setProfessorTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setProfessor("De Felice Clelia");
-	assertEquals("De Felice Clelia",ns.getProfessor());
+	public void setProfessorTest() throws FileNotFoundException{
+
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+	rs.setProfessor("De Felice Clelia");
+	assertEquals("De Felice Clelia",rs.getProfessor());
 	}
 	
 	@Test
-	public void setDescriptionTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setDescription("Altra descrizione");
-	assertEquals("Altra descrizione",ns.getDescription());
+	public void setDescriptionTest() throws FileNotFoundException{
+		File theFile = new File("file.pdf");
+		FileInputStream file = new FileInputStream(theFile);
+		Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+	rs.setDescription("Altra descrizione");
+	assertEquals("Altra descrizione",rs.getDescription());
 	}
 	
 	@Test
-	public void setFileNameTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setFileName("altroFile.pdf");
-	assertEquals("altroFile.pdf",ns.getFileName());
+	public void setFileNameTest() throws FileNotFoundException{
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+
+	File theFile1 = new File("altrofile.pdf");
+	FileInputStream file1 = new FileInputStream(theFile1);
+	rs.setFile(file1);
+	assertEquals(file1,rs.getFile());
 		
 	}
 	
 	@Test
-	public void setAutorTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setAutor("bbb");;
-	assertEquals("bbb",ns.getAutor());
+	public void setAutorTest() throws FileNotFoundException{
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
+	rs.setAutor("bbb");;
+	assertEquals("bbb",rs.getAutor());
 	}
 
 	@Test
-	public void setCheckedTest() {
-	Note ns=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione","file.pdf", "aaa", 1);
-	ns.setChecked(0);;
-	assertEquals(0,ns.getChecked());
+	public void setCheckedTest() throws FileNotFoundException{
+
+	File theFile = new File("file.pdf");
+	FileInputStream file = new FileInputStream(theFile);
+	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);	
+	rs.setChecked(1);;
+	assertEquals(1,rs.getChecked());
 	}
 }

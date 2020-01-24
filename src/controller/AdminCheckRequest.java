@@ -47,6 +47,8 @@ public class AdminCheckRequest extends HttpServlet {
 		if(outcome == 1){ //SE è 1 la richiesta è accettata, l'appunto viene pubblicato e vengono aggiunti 3 download all'utente
 			NoteInterface req = requests.get(index);
 			String email_student = req.getStudentEmail();
+			System.out.println(email_student);
+			System.out.println(id);
 			if(NoteDAO.UpdateRequestAccept(id) && UserDAO.UpdateResetLimitDownloadStudent(email_student) == true) {
 				requests.remove(index);
 				SendEmail.SendAcceptedEmail(email, name);
