@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
 import interfaces.UserInterface;
 import DAO.NoteDAO;
 import model.Request;
@@ -46,6 +47,7 @@ public class StudentSendRequest extends HttpServlet {
 		FileInputStream file = new FileInputStream(theFile);
 		String autor = student.getName() +" "+student.getSurname();
 		NoteInterface req = new Request(0, email, course, professor, description, file, autor, 0);
+		NoteInterfaceDAO NoteDAO = new NoteDAO();
 		if (NoteDAO.saveRequest(req) == true) {
 			SendEmail.SendRequestEmail(email, userS.getName(), course, professor, description);
 		    content = "Invio richiesta effettuato.";

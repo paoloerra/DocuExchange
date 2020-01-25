@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
-
+import interfaces.UserInterfaceDAO;
 import DAO.UserDAO;
 
 
@@ -42,6 +42,7 @@ public class StudentSearchStudent extends HttpServlet {
 		String redirect = "";
 		Integer result = 0;
 		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
+		UserInterfaceDAO UserDAO = new UserDAO();
 		
 		String student = request.getParameter("student");
 	    ArrayList<UserInterface> Searchstudent = new ArrayList<UserInterface>();

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
 import DAO.NoteDAO;
 
 
@@ -33,6 +34,7 @@ public class StudentSearchNote extends HttpServlet {
 		String content = "";
 		String redirect = "";
 		Integer result = 0;
+		NoteInterfaceDAO NoteDAO = new NoteDAO();
 		
 		String course = request.getParameter("course");
 		String professor = request.getParameter("professor");

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.ReviewInterface;
+import interfaces.ReviewInterfaceDAO;
 import interfaces.UserInterface;
 import model.Review;
 import DAO.ReviewDAO;
@@ -47,7 +48,8 @@ public class StudentInsertReview extends HttpServlet {
 			throw new IllegalArgumentException("Commento troppo lungo");
 		}
 		ReviewInterface review = new Review(0, userS.getEmail(), id_note , comment, star, autor);
-		if (ReviewDAO.saveReview(review) ==  true) {
+		ReviewInterfaceDAO reviewDAO = new ReviewDAO();
+		if (reviewDAO.saveReview(review) ==  true) {
 			ArrayList<ReviewInterface> reviews = (ArrayList<ReviewInterface>) request.getSession().getAttribute("Reviews");
 		    reviews.add(review);
 		    request.getSession().removeAttribute("Reviews");

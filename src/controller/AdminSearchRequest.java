@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
 import DAO.NoteDAO;
 
 @WebServlet("/AdminSearchRequest")
@@ -36,6 +37,7 @@ public class AdminSearchRequest extends HttpServlet {
 		String content = "";
 		String redirect = "";
 		Integer result = 0;
+		NoteInterfaceDAO NoteDAO = new NoteDAO();
 		
 		String autor = request.getParameter("autor");
 	    ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();

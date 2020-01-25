@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import interfaces.UserInterface;
+import interfaces.UserInterfaceDAO;
 import model.Admin;
 import model.Student;
 
-public class UserDAO {
+public class UserDAO implements UserInterfaceDAO {
 	
 	private static final String INSERT_STUDENT_SQL = "INSERT INTO User (Email_User, Name, Surname, Password, Sex, type, LimitDownload) VALUES (?, ?, ?, ?, ?, ?, '3')";
 	private static final String SELECT_STUDENT_SQL = "SELECT * from user WHERE Type = 0 AND email_user != ?;";
@@ -30,7 +31,7 @@ public class UserDAO {
 	 * @return true if the operation was successful
 	 * @return false if the operation failed+
 	 * */
-	public static boolean saveStudent(UserInterface user) {
+	public boolean saveStudent(UserInterface user) {
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -61,7 +62,7 @@ public class UserDAO {
 	 * @param EmailStudentSession is the email of the student in the session
 	 * @return List of student
 	 */
-	public static ArrayList<UserInterface> selectStudent(String EmailStudentSession){
+	public ArrayList<UserInterface> selectStudent(String EmailStudentSession){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -94,7 +95,7 @@ public class UserDAO {
 	 * @param password
 	 * @return
 	 */
-	public static UserInterface SelectLoginUser(String email, String password){
+	public UserInterface SelectLoginUser(String email, String password){
 		System.out.println("Login");
 		try {
 			UserInterface user = null;
@@ -146,7 +147,7 @@ public class UserDAO {
 	 * @param EmailStudentSession
 	 * @return list of student
 	 */
-	public static ArrayList<UserInterface> selectSearchForNameAndSurnameStudent(String name, String surname, String studentSession){
+	public ArrayList<UserInterface> selectSearchForNameAndSurnameStudent(String name, String surname, String studentSession){
 		System.out.println("Name and surname");
 		try {
 			connection = DBConnection.getConnection();
@@ -186,7 +187,7 @@ public class UserDAO {
 	 * @param studentSession
 	 * @return
 	 */
-	public static ArrayList<UserInterface> selectSearchForNameStudent(String name, String studentSession){
+	public ArrayList<UserInterface> selectSearchForNameStudent(String name, String studentSession){
 		System.out.println("Name");
 		try {
 			connection = DBConnection.getConnection();
@@ -225,7 +226,7 @@ public class UserDAO {
 	 * @param user
 	 * @return user changed
 	 */
-	public static boolean UpdateProfileUser(UserInterface user) {
+	public boolean UpdateProfileUser(UserInterface user) {
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -255,7 +256,7 @@ public class UserDAO {
 	 * 
 	 * @param email is the email of the student
 	 */
-	public static boolean UpdateResetLimitDownloadStudent(String email) {
+	public boolean UpdateResetLimitDownloadStudent(String email) {
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {

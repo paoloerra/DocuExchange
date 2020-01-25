@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
 import interfaces.UserInterface;
 import DAO.NoteDAO;
 
@@ -33,7 +34,7 @@ public class StudentShowMyProfile extends HttpServlet {
 		String redirect = "";
 		Integer result = 0;
 		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
-		
+		NoteInterfaceDAO NoteDAO = new NoteDAO();
 		ArrayList<NoteInterface> notes = NoteDAO.selectMyNote(userS.getEmail());
 		if(notes != null) {
 			request.getSession().setAttribute("MyNotes", notes);

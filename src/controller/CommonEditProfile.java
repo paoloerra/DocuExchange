@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
+import interfaces.UserInterfaceDAO;
 import DAO.UserDAO;
 
 
@@ -59,7 +60,7 @@ public class CommonEditProfile extends HttpServlet {
 			throw new IllegalArgumentException("Valore non corretto");
 		}
 		u.setSex(sex);		
-				
+		UserInterfaceDAO UserDAO = new UserDAO();
 		if(UserDAO.UpdateProfileUser(u) == true) {
 			result = 1;
 			content = "Modifica effettuata";

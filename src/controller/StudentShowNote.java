@@ -16,6 +16,7 @@ import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
 import interfaces.ReviewInterface;
+import interfaces.ReviewInterfaceDAO;
 import interfaces.UserInterface;
 import DAO.NoteDAO;
 import model.Request;
@@ -49,7 +50,8 @@ public class StudentShowNote extends HttpServlet {
 		NoteInterface note = notes.get(index);
 		if(note != null) {
 			request.getSession().setAttribute("Note", note);
-			ArrayList<ReviewInterface> reviews = ReviewDAO.selectReview(note.getId());
+			ReviewInterfaceDAO reviewDAO = new ReviewDAO();
+			ArrayList<ReviewInterface> reviews = reviewDAO.selectReview(note.getId());
 			request.getSession().setAttribute("Reviews", reviews);
 			result = 1;
 		    redirect = request.getContextPath() + "/student/ViewNote.jsp";  

@@ -1,5 +1,6 @@
 package DAO;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,10 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
 import model.Note;
 import model.Request;
 
-public class NoteDAO {
+public class NoteDAO implements NoteInterfaceDAO {
 	
 	private static final String INSERT_REQUEST_SQL = "INSERT INTO Note (Course, Professor, Description, Email_User, FilePDF , Autor, Checked) VALUES (?, ?, ?, ?, ?, ?, 0)";
 	private static final String SELECT_NOTE_SQL = "SELECT * from note WHERE Checked = 1;";
@@ -21,6 +23,7 @@ public class NoteDAO {
 	private static final String UPDATE_REQUEST_ACCEPT_SQL = "UPDATE note SET Checked = 1 WHERE ID_Note = ?;";
 	private static final String UPDATE_REQUEST_RIFIUTED_SQL = "DELETE FROM note WHERE ID_Note = ?";
 	private static final String SELECT_SEARCH_REQUEST_SQL = "SELECT * from Note WHERE Autor = ? AND Checked = 0";
+	private static final String DOWNLOAD_NOTE_SQL = "SELECT * from note WHERE ID_Note = ?;";
 
 	private static Connection connection  = null;
 	private static PreparedStatement stmt = null;
@@ -32,7 +35,7 @@ public class NoteDAO {
 	 * @return true if the operation was successful
 	 * @return false if the operation failed
 	 */
-	public static boolean saveRequest(NoteInterface request) {
+	public boolean saveRequest(NoteInterface request) {
 		System.out.println("SaveRequest chiamata");
 		try {
 			connection = DBConnection.getConnection();
@@ -62,7 +65,7 @@ public class NoteDAO {
 	 * Get all the notes from the database
 	 * @return List of note
 	 */
-	public static ArrayList<NoteInterface> selectNote(){
+	public ArrayList<NoteInterface> selectNote(){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -96,7 +99,7 @@ public class NoteDAO {
 	 * @param email is the email of student
 	 * @return list of note
 	 */
-	public static ArrayList<NoteInterface> selectNoteStudent(String email){
+	public ArrayList<NoteInterface> selectNoteStudent(String email){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -130,7 +133,7 @@ public class NoteDAO {
 	 * @param email is the email of the student in session
 	 * @return list the note and the request of the student in the session
 	 */
-	public static ArrayList<NoteInterface> selectMyNote(String email){
+	public ArrayList<NoteInterface> selectMyNote(String email){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -166,7 +169,7 @@ public class NoteDAO {
 	 * @param professor
 	 * @return List of note
 	 */
-	public static ArrayList<NoteInterface> SearchNote(String course, String professor){
+	public ArrayList<NoteInterface> SearchNote(String course, String professor){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -200,7 +203,7 @@ public class NoteDAO {
 	 * Get all the requests from the database
 	 * @return List of request
 	 */
-	public static ArrayList<NoteInterface> selectRequest(){
+	public ArrayList<NoteInterface> selectRequest(){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -232,7 +235,7 @@ public class NoteDAO {
 	 * @param id
 	 * @return
 	 */
-	public static boolean UpdateRequestAccept(String id) {
+	public boolean UpdateRequestAccept(String id) {
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -258,7 +261,7 @@ public class NoteDAO {
 	 * @param id
 	 * @return
 	 */
-	public static boolean UpdateRequestRifiuted(String id) {
+	public boolean UpdateRequestRifiuted(String id) {
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -284,7 +287,7 @@ public class NoteDAO {
 	 * @param email is the email of the student in session
 	 * @return list the note and the request of the student in the session
 	 */
-	public static ArrayList<NoteInterface> selectSearchRequest(String autor){
+	public ArrayList<NoteInterface> selectSearchRequest(String autor){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -306,6 +309,35 @@ public class NoteDAO {
 				}
 				connection.commit();
 				return requests;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;	
+	}
+	
+	/**
+	 * Select the requests and notes of the student in session
+	 * 
+	 * @param email is the email of the student in session
+	 * @return list the note and the request of the student in the session
+	 */
+	public InputStream DownloadNote(String id){
+		System.out.println("Sono qua");
+		InputStream output = null;
+		try {
+			connection = DBConnection.getConnection();
+			if(connection != null) {
+	            ArrayList<NoteInterface> notes = new ArrayList<NoteInterface>();
+				stmt = connection.prepareStatement(DOWNLOAD_NOTE_SQL);
+		        stmt.setString(1, id);
+		        System.out.println(stmt.toString());
+				ResultSet rs = stmt.executeQuery();	
+				while(rs.next()){
+		        	output = rs.getBinaryStream("FilePDF");
+				}
+				connection.commit();
+				return output;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

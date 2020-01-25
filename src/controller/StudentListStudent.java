@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
+import interfaces.UserInterfaceDAO;
 import DAO.UserDAO;
 
 @WebServlet("/StudentListStudent")
@@ -33,7 +34,7 @@ public class StudentListStudent extends HttpServlet {
 		String redirect = "";
 		Integer result = 0;
 		UserInterface userS = (UserInterface) request.getSession().getAttribute("user");
-		
+		UserInterfaceDAO UserDAO = new UserDAO();
 	    ArrayList<UserInterface> students = UserDAO.selectStudent(userS.getEmail());
 	    if(students != null) {
         	redirect = request.getContextPath() + "/student/ListStudent.jsp";            

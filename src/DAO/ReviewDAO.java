@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import interfaces.ReviewInterface;
+import interfaces.ReviewInterfaceDAO;
 import model.Review;
 
-public class ReviewDAO {
+public class ReviewDAO implements ReviewInterfaceDAO{
 	
 	private static final String SELECT_REVIEW_SQL = "SELECT * from review WHERE ID_Note = ?;";
 	private static final String INSERT_REVIEW_SQL = "INSERT INTO Review (Comment, Stars, Email_User, ID_Note, Autor) VALUES (?, ?, ?, ?, ?);";
@@ -23,7 +24,7 @@ public class ReviewDAO {
 	 * @param id is the id of the note
 	 * @return list of review
 	 */
-	public static ArrayList<ReviewInterface> selectReview(int id){
+	public ArrayList<ReviewInterface> selectReview(int id){
 		try {
 			connection = DBConnection.getConnection();
 			if(connection != null) {
@@ -55,7 +56,7 @@ public class ReviewDAO {
 	 * @return true if the operation was successful
 	 * @return false if the operation failed
 	 */
-	public static boolean saveReview(ReviewInterface review) {
+	public boolean saveReview(ReviewInterface review) {
 		System.out.println("SaveReview chiamata");
 		try {
 			connection = DBConnection.getConnection();

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
+import interfaces.UserInterfaceDAO;
 import model.Student;
 import DAO.UserDAO;
 
@@ -66,6 +67,7 @@ public class StudentRegistration extends HttpServlet {
 		}
 		
 		user = new Student(email, nome, cognome, sesso, password, userType, 3);
+		UserInterfaceDAO UserDAO = new UserDAO();
 		if (UserDAO.saveStudent(user) == true) {
 			redirect = request.getContextPath() + "/student/HomeStudent.jsp";
 			request.getSession().setAttribute("user", user);

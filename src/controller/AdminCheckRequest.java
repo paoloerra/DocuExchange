@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
+import interfaces.UserInterfaceDAO;
 import DAO.NoteDAO;
 import DAO.UserDAO;
 
@@ -43,12 +45,14 @@ public class AdminCheckRequest extends HttpServlet {
 		String id = request.getParameter("id");
 		String email = request.getParameter("email");
 		String name = request.getParameter("autor");
+		NoteInterfaceDAO NoteDAO = new NoteDAO();
 		
 		if(outcome == 1){ //SE è 1 la richiesta è accettata, l'appunto viene pubblicato e vengono aggiunti 3 download all'utente
 			NoteInterface req = requests.get(index);
 			String email_student = req.getStudentEmail();
 			System.out.println(email_student);
 			System.out.println(id);
+			UserInterfaceDAO UserDAO = new UserDAO();
 			if(NoteDAO.UpdateRequestAccept(id) && UserDAO.UpdateResetLimitDownloadStudent(email_student) == true) {
 				requests.remove(index);
 				SendEmail.SendAcceptedEmail(email, name);

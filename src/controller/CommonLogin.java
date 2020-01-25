@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.UserInterface;
+import interfaces.UserInterfaceDAO;
 import DAO.UserDAO;
 
 
@@ -35,6 +36,7 @@ public class CommonLogin extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		UserInterfaceDAO UserDAO = new UserDAO();
 		UserInterface user = UserDAO.SelectLoginUser(email, password);
 		if(user == null) {
 		    error = "Login fallito.";

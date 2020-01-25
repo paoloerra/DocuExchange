@@ -121,6 +121,7 @@ public class DownloaderServlet extends HttpServlet {
 					RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/student/ViewNote.jsp");
 					dispatcher.forward(request, response);
 				}
+				
 			}
 			connection.commit();
 			} catch (SQLException exception) {

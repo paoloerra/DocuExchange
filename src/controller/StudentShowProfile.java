@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import interfaces.NoteInterface;
+import interfaces.NoteInterfaceDAO;
 import interfaces.ReviewInterface;
 import interfaces.UserInterface;
 import DAO.NoteDAO;
@@ -48,6 +49,7 @@ public class StudentShowProfile extends HttpServlet {
 		int index = Integer.parseInt(request.getParameter("index"));
 		UserInterface student = students.get(index);
 		if(student != null) {
+			NoteInterfaceDAO NoteDAO = new NoteDAO();
 			request.getSession().setAttribute("profile", student);
 			//Prelevo i suoi appunti pubblicati
 			ArrayList<NoteInterface> notes = NoteDAO.selectNoteStudent(student.getEmail());
