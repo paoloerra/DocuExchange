@@ -1,6 +1,6 @@
 ![Test Image 4](/WebContent/images/DocuExchange_1.png)
 
-##Contributors
+## Contributors
 
 | Student | Email | Badge number|
 | ------ | ------ | ------ |
