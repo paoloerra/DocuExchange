@@ -1,14 +1,12 @@
 ![Test Image 4](/WebContent/images/DocuExchange_1.png)
 # DOCUEXCHANGE UNISA INFORMATICA
 
-## Contributors
-
 | Student | Email | Badge number|
 | ------ | ------ | ------ |
 | Paolo Erra | p.erra1@studenti.unisa.it |05121 05391|
 | Michele de Rosa  | p.erra1@studenti.unisa.it |05121 05391|
-| Giacomo Impronta |p.erra1@studenti.unisa.it |05121 05391|
-| Emanuele Bruno | p.erra1@studenti.unisa.it |05121 05391|
+| Giacomo Impronta |g.impronta@studenti.unisa.it |05121 05395|
+| Emanuele Bruno |e.bruno21@studenti.unisa.it |05121 05909|
 
 ## Installation
 
