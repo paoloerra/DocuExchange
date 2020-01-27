@@ -1,13 +1,12 @@
-#DOCUEXCHANGE UNISA INFORMATICA
+# DOCUEXCHANGE UNISA INFORMATICA
 
-##Installazione
+## Installazione
 
-###Requisisiti
+### Requisisiti
 *Eclipse IDE for Java EE Developers
 *Mysql server 5.7.20
 *Mysqldb Schema: docuexchange
-*Default user and password for mysqldb: root root 
+*Default user and password for mysqldb: root root
 
-###Guida installazione
+### Guida installazione
 *Scarica il repository su GitHub
-
