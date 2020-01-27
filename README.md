@@ -1,5 +1,4 @@
 ![Test Image 4](/WebContent/images/DocuExchange_1.png)
-# DOCUEXCHANGE UNISA INFORMATICA
 
 | Student | Email | Badge number|
 | ------ | ------ | ------ |
