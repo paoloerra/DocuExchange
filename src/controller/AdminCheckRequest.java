@@ -12,11 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
+import DAO.NoteDAO;
+import DAO.UserDAO;
 import interfaces.NoteInterface;
 import interfaces.NoteInterfaceDAO;
 import interfaces.UserInterfaceDAO;
-import DAO.NoteDAO;
-import DAO.UserDAO;
+
 
 @WebServlet("/AdminCheckRequest")
 public class AdminCheckRequest extends HttpServlet {
