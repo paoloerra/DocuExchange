@@ -51,7 +51,6 @@ public class DownloaderServlet extends HttpServlet {
 					stmt = connection.prepareStatement(sql);
 					stmt.setInt(1, id);
 					rs = stmt.executeQuery();
-					System.out.println("Query eseguita");
 					response.reset();
 			        response.setBufferSize(DEFAULT_BUFFER_SIZE);
 			        response.setContentType("application-pdf");
@@ -83,6 +82,7 @@ public class DownloaderServlet extends HttpServlet {
 						stmt.setInt(1, user.getLimitDownload() - 1);
 						stmt.setString(2, user.getEmail());
 						stmt.executeUpdate();
+						connection.commit();
 							
 						user.setLimitDownload(user.getLimitDownload() - 1);
 						request.getSession().setAttribute("user", user);
@@ -91,7 +91,8 @@ public class DownloaderServlet extends HttpServlet {
 						sql = "SELECT * from note WHERE ID_Note = ?;";
 						stmt = connection.prepareStatement(sql);
 						stmt.setInt(1, id);
-						rs = stmt.executeQuery();		
+						rs = stmt.executeQuery();
+						connection.commit();
 							
 						response.reset();
 						response.setBufferSize(DEFAULT_BUFFER_SIZE);
@@ -120,10 +121,8 @@ public class DownloaderServlet extends HttpServlet {
 						}
 					RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/student/ViewNote.jsp");
 					dispatcher.forward(request, response);
-				}
-				
+				}	
 			}
-			connection.commit();
 			} catch (SQLException exception) {
 				exception.printStackTrace();
 			}

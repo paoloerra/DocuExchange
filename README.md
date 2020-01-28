@@ -41,3 +41,7 @@ Import --> Archive file
 * Select the project and add
 
 * Start the server
+
+### Feedback survey
+
+https://docs.google.com/forms/d/e/1FAIpQLSdYVKRsfANA918aAMd76mYLoy-k43fmOomK3zbv-sTAwQfYMw/viewform?usp=sf_link
