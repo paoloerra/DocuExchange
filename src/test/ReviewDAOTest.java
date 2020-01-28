@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import DAO.ReviewDAO;
+import model.DAO.ReviewDAO;
 import model.Review;
 import model.interfaces.ReviewInterface;
 

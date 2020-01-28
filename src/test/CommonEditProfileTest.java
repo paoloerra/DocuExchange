@@ -108,7 +108,7 @@ public class CommonEditProfileTest {
 			assertEquals("json", response.getContentType());
 		}
 
-		@Test(expected = IllegalArgumentException.class)//prefisso email<3
+		@Test//prefisso email<3
 		public void TC_1_8_8() throws ServletException, IOException { 
 			UserInterface newstudent=new Student("m.derosa1@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 			request.getSession().setAttribute("user",newstudent);
@@ -121,7 +121,7 @@ public class CommonEditProfileTest {
 			assertEquals("json", response.getContentType());
 		}
 
-		@Test(expected = IllegalArgumentException.class)//formato non corretto ->email
+		@Test//formato non corretto ->email
 		public void TC_1_8_9() throws ServletException, IOException { 
 			UserInterface newstudent=new Student("m.derosa1@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 			request.getSession().setAttribute("user",newstudent);

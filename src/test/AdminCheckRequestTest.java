@@ -38,8 +38,9 @@ public class AdminCheckRequestTest {
 	public void testVerificaRichiestaAccettata() throws ServletException, IOException { 
 
 	FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
-	NoteInterface newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
-	NoteDAO.saveRequest(newNote);
+	Request newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
+	NoteDAO dao=new NoteDAO();
+	dao.saveRequest(newNote);
 	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 	requests.add(newNote);
 	request.getSession().setAttribute("requests", requests);
@@ -57,7 +58,8 @@ public class AdminCheckRequestTest {
 
 	FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
 	NoteInterface newNote=new Request(2,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
-	NoteDAO.saveRequest(newNote);
+	NoteDAO dao=new NoteDAO();
+	dao.saveRequest(newNote);
 	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 	requests.add(newNote);
 	request.getSession().setAttribute("requests", requests);
