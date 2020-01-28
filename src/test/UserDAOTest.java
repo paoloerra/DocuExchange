@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import DAO.UserDAO;
+import model.DAO.UserDAO;
 import controller.StudentInsertReview;
 import model.Student;
 import model.interfaces.UserInterface;
@@ -21,33 +21,35 @@ public class UserDAOTest {
 	  @Test
 	  public void saveStudentTest() {
 
+		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa3@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  assertTrue(UserDAO.saveStudent(newStudent));
+		  assertTrue(d.saveStudent(newStudent));
 	  }
 	  @Test
 	  public void selectStudentTest() {
 
+		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		  ArrayList<UserInterface> arr=new ArrayList<UserInterface>();
 		  arr.add(newStudent);
-		  assertEquals(arr,UserDAO.selectStudent("m.derosa102@studenti.unisa.it"));
+		  assertEquals(arr,d.selectStudent("m.derosa102@studenti.unisa.it"));
 	  }
 	  @Test
 	  public void loginStudentTest() {
-
+		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  assertEquals(newStudent,UserDAO.SelectLoginUser("m.derosa102@studenti.unisa.it", "Abracadabra"));
+		  assertEquals(newStudent,d.SelectLoginUser("m.derosa102@studenti.unisa.it", "Abracadabra"));
 	  }
 	  @Test
 	  public void updateProfileTest() {
-
+		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa2@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  assertTrue(UserDAO.UpdateProfileUser(newStudent));
+		  assertTrue(d.UpdateProfileUser(newStudent));
 	  }
 	  @Test
 	  public void resetLimitTest() {
-
-		  assertTrue(UserDAO.UpdateResetLimitDownloadStudent("m.derosa3@studenti.unisa.it"));
+		  UserDAO d=new UserDAO();
+		  assertTrue(d.UpdateResetLimitDownloadStudent("m.derosa3@studenti.unisa.it"));
 	  }
 	  
 }

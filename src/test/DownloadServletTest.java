@@ -33,7 +33,7 @@ public class DownloadServletTest extends Mockito {
   
   
 //admin
-  //aggiunger in db la richiesta ->fare query
+ //aggiunger in db la richiesta ->fare query
   @Test
   public void DownloadAdmin() throws ServletException, IOException {
 
@@ -42,7 +42,7 @@ public class DownloadServletTest extends Mockito {
     request.addParameter("flag", "1");
     servlet.doPost(request, response);
   }
-  
+
   @Test
   public void DownloadStudente() throws ServletException, IOException {
 

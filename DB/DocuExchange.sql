@@ -44,7 +44,7 @@ INSERT INTO `docuexchange`.`user` (`Email_User`, `Name`, `Surname`, `Password`, 
 	VALUES ('m.derosa102@studenti.unisa.it', 'Michele', 'derosa', 'prova123', 'M', '0', '3');
 
 INSERT INTO `docuexchange`.`user` (`Email_User`, `Name`, `Surname`, `Password`, `Sex`, `Type`, `LimitDownload`) 
-	VALUES ('a.dmin1@studenti.unisa.it', 'Luca', 'Prisco', 'prova123', 'M', '1', '0');
+	VALUES ('f.ferrucci1@studenti.unisa.it', 'Filomena', 'Ferrucci', 'prova123', 'M', '1', '0');
 
 
 INSERT INTO `docuexchange`.`note` (`ID_Note`, `Course`, `Professor`, `Description`, `FilePDF`, `Email_User`, `Checked`, `Autor`) VALUES ('39', 'Metodi Matematici per Informatica', 'De Felice Clelia', 'Questa è una descrizione', "", 'm.derosa102@studenti.unisa.it', '1', 'Michele de Rosa');

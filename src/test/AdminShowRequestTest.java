@@ -36,7 +36,7 @@ public class AdminShowRequestTest {
 @Test
 public void testSingolaRichiesta() throws ServletException, IOException { 
 
-	FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+	FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	NoteInterface newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
 	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 	requests.add(newNote);

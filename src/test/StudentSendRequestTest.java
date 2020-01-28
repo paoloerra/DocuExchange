@@ -23,9 +23,7 @@ public class StudentSendRequestTest {
 	private StudentSendRequest servlet;
 	  private MockHttpServletRequest request;
 	  private MockHttpServletResponse response;
-	 
-	
-	  /**
+		  /**
 	   * Before.
 	   */
 	  @Before
@@ -44,7 +42,7 @@ public class StudentSendRequestTest {
 		request.addParameter("course","");
 		request.addParameter("professor","Nappi Michele");
 		request.addParameter("description","Questo è il corso di POO");
-		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.addParameter("file_upload","src/test/Test.pdf");
 		request.getSession().setAttribute("user", newstudent);
 
 		request.addParameter("flag", "2");
@@ -60,7 +58,7 @@ public class StudentSendRequestTest {
 		request.addParameter("course","Programmazione I");
 		request.addParameter("professor","");
 		request.addParameter("description","Questo è il corso di POO");
-		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.addParameter("file_upload","src/test/Test.pdf");
 		request.getSession().setAttribute("user", newstudent);
 
 		request.addParameter("flag", "2");
@@ -75,7 +73,7 @@ public class StudentSendRequestTest {
 		request.addParameter("course","rogrammazione I");
 		request.addParameter("professor","Nappi Michele");
 		request.addParameter("description","Quest");
-		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.addParameter("file_upload","src/test/Test.pdf");
 		request.getSession().setAttribute("user", newstudent);
 
 		request.addParameter("flag", "2");
@@ -107,7 +105,7 @@ public class StudentSendRequestTest {
 				+ "........................................................."
 				+ "........................................................."
 				+ "........................................................");
-		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.addParameter("file_upload","src/test/Test.pdf");
 		request.getSession().setAttribute("user", newstudent);
 
 		request.addParameter("flag", "2");
@@ -122,7 +120,7 @@ public class StudentSendRequestTest {
 		request.addParameter("course","Programmazione I");
 		request.addParameter("professor","Nappi Michele");
 		request.addParameter("description","Questo è il corso di POO");
-		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.txt");
+		request.addParameter("file_upload","src/test/Test.pdf");
 		request.getSession().setAttribute("user", newstudent);
 
 		request.addParameter("flag", "2");
@@ -138,7 +136,7 @@ public class StudentSendRequestTest {
 		request.addParameter("course","Programmazione I");
 		request.addParameter("professor","Nappi Michele");
 		request.addParameter("description","Questo è il corso di POO");
-		request.addParameter("file_upload","C:\\Users\\Michele\\Desktop\\classi.pdf");
+		request.addParameter("file_upload","src/test/Test.pdf");
 		request.getSession().setAttribute("user", newstudent);
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());

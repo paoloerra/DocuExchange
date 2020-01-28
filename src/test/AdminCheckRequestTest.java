@@ -36,40 +36,39 @@ public class AdminCheckRequestTest {
 
 	@Test
 	public void testVerificaRichiestaAccettata() throws ServletException, IOException { 
-
-	FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
-	Request newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
-	NoteDAO dao=new NoteDAO();
-	dao.saveRequest(newNote);
-	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
-	requests.add(newNote);
-	request.getSession().setAttribute("requests", requests);
-	request.addParameter("outcome", "1");
-
-	request.getSession().setAttribute("index", 0);
-	request.getSession().setAttribute("id",newNote.getId());
-	request.addParameter("email", "m.derosa1@studenti.unisa.it");
-
-    servlet.doPost(request, response);
-    assertEquals("json", response.getContentType());
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
+		Request newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
+		NoteDAO dao=new NoteDAO();
+		dao.saveRequest(newNote);
+		ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
+		requests.add(newNote);
+		request.getSession().setAttribute("requests", requests);
+		request.addParameter("outcome", "1");
+	
+		request.getSession().setAttribute("index", 0);
+		request.getSession().setAttribute("id",newNote.getId());
+		request.addParameter("email", "m.derosa1@studenti.unisa.it");
+	
+	    servlet.doPost(request, response);
+	    assertEquals("json", response.getContentType());
 	}
+	
 	@Test
 	public void testVerificaRichiestaRifiutata() throws ServletException, IOException { 
-
-	FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
-	NoteInterface newNote=new Request(2,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
-	NoteDAO dao=new NoteDAO();
-	dao.saveRequest(newNote);
-	ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
-	requests.add(newNote);
-	request.getSession().setAttribute("requests", requests);
-	request.addParameter("outcome", "0");
-
-	request.getSession().setAttribute("index", 0);
-	request.addParameter("id", "2");
-	request.addParameter("email", "m.derosa1@studenti.unisa.it");
-
-    servlet.doPost(request, response);
-    assertEquals("json", response.getContentType());
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
+		NoteInterface newNote=new Request(2,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",0);
+		NoteDAO dao=new NoteDAO();
+		dao.saveRequest(newNote);
+		ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
+		requests.add(newNote);
+		request.getSession().setAttribute("requests", requests);
+		request.addParameter("outcome", "0");
+	
+		request.getSession().setAttribute("index", 0);
+		request.addParameter("id", "2");
+		request.addParameter("email", "m.derosa1@studenti.unisa.it");
+	
+	    servlet.doPost(request, response);
+	    assertEquals("json", response.getContentType());
 	}
 }

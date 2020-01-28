@@ -42,7 +42,7 @@ public class StudentListNoteTest {
 		public void Visulizza_ListaRichiesta() throws ServletException, IOException { //aggiungere appunti in db senno nn va
 			UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 
-			FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+			FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 			NoteInterface newNote=new Request(1,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",1);
 			ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 			requests.add(newNote);

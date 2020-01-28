@@ -39,7 +39,7 @@ public class StudentShowNoteTest {
 
 		@Test
 		public void Visulizza_singoloAppunto() throws ServletException, IOException { //aggiungere review nel db
-			FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+			FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 			NoteInterface newNote=new Note(38,"m.derosa1@studenti.unisa.it","Programmazione I","Zizza","è bello",file,"boh",1);
 			ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
 			requests.add(newNote);

@@ -10,22 +10,21 @@ import model.Note;
 
 public class NoteTest {
 
-
 	@Test
 	public void NoteEmptyTest(){
 		Note n=new Note();
 		assertNotNull(n);
 	}
-	
+
 	@Test
 	public void getIdTest() throws FileNotFoundException { 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals(1,r.getId()); 
 	}
 	@Test
 	public void getStudentEmailTest() throws FileNotFoundException { 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 
 		assertEquals("aaa@studenti.unisa.it",r.getStudentEmail());
@@ -33,7 +32,7 @@ public class NoteTest {
 	@Test
 	public void getCourseTest() throws FileNotFoundException  { 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals("Programmazione I",r.getCourse());	}
 
@@ -41,7 +40,7 @@ public class NoteTest {
 	@Test
 	public void getProfessorTest() throws FileNotFoundException  { 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals("Nappi Michele",r.getProfessor());	
 		}
@@ -50,7 +49,7 @@ public class NoteTest {
 	public void getDescriptionTest() throws FileNotFoundException  {
 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals("descrizione",r.getDescription());	
 		}
@@ -59,7 +58,7 @@ public class NoteTest {
 	@Test
 	public void getFileNameTest() throws FileNotFoundException  {
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals(file,r.getFile());	}
 	
@@ -67,7 +66,7 @@ public class NoteTest {
 	@Test
 	public void getAutorTest() throws FileNotFoundException { 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals("aaa",r.getAutor());	
 		}
@@ -76,7 +75,7 @@ public class NoteTest {
 	public void getCheckedTest() throws FileNotFoundException { 
 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note r=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 		assertEquals(0,r.getChecked());
 		}
@@ -85,7 +84,7 @@ public class NoteTest {
 	@Test
 	public void setIDTest() throws FileNotFoundException{
 
-	FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+	FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 	rs.setID(2);
 	assertEquals(2,rs.getId());
@@ -95,7 +94,7 @@ public class NoteTest {
 	public void setStudentEmailTest() throws FileNotFoundException{
 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 	rs.setStudentEmail("bbb@studenti.unisa.it");
 	assertEquals("bbb@studenti.unisa.it",rs.getStudentEmail());
@@ -105,7 +104,7 @@ public class NoteTest {
 	@Test
 	public void setCourseTest() throws FileNotFoundException{
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 	rs.setCourse("Metodi Matematici per Informatica");
 	assertEquals("Metodi Matematici per Informatica",rs.getCourse());
@@ -115,7 +114,7 @@ public class NoteTest {
 	@Test
 	public void setProfessorTest() throws FileNotFoundException{
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 	rs.setProfessor("De Felice Clelia");
 	assertEquals("De Felice Clelia",rs.getProfessor());
@@ -124,7 +123,7 @@ public class NoteTest {
 	@Test
 	public void setDescriptionTest() throws FileNotFoundException{
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 		Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 	rs.setDescription("Altra descrizione");
 	assertEquals("Altra descrizione",rs.getDescription());
@@ -133,11 +132,11 @@ public class NoteTest {
 	@Test
 	public void setFileNameTest() throws FileNotFoundException{
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 
 
-	FileInputStream file1 = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\classi.pdf"));
+	FileInputStream file1 = new FileInputStream(new File("src/test/Test.pdf"));
 	rs.setFile(file1);
 	assertEquals(file1,rs.getFile());
 		
@@ -146,7 +145,7 @@ public class NoteTest {
 	@Test
 	public void setAutorTest() throws FileNotFoundException{
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);
 	rs.setAutor("bbb");;
 	assertEquals("bbb",rs.getAutor());
@@ -156,7 +155,7 @@ public class NoteTest {
 	public void setCheckedTest() throws FileNotFoundException{
 
 
-		FileInputStream file = new FileInputStream(new File("C:\\Users\\Michele\\Desktop\\prova.pdf"));
+		FileInputStream file = new FileInputStream(new File("src/test/Test.pdf"));
 	Note rs=new Note(1,"aaa@studenti.unisa.it","Programmazione I","Nappi Michele", "descrizione",file, "aaa", 0);	
 	rs.setChecked(1);;
 	assertEquals(1,rs.getChecked());

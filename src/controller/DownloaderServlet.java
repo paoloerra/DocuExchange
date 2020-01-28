@@ -28,8 +28,6 @@ public class DownloaderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
 
-       
-  
     public DownloaderServlet() {
         super();
         // TODO Auto-generated constructor stub

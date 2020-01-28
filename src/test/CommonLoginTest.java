@@ -29,9 +29,6 @@ public class CommonLoginTest {
 	    response = new MockHttpServletResponse();
 	  }
 	  
-	  
-
-	  
 	//admin
 	  
 	  @Test
@@ -90,7 +87,7 @@ public class CommonLoginTest {
 		request.addParameter("password", "Abracadabr");
 	    servlet.doPost(request, response);
 	    assertEquals("json", response.getContentType());
-	  }
+	  }//errore nel db
 	  @Test
 	  public void TC_1_2_8() throws ServletException, IOException { //login effettuato
 		  request.addParameter("email", "m.derosa102@studenti.unisa.it");
