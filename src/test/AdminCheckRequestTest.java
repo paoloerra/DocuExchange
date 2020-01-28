@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import DAO.NoteDAO;
+import model.DAO.NoteDAO;
 import controller.AdminCheckRequest;
 import model.Request;
 import model.interfaces.NoteInterface;

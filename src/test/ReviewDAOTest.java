@@ -10,7 +10,6 @@ import model.Review;
 import model.interfaces.ReviewInterface;
 
 public class ReviewDAOTest {
-
 	@Test
 	public void test() {
 

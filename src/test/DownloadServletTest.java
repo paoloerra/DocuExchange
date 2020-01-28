@@ -3,7 +3,6 @@ package test;
 import static org.junit.Assert.*;
 
 import controller.DownloaderServlet;
-import controller.ServletCommon;
 import model.Admin;
 import model.Student;
 import model.interfaces.UserInterface;

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 
-import DAO.DBConnection;
+import model.DAO.DBConnection;
 
 public class DBConnectionTest {
 
