@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface,interfaces.NoteInterface, interfaces.ReviewInterface, java.util.LinkedList, java.util.Collection, java.util.*, model.Review"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,model.interfaces.UserInterface,model.interfaces.NoteInterface,model.interfaces.ReviewInterface, java.util.LinkedList, java.util.Collection, java.util.*, model.Review"%>
 <%
 	String pageName = "ViewNote.jsp";
 	String pageFolder = "student";

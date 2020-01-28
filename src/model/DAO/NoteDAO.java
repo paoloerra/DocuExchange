@@ -1,4 +1,4 @@
-package DAO;
+package model.DAO;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import interfaces.NoteInterface;
-import interfaces.NoteInterfaceDAO;
 import model.Note;
 import model.Request;
+import model.interfaces.NoteInterface;
+import model.interfaces.NoteInterfaceDAO;
 
 public class NoteDAO implements NoteInterfaceDAO {
 	

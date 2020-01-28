@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.UserInterface;
+import model.interfaces.UserInterface;
 
 @WebServlet("/CommonLogout")
 public class CommonLogout extends HttpServlet {

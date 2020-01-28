@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.NoteInterface;
-import interfaces.NoteInterfaceDAO;
-import interfaces.UserInterface;
-import DAO.NoteDAO;
+import model.DAO.NoteDAO;
 import model.Request;
+import model.interfaces.NoteInterface;
+import model.interfaces.NoteInterfaceDAO;
+import model.interfaces.UserInterface;
 
 @WebServlet("/StudentSendRequest")
 public class StudentSendRequest extends HttpServlet {

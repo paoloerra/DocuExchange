@@ -14,8 +14,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentInsertReview;
 import controller.StudentSendRequest;
-import interfaces.UserInterface;
 import model.Student;
+import model.interfaces.UserInterface;
 
 public class StudentSendRequestTest {
 

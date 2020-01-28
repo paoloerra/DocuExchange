@@ -6,8 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import DAO.ReviewDAO;
-import interfaces.ReviewInterface;
 import model.Review;
+import model.interfaces.ReviewInterface;
 
 public class ReviewDAOTest {
 

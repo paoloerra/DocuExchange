@@ -1,4 +1,4 @@
-package interfaces;
+package model.interfaces;
 
 import java.io.InputStream;
 import java.util.ArrayList;

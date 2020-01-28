@@ -1,4 +1,4 @@
-package DAO;
+package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import interfaces.ReviewInterface;
-import interfaces.ReviewInterfaceDAO;
 import model.Review;
+import model.interfaces.ReviewInterface;
+import model.interfaces.ReviewInterfaceDAO;
 
 public class ReviewDAO implements ReviewInterfaceDAO{
 	

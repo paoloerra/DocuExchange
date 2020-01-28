@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.NoteInterface;
+import model.interfaces.NoteInterface;
 
 @WebServlet("/AdminShowRequest")
 public class AdminShowRequest extends HttpServlet {

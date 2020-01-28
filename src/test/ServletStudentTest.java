@@ -20,13 +20,12 @@ import DAO.DBConnection;
 import controller.ServletAdmin;
 import controller.ServletCommon;
 import controller.ServletStudent;
-import interfaces.NoteInterface;
-import interfaces.UserInterface;
 import model.Note;
 import model.Request;
 import model.Review;
 import model.Student;
-
+import model.interfaces.NoteInterface;
+import model.interfaces.UserInterface;
 
 import java.io.File;
 import java.io.FileInputStream;

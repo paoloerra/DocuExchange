@@ -12,8 +12,8 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentSearchStudent;
-import interfaces.UserInterface;
 import model.Student;
+import model.interfaces.UserInterface;
 
 public class StudentSearchStudentTest {
 

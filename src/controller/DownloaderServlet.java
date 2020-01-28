@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.DBConnection;
-import interfaces.UserInterface;
+import model.DAO.DBConnection;
+import model.interfaces.UserInterface;
 
 /**
  * Servlet implementation class FileServlet

@@ -5,8 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.servlet.http.HttpSession;
 
-import interfaces.UserInterface;
 import model.Admin;
+import model.interfaces.UserInterface;
 
 
 public class CheckSession implements Serializable {

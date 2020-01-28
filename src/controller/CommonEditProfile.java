@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.UserInterface;
-import interfaces.UserInterfaceDAO;
-import DAO.UserDAO;
+import model.DAO.UserDAO;
+import model.interfaces.UserInterface;
+import model.interfaces.UserInterfaceDAO;
 
 
 @WebServlet("/CommonEditProfile")

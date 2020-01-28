@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import controller.DownloaderServlet;
 import controller.ServletCommon;
-import interfaces.UserInterface;
 import model.Admin;
 import model.Student;
+import model.interfaces.UserInterface;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

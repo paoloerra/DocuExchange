@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.ReviewInterface;
-import interfaces.ReviewInterfaceDAO;
-import interfaces.UserInterface;
 import model.Review;
-import DAO.ReviewDAO;
+import model.interfaces.ReviewInterface;
+import model.interfaces.ReviewInterfaceDAO;
+import model.interfaces.UserInterface;
+import model.DAO.ReviewDAO;
 
 
 @WebServlet("/StudentInsertReview")

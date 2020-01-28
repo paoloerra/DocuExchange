@@ -15,8 +15,8 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.AdminShowRequest;
-import interfaces.NoteInterface;
 import model.Request;
+import model.interfaces.NoteInterface;
 
 public class AdminShowRequestTest {
 	  private AdminShowRequest servlet;

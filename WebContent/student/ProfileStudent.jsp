@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession, java.util.ArrayList,interfaces.UserInterface, interfaces.NoteInterface, java.util.LinkedList, java.util.Collection, java.util.*"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession, java.util.ArrayList,model.interfaces.UserInterface,model.interfaces.NoteInterface, java.util.LinkedList, java.util.Collection, java.util.*"%>
 <%
 	String pageName = "ProfileStudent.jsp";
 	String pageFolder = "student";

@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.NoteInterface;
-import interfaces.NoteInterfaceDAO;
-import DAO.NoteDAO;
+import model.DAO.NoteDAO;
+import model.interfaces.NoteInterface;
+import model.interfaces.NoteInterfaceDAO;
 
 @WebServlet("/AdminShowListRequest")
 public class AdminShowListRequest extends HttpServlet {

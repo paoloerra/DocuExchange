@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface,interfaces.NoteInterface, model.Note"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,model.interfaces.UserInterface,model.interfaces.NoteInterface, model.Note"%>
 <%
 	String pageName = "ViewRequest.jsp";
 	String pageFolder = "admin";

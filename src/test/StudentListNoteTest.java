@@ -16,10 +16,10 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentInsertReview;
 import controller.StudentListNote;
-import interfaces.NoteInterface;
-import interfaces.UserInterface;
 import model.Request;
 import model.Student;
+import model.interfaces.NoteInterface;
+import model.interfaces.UserInterface;
 
 public class StudentListNoteTest {
 

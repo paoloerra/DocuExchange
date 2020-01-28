@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.NoteInterface;
-import interfaces.NoteInterfaceDAO;
-import interfaces.UserInterface;
-import DAO.NoteDAO;
+import model.DAO.NoteDAO;
+import model.interfaces.NoteInterface;
+import model.interfaces.NoteInterfaceDAO;
+import model.interfaces.UserInterface;
 
 @WebServlet("/StudentShowMyProfile")
 public class StudentShowMyProfile extends HttpServlet {

@@ -1,6 +1,6 @@
 package model;
 
-import interfaces.ReviewInterface;
+import model.interfaces.ReviewInterface;
 
 public class Review implements ReviewInterface{
 	/**

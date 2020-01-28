@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="controller.CheckSession,interfaces.UserInterface"%>
+    pageEncoding="ISO-8859-1" import="controller.CheckSession,model.interfaces.UserInterface"%>
     
 <%
 	String pageName = "HomeAdmin.jsp";

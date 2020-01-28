@@ -11,8 +11,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import DAO.UserDAO;
 import controller.StudentInsertReview;
-import interfaces.UserInterface;
 import model.Student;
+import model.interfaces.UserInterface;
 
 public class UserDAOTest {
 	  

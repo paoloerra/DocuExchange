@@ -17,8 +17,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import DAO.NoteDAO;
 import controller.AdminCheckRequest;
-import interfaces.NoteInterface;
 import model.Request;
+import model.interfaces.NoteInterface;
 //vedere errore in db->azzerare ogni volta autoincremento
 public class AdminCheckRequestTest {
 	  private AdminCheckRequest servlet;

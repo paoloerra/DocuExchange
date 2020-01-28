@@ -15,9 +15,9 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentShowProfile;
-import interfaces.NoteInterface;
 import model.Request;
 import model.Student;
+import model.interfaces.NoteInterface;
 
 public class StudentShowProfileTest {
 

@@ -1,4 +1,4 @@
-package DAO;
+package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import interfaces.UserInterface;
-import interfaces.UserInterfaceDAO;
 import model.Admin;
 import model.Student;
+import model.interfaces.UserInterface;
+import model.interfaces.UserInterfaceDAO;
 
 public class UserDAO implements UserInterfaceDAO {
 	

@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.UserInterface;
-import interfaces.UserInterfaceDAO;
 import model.Student;
-import DAO.UserDAO;
+import model.interfaces.UserInterface;
+import model.interfaces.UserInterfaceDAO;
+import model.DAO.UserDAO;
 
 @WebServlet("/StudentRegistration")
 public class StudentRegistration extends HttpServlet {

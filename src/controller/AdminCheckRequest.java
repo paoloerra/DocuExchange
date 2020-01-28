@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import DAO.NoteDAO;
-import DAO.UserDAO;
-import interfaces.NoteInterface;
-import interfaces.NoteInterfaceDAO;
-import interfaces.UserInterfaceDAO;
+import model.DAO.NoteDAO;
+import model.DAO.UserDAO;
+import model.interfaces.NoteInterface;
+import model.interfaces.NoteInterfaceDAO;
+import model.interfaces.UserInterfaceDAO;
 
 
 @WebServlet("/AdminCheckRequest")

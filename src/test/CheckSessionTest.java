@@ -10,12 +10,12 @@ import javax.servlet.http.HttpSession;
 import model.Admin;
 
 import model.Student;
+import model.interfaces.UserInterface;
 
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.CheckSession;
-import interfaces.UserInterface;
 
 public class CheckSessionTest {
 

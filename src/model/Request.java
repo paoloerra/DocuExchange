@@ -2,7 +2,7 @@ package model;
 
 import java.io.FileInputStream;
 
-import interfaces.NoteInterface;
+import model.interfaces.NoteInterface;
 
 public class Request implements NoteInterface {
 	/**

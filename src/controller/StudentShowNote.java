@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import interfaces.NoteInterface;
-import interfaces.ReviewInterface;
-import interfaces.ReviewInterfaceDAO;
-import interfaces.UserInterface;
-import DAO.NoteDAO;
+import model.DAO.NoteDAO;
 import model.Request;
 import model.Review;
-import DAO.ReviewDAO;
+import model.DAO.ReviewDAO;
 import model.Student;
-import DAO.UserDAO;
+import model.interfaces.NoteInterface;
+import model.interfaces.ReviewInterface;
+import model.interfaces.ReviewInterfaceDAO;
+import model.interfaces.UserInterface;
+import model.DAO.UserDAO;
 
 
 
