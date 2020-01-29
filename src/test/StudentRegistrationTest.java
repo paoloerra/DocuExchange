@@ -171,5 +171,24 @@ public class StudentRegistrationTest {
 			servlet.doPost(request, response);
 			assertEquals("json", response.getContentType());
 		}
-
+		@Test(expected = IllegalArgumentException.class)//formato non corretto ->password ->aggiungere a servlet non c'è controllo->Aggiunto 
+		public void userF() throws ServletException, IOException { 
+			request.addParameter("nome","Michele");
+			request.addParameter("cognome","de Rosa");
+			request.addParameter("email","m.derosa2@studenti.unisa.it");
+			request.addParameter("sesso","F");
+			request.addParameter("password","Abracadabra?");
+			servlet.doPost(request, response);
+			assertEquals("json", response.getContentType());
+		}
+		@Test(expected = IllegalArgumentException.class)//formato non corretto ->password ->aggiungere a servlet non c'è controllo->Aggiunto 
+		public void emailnull() throws ServletException, IOException { 
+			request.addParameter("nome","Michele");
+			request.addParameter("cognome","de Rosa");
+			request.addParameter("email","");
+			request.addParameter("sesso","F");
+			request.addParameter("password","Abracadabra?");
+			servlet.doPost(request, response);
+			assertEquals("json", response.getContentType());
+		}
 }

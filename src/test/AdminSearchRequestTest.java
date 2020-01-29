@@ -44,7 +44,21 @@ public class AdminSearchRequestTest {
 		servlet.doPost(request, response);
 		assertEquals("json", response.getContentType());
 	}
-	@Test
+	@Test(expected = IllegalArgumentException.class)
+	public void SearchLong() throws ServletException, IOException { 
+
+		request.addParameter("autor", "Paolo Erraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void SearchFormat() throws ServletException, IOException { 
+
+		request.addParameter("autor", "Paolo Erra12");
+		servlet.doPost(request, response);
+		assertEquals("json", response.getContentType());
+	}
+	@Test(expected = IllegalArgumentException.class)
 	public void SearchEmptyName() throws ServletException, IOException { 
 		request.addParameter("autor", "");
 		servlet.doPost(request, response);

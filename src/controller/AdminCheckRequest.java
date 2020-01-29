@@ -54,7 +54,8 @@ public class AdminCheckRequest extends HttpServlet {
 			System.out.println(email_student);
 			System.out.println(id);
 			UserInterfaceDAO UserDAO = new UserDAO();
-			if(NoteDAO.UpdateRequestAccept(id) && UserDAO.UpdateResetLimitDownloadStudent(email_student) == true) {
+			if(NoteDAO.UpdateRequestAccept(id) ) {
+				UserDAO.UpdateResetLimitDownloadStudent(email_student);
 				requests.remove(index);
 				SendEmail.SendAcceptedEmail(email, name);
 				result = 1;

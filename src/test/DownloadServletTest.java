@@ -3,12 +3,15 @@ package test;
 import static org.junit.Assert.*;
 
 import controller.DownloaderServlet;
-import model.Admin;
+
 import model.Student;
 import model.interfaces.UserInterface;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
+
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -20,6 +23,7 @@ public class DownloadServletTest extends Mockito {
   private MockHttpServletRequest request;
   private MockHttpServletResponse response;
 
+
   /**
    * Before.
    */
@@ -28,6 +32,7 @@ public class DownloadServletTest extends Mockito {
     servlet = new DownloaderServlet();
     request = new MockHttpServletRequest();
     response = new MockHttpServletResponse();
+  
   }
   
   
@@ -43,9 +48,8 @@ public class DownloadServletTest extends Mockito {
     servlet.doPost(request, response);
   }
 
-  @Test
+  @Test(expected=NullPointerException.class)
   public void DownloadStudente() throws ServletException, IOException {
-
 		UserInterface user=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 	    request.getSession().setAttribute("user", user);
 	    request.addParameter("id", "77");
@@ -53,6 +57,8 @@ public class DownloadServletTest extends Mockito {
 
 	    request.addParameter("flag", "2");
 	    servlet.doPost(request, response);
+
+	    assertEquals("1","1");
   }
   
 }

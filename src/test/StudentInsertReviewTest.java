@@ -84,4 +84,18 @@ public class StudentInsertReviewTest {
 			servlet.doPost(request, response);
 			assertEquals("json", response.getContentType());
 		}
+		@Test(expected = IllegalArgumentException.class)
+		public void nullReview() throws ServletException, IOException { //aggiungere review  nel db
+			UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+			ArrayList<Review> reviews = new ArrayList<Review>();
+			Review r=new Review(1, "m.derosa102@studenti.unisa.it", 38, "adfa", 4,"Michele de Rosa");
+			reviews.add(r);
+			request.getSession().setAttribute("Reviews", reviews);
+			request.addParameter("count", "4");
+			request.addParameter("review", "");
+			request.addParameter("id", "38");
+			request.getSession().setAttribute("user", newstudent);
+			servlet.doPost(request, response);
+			assertEquals("json", response.getContentType());
+		}
 }

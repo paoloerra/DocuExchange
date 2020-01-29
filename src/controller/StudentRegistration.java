@@ -38,12 +38,12 @@ public class StudentRegistration extends HttpServlet {
 	    UserInterface user = null;
 	    int userType = 0;
 		String nome = request.getParameter("nome");
-		if (nome.length() == 0 || nome.length() > 20 || nome.length() < 2 || nome.matches(".*\\d+.*")) {
+		if (nome.length() > 20 || nome.length() < 2 || nome.matches(".*\\d+.*")) {
 			throw new IllegalArgumentException("Formato non corretto");
 		}
 		
 		String cognome = request.getParameter("cognome");
-		if (cognome.length() == 0 || cognome.length() > 20 || cognome.length() < 2 || cognome.matches(".*\\d+.*")) {
+		if ( cognome.length() > 20 || cognome.length() < 2 || cognome.matches(".*\\d+.*")) {
 			throw new IllegalArgumentException("Formato non corretto");
 		}
 		
@@ -52,12 +52,13 @@ public class StudentRegistration extends HttpServlet {
 			throw new IllegalArgumentException("Valore non corretto");
 		}	
 		
+		
 		String email = request.getParameter("email");
 		String prefix = "";
 		if (email.length() > 0) {
 			prefix = email.substring(0, email.indexOf("@"));
 		}
-		if (email.length() == 0 || !email.endsWith("@studenti.unisa.it") || prefix.length() < 3 || prefix.indexOf(".") == -1) {
+		if ( !email.endsWith("@studenti.unisa.it") || prefix.length() < 3 || prefix.indexOf(".") == -1) {
 			throw new IllegalArgumentException("Formato non corretto");
 		}
 		

@@ -120,7 +120,7 @@ public class StudentSendRequestTest {
 		request.addParameter("course","Programmazione I");
 		request.addParameter("professor","Nappi Michele");
 		request.addParameter("description","Questo è il corso di POO");
-		request.addParameter("file_upload","src/test/Test.pdf");
+		request.addParameter("file_upload","src/test/Test.txt");
 		request.getSession().setAttribute("user", newstudent);
 
 		request.addParameter("flag", "2");
