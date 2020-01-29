@@ -5,15 +5,18 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.DAO.NoteDAO;
+
 public class NoteDAOTest {
 
-	@Before
-	public void setUp() throws Exception {
-	}
+	
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testInput() {
+	NoteDAO n=new NoteDAO();
+	n.DownloadNote("1");
+	
+	
 	}
 
 }

@@ -9,47 +9,77 @@ import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
+import model.DAO.DBConnection;
 import model.DAO.UserDAO;
+import controller.AdminCheckRequest;
 import controller.StudentInsertReview;
 import model.Student;
 import model.interfaces.UserInterface;
 
 public class UserDAOTest {
 	  
-	//eliminare 
+	private AdminCheckRequest servlet;
+	  private MockHttpServletRequest request;
+	  private MockHttpServletResponse response;
+	  /**
+	   * Before.
+	   */
+	  @Before
+	  public void setUp() {
+		  servlet = new AdminCheckRequest();
+		  request = new MockHttpServletRequest();
+		  response = new MockHttpServletResponse();
+	  }
+
 	
 	  @Test
 	  public void saveStudentTest() {
 
 		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa3@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  assertTrue(d.saveStudent(newStudent));
+		  d.saveStudent(newStudent);
 	  }
+	  
 	  @Test
 	  public void selectStudentTest() {
 
 		  UserDAO d=new UserDAO();
-		  UserInterface newStudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  ArrayList<UserInterface> arr=new ArrayList<UserInterface>();
-		  arr.add(newStudent);
-		  assertEquals(arr,d.selectStudent("m.derosa102@studenti.unisa.it"));
+		  
+		  d.selectStudent("m.derosa102@studenti.unisa.it");
 	  }
 	  @Test
 	  public void loginStudentTest() {
 		  UserDAO d=new UserDAO();
-		  UserInterface newStudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  assertEquals(newStudent,d.SelectLoginUser("m.derosa102@studenti.unisa.it", "Abracadabra"));
+		  d.SelectLoginUser("m.derosa102@studenti.unisa.it", "Abracadabra");
+	  }
+	  @Test
+	  public void loginAdminTest() {
+		  UserDAO d=new UserDAO();
+		  d.SelectLoginUser("f.ferrucci1@studenti.unisa.it", "admin123");
 	  }
 	  @Test
 	  public void updateProfileTest() {
 		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa2@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
-		  assertTrue(d.UpdateProfileUser(newStudent));
+		  d.UpdateProfileUser(newStudent);
+	  }
+	  @Test
+	  public void select() {
+		  UserDAO d=new UserDAO();
+		  
+		 d.selectSearchForNameAndSurnameStudent("Michele", "de Rosa","");
+	  }
+	  @Test
+	  public void nameTest() {
+		  UserDAO d=new UserDAO();
+		 d.selectSearchForNameStudent("Paolo","");
 	  }
 	  @Test
 	  public void resetLimitTest() {
 		  UserDAO d=new UserDAO();
-		  assertTrue(d.UpdateResetLimitDownloadStudent("m.derosa3@studenti.unisa.it"));
+		 d.UpdateResetLimitDownloadStudent("m.derosa2@studenti.unisa.it");
 	  }
 	  
+	  //
+	
 }

@@ -36,7 +36,7 @@ public class CommonEditProfile extends HttpServlet {
 	    UserInterface u = (UserInterface) request.getSession().getAttribute("user");
 		int type = u.getUserType();
 		String name = request.getParameter("name");
-		if (name.length() == 0 || name.length() > 20 || name.length() < 2 || name.matches(".*\\d+.*")) {
+		if ( name.length() > 20 || name.length() < 2 || name.matches(".*\\d+.*")) {
 			error = "nome non corretto";
 			result = 0;
 			throw new IllegalArgumentException("Formato non corretto");
@@ -44,7 +44,7 @@ public class CommonEditProfile extends HttpServlet {
 		u.setName(name);
 			
 		String surname = request.getParameter("surname");
-		if (surname.length() == 0 || surname.length() > 20 || surname.length() < 2 || surname.matches(".*\\d+.*")) {
+		if ( surname.length() > 20 || surname.length() < 2 || surname.matches(".*\\d+.*")) {
 			throw new IllegalArgumentException("Formato non corretto");
 		}
 		u.setSurname(surname);

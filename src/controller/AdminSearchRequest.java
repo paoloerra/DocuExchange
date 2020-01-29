@@ -41,11 +41,12 @@ public class AdminSearchRequest extends HttpServlet {
 		
 		String autor = request.getParameter("autor");
 	    ArrayList<NoteInterface> requests = new ArrayList<NoteInterface>();
-	    if (autor.length() == 2 || autor.length() == 1  || autor.length() > 20 || autor.matches(".*\\d+.*")) {
-	    	throw new IllegalArgumentException("Formato non corretto");
-		}
+
 	    if(autor == "") {	//Nessuna ricerca, vengono mostrate tutte le richieste.
 			requests = NoteDAO.selectRequest();
+		}
+	    if (autor.length() <3 || autor.length() > 20 || autor.matches(".*\\d+.*")) {
+	    	throw new IllegalArgumentException("Formato non corretto");
 		}
         else {
         	requests = NoteDAO.selectSearchRequest(autor);

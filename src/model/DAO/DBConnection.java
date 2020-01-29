@@ -58,6 +58,9 @@ public class DBConnection {
 
 		return connection;
 	}
+	public void setConnectionNull() {
+		instance=null;
+	}
 
 	
 	

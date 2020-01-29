@@ -44,8 +44,11 @@ public class StudentInsertReview extends HttpServlet {
 		String autor = userS.getName()+" "+userS.getSurname();
 		    	System.out.println(comment.length());
 		    	System.out.println(comment);
-		if (comment.length() > 255 || comment.length() <1) {
+		if (comment.length() > 255 ) {
 			throw new IllegalArgumentException("Commento troppo lungo");
+		}
+		if ( comment.length() <1) {
+			throw new IllegalArgumentException("Commento troppo corto");
 		}
 		ReviewInterface review = new Review(0, userS.getEmail(), id_note , comment, star, autor);
 		ReviewInterfaceDAO reviewDAO = new ReviewDAO();
