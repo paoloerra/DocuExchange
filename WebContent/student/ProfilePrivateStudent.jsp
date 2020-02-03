@@ -77,7 +77,6 @@
 								      <th scope="col">Corso</th>
 								      <th scope="col">Professore</th>
 								      <th scope="col">Stato</th>
-								      <th scope="col">Voto</th>
 								    </tr>
 								  </thead>
 								  <tbody>
@@ -107,7 +106,6 @@
 										else if(bean.getChecked() == 1){%>
 										 	<td><div style="color:green;">Pubblicato</div></td>
 										<% }%>
-								      <td><small class="text-muted"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"><img src="../images/star.png"></small></td>
 								    </tr>
 								    <%
 									index++;
