@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.Admin;
-import model.Student;
+import model.bean.Admin;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 import model.interfaces.UserInterfaceDAO;
 

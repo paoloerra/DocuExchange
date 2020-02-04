@@ -21,7 +21,7 @@
 	<% if(u.getUserType() == 1) { %>
 	<div id="fh5co-offcanvass">
 		<ul>
-			<li class="active"><a href="<%= request.getContextPath() %>HomeAdmin.jsp" data-nav-section="home"><i class="icon-grid"></i> Home</a></li>
+			<li class="active"><a href="<%= request.getContextPath() %>/admin/HomeAdmin.jsp" data-nav-section="home"><i class="icon-grid"></i> Home</a></li>
 			<li><a href="#"><i class="icon-user"></i> Admin: <%=u.getName() %> <%=u.getSurname() %> </a></li>
 			<li><a href="#" id="btnLogout"><i class="icon-logout"></i> Logout</a></li>
 		</ul>

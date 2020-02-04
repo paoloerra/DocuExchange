@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import org.junit.Test;
-import model.Note;
+import model.bean.Note;
 
 public class NoteTest {
 

@@ -15,8 +15,8 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentInsertReview;
-import model.Review;
-import model.Student;
+import model.bean.Review;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 public class StudentInsertReviewTest {
@@ -80,6 +80,20 @@ public class StudentInsertReviewTest {
 			request.addParameter("count", "4");
 			request.addParameter("review", "questa è una review");
 			request.addParameter("id", "38");
+			request.getSession().setAttribute("user", newstudent);
+			servlet.doPost(request, response);
+			assertEquals("json", response.getContentType());
+		}
+		@Test
+		public void error_id() throws ServletException, IOException { //aggiungere review  nel db
+			UserInterface newstudent=new Student("m.derosa102@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+			ArrayList<Review> reviews = new ArrayList<Review>();
+			Review r=new Review(1, "m.derosa102@studenti.unisa.it", 9999, "adfa", 4,"Michele de Rosa");
+			reviews.add(r);
+			request.getSession().setAttribute("Reviews", reviews);
+			request.addParameter("count", "4");
+			request.addParameter("review", "questa è una review");
+			request.addParameter("id", "9999");
 			request.getSession().setAttribute("user", newstudent);
 			servlet.doPost(request, response);
 			assertEquals("json", response.getContentType());

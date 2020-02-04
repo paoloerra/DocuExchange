@@ -10,7 +10,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentSearchNote;
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 public class StudentSearchNoteTest {

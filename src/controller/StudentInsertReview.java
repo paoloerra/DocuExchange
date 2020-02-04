@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import model.Review;
+import model.bean.Review;
 import model.interfaces.ReviewInterface;
 import model.interfaces.ReviewInterfaceDAO;
 import model.interfaces.UserInterface;

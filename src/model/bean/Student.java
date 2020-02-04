@@ -1,4 +1,4 @@
-package model;
+package model.bean;
 import model.interfaces.UserInterface;  
 
 public class Student implements UserInterface {

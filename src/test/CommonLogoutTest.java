@@ -12,7 +12,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.CommonLogout;
-import model.Admin;
+import model.bean.Admin;
 import model.interfaces.UserInterface;
 
 public class CommonLogoutTest {

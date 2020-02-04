@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import model.DAO.NoteDAO;
-import model.Request;
+import model.bean.Request;
 import model.interfaces.NoteInterface;
 import model.interfaces.NoteInterfaceDAO;
 import model.interfaces.UserInterface;

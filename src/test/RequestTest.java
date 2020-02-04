@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import model.Request;
+import model.bean.Request;
 
 public class RequestTest extends Mockito {
 	

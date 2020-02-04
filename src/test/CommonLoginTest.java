@@ -33,8 +33,8 @@ public class CommonLoginTest {
 	  
 	  @Test
 	  public void testLoginAdmin() throws ServletException, IOException {
-	    request.addParameter("email", "f.ferrucci1@studenti.unisa.it");
-	    request.addParameter("password", "admin123");
+	    request.addParameter("email", "a.dmin1@studenti.unisa.it");
+	    request.addParameter("password", "prova123");
 	    servlet.doPost(request, response);
 	    assertEquals("json", response.getContentType());
 	  }
@@ -90,8 +90,8 @@ public class CommonLoginTest {
 	  }//errore nel db
 	  @Test
 	  public void TC_1_2_8() throws ServletException, IOException { //login effettuato
-		  request.addParameter("email", "m.derosa102@studenti.unisa.it");
-		  request.addParameter("password", "Abracadabra");
+		  request.addParameter("email", "p.erra1@studenti.unisa.it");
+		  request.addParameter("password", "prova123");
 		  servlet.doGet(request, response);
 		  assertEquals("json", response.getContentType());
 	  }

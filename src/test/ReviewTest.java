@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Review;
+import model.bean.Review;
 
 public class ReviewTest {
 	Review rv=new Review(1,"aaa@studenti.unisa.it", 1, "commento", 4,"aaa");

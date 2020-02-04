@@ -12,7 +12,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.CommonEditProfile;
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 public class CommonEditProfileTest {

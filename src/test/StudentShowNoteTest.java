@@ -15,8 +15,8 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentShowNote;
-import model.Note;
-import model.Student;
+import model.bean.Note;
+import model.bean.Student;
 import model.interfaces.NoteInterface;
 
 

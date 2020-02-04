@@ -4,7 +4,7 @@ package test;
 import org.junit.Test;
 
 import model.DAO.ReviewDAO;
-import model.Review;
+import model.bean.Review;
 import model.interfaces.ReviewInterface;
 
 public class ReviewDAOTest {

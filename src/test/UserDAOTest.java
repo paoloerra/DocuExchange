@@ -13,7 +13,7 @@ import model.DAO.DBConnection;
 import model.DAO.UserDAO;
 import controller.AdminCheckRequest;
 import controller.StudentInsertReview;
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 public class UserDAOTest {

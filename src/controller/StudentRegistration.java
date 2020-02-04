@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 import model.interfaces.UserInterfaceDAO;
 import model.DAO.UserDAO;

@@ -13,7 +13,7 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentInsertReview;
 import controller.StudentListStudent;
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 public class StudentListStudentTest {

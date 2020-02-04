@@ -16,8 +16,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import controller.StudentInsertReview;
 import controller.StudentShowMyProfile;
-import model.Request;
-import model.Student;
+import model.bean.Request;
+import model.bean.Student;
 import model.interfaces.NoteInterface;
 import model.interfaces.UserInterface;
 

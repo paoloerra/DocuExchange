@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import controller.DownloaderServlet;
 
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 import java.io.IOException;

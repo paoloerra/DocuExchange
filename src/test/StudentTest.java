@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Admin;
-import model.Student;
+import model.bean.Admin;
+import model.bean.Student;
 
 public class StudentTest {
 	

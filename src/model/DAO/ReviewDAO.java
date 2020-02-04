@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.Review;
+import model.bean.Review;
 import model.interfaces.ReviewInterface;
 import model.interfaces.ReviewInterfaceDAO;
 

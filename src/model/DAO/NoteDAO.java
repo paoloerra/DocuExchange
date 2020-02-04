@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.Note;
-import model.Request;
+import model.bean.Note;
+import model.bean.Request;
 import model.interfaces.NoteInterface;
 import model.interfaces.NoteInterfaceDAO;
 

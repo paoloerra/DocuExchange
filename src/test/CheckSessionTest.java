@@ -7,9 +7,9 @@ import org.junit.Test;
 
 import javax.servlet.http.HttpSession;
 
-import model.Admin;
+import model.bean.Admin;
 
-import model.Student;
+import model.bean.Student;
 import model.interfaces.UserInterface;
 
 import org.springframework.mock.web.MockHttpServletRequest;
