@@ -36,7 +36,7 @@ public class UserDAOTest {
 	  public void saveStudentTest() {
 
 		  UserDAO d=new UserDAO();
-		  UserInterface newStudent=new Student("m.derosa3@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+		  UserInterface newStudent=new Student("m.derosa5@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
 		  d.saveStudent(newStudent);
 	  }
 	  
@@ -55,12 +55,18 @@ public class UserDAOTest {
 	  @Test
 	  public void loginAdminTest() {
 		  UserDAO d=new UserDAO();
-		  d.SelectLoginUser("f.ferrucci1@studenti.unisa.it", "admin123");
+		  d.SelectLoginUser("a.dmin1@studenti.unisa.it", "prova123");
 	  }
 	  @Test
 	  public void updateProfileTest() {
 		  UserDAO d=new UserDAO();
 		  UserInterface newStudent=new Student("m.derosa2@studenti.unisa.it","Michele","de Rosa",'M',"Abracadabra",0,3);
+		  d.UpdateProfileUser(newStudent);
+	  }
+	  @Test
+	  public void updateProfileTest_fail() {
+		  UserDAO d=new UserDAO();
+		  UserInterface newStudent=new Student("m.derosa2@studenti.unisa.it","Michele2","de Rosa",'M',"",0,3);
 		  d.UpdateProfileUser(newStudent);
 	  }
 	  @Test
@@ -78,6 +84,11 @@ public class UserDAOTest {
 	  public void resetLimitTest() {
 		  UserDAO d=new UserDAO();
 		 d.UpdateResetLimitDownloadStudent("m.derosa2@studenti.unisa.it");
+	  }
+	  @Test
+	  public void resetLimitTest2() {
+		  UserDAO d=new UserDAO();
+		 d.UpdateResetLimitDownloadStudent("m.derosa99@studenti.unisa.it");
 	  }
 	  
 	  //
