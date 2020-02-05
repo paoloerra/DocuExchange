@@ -46,12 +46,12 @@ public class StudentSearchStudent extends HttpServlet {
 		
 		String student = request.getParameter("student");
 	    ArrayList<UserInterface> Searchstudent = new ArrayList<UserInterface>();
-		if (student.length() == 2 || student.length() == 1  || student.length() > 20  || student.matches(".*\\d+.*")) {
-			throw new IllegalArgumentException("Formato non corretto");
-		}
+		
 		if(student == "") {	//Nessuna ricerca, visualizza tutti gli studenti
 			Searchstudent = UserDAO.selectStudent(userS.getEmail());
-	    }
+	    }else if (student.length() <3 || student.length() > 20  || student.matches(".*\\d+.*")) {
+			throw new IllegalArgumentException("Formato non corretto");
+		}
 		else if(student.contains(" ")){ //Stringa formata da Nome e Cognome
 			String NameSurname[] = student.split(" ");
 			String name = NameSurname[0];
