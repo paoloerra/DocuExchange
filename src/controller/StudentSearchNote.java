@@ -15,6 +15,7 @@ import org.json.simple.JSONObject;
 import model.DAO.NoteDAO;
 import model.interfaces.NoteInterface;
 import model.interfaces.NoteInterfaceDAO;
+import model.interfaces.UserInterface;
 
 
 @WebServlet("/StudentSearchNote")
@@ -38,7 +39,7 @@ public class StudentSearchNote extends HttpServlet {
 		
 		String course = request.getParameter("course");
 		String professor = request.getParameter("professor");
-		
+
 	    ArrayList<NoteInterface> Searchnotes = new ArrayList<NoteInterface>();
 	    if(course == "" && professor == "") {
 	    	Searchnotes = NoteDAO.selectNote();

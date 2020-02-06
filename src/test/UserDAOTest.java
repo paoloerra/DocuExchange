@@ -66,7 +66,7 @@ public class UserDAOTest {
 	  @Test
 	  public void updateProfileTest_fail() {
 		  UserDAO d=new UserDAO();
-		  UserInterface newStudent=new Student("m.derosa2@studenti.unisa.it","Michele2","de Rosa",'M',"",0,3);
+		  UserInterface newStudent=new Student();
 		  d.UpdateProfileUser(newStudent);
 	  }
 	  @Test
@@ -83,7 +83,7 @@ public class UserDAOTest {
 	  @Test
 	  public void resetLimitTest() {
 		  UserDAO d=new UserDAO();
-		 d.UpdateResetLimitDownloadStudent("m.derosa2@studenti.unisa.it");
+		 d.UpdateResetLimitDownloadStudent("m.derosa1@studenti.unisa.it");
 	  }
 	  @Test
 	  public void resetLimitTest2() {

@@ -15,6 +15,7 @@ import org.json.simple.JSONObject;
 import model.DAO.NoteDAO;
 import model.interfaces.NoteInterface;
 import model.interfaces.NoteInterfaceDAO;
+import model.interfaces.UserInterface;
 
 
 @WebServlet("/StudentListNote")
@@ -34,6 +35,7 @@ public class StudentListNote extends HttpServlet {
 		String content = "";
 		String redirect = "";
 		Integer result = 0;
+		
 		NoteInterfaceDAO NoteDAO = new NoteDAO();
 		
 	    ArrayList<NoteInterface> notes = NoteDAO.selectNote();
